@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./images/logo-square.png">
+    <link rel="stylesheet" href="./css/donate.css">
+    <style>
+        /* nastalique fonts  */
+        @import url("https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;500;600;700&display=swap");
+
+        * {
+            font-family: "Noto Nastaliq Urdu", serif;
+            text-align: right;
+            direction: rtl;
+        }
+
+        form {
+            background: #f0f0f0;
+        }
+
+        .heading {
+            text-decoration: none;
+            font-size: 25px;
+        }
+
+        .container {
+            height: 100vh;
+        }
+
+        .container form {
+            max-height: 95%;
+            overflow-y: auto;
+        }
+
+
+        .container form::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* removing up and down arrow of input type number  field  */
+        /* Chrome, Safari, Edge, Opera */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        .submit {
+            padding-block: 0;
+        }
+    </style>
+    <!-- favicon link here  -->
+    <link rel="icon" type="image/x-icon" href="./images/logo-square.png">
+    <title>Subai Jamiat Ahle Hadees Mumbai</title>
+</head>
+
+<body>
+    <div class="container">
+        <form>
+            <h1 class="heading">
+
+                کوئز کھیلنے کے لئے لاگ ان کریں
+
+            </h1>
+
+            <div>
+                <label for="id">
+
+                    اپنا آئی ڈی درج کریں
+
+                    <span>
+                        :
+                    </span>
+                </label>
+                <input type="text" id="id" name="userId" required minlength="3" placeholder=" اپنا آئی ڈی درج کریں">
+            </div>
+            <div>
+                <label for="password">
+
+                    اپنا پاسورڈ درج کریں
+
+                    <span>
+                        :
+                    </span>
+                </label>
+                <input type="text" id="password" name="password" required minlength="3"
+                    placeholder="اپنا پاسورڈ درج کریں">
+            </div>
+
+            <span class="error"></span>
+            <span class="success"></span>
+            <div class="data-loading"></div>
+
+            <div class='submit-container'>
+                <button class="submit" type="submit">
+                    لاگ ان کریں
+                </button>
+            </div>
+
+        </form>
+    </div>
+    <script src="./javascript/tadribiyaRegisteration/login.js"></script>
+</body>
+
+</html>

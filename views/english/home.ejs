@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <title>Sobai Jamiat Ahle Hadees Mumbai</title> -->
+
+    <!-- all css and js  files are here included -->
+    <%- include('./common/css&js') %>
+
+</head>
+
+<body data-active="home" class="en-page">
+
+    <!-- header and chats and loading animation included here  -->
+
+    <!-- <div class="loading">
+        <div class="spinning"></div>
+        <div class="loading-content">
+            <p>
+                آپ کا صوبائی جمعیت اہل حدیث ممبئی کی ویب سائٹ پر خیر مقدم ہے۔
+            </p>
+        </div>
+    </div> -->
+
+    <%- include('./common/loading') %>
+
+        <%- include('./common/header') %>
+
+
+            <!-- welcome design starts here  -->
+
+
+            <!-- <div class="welcome-container">
+            <p>
+                آپ کا صوبائی جمعیت اہل حدیث ممبئی کی ویب سائٹ پر خیر مقدم ہے۔
+
+            </p>
+
+        </div> -->
+
+            <!-- home  section starts here  -->
+
+            <section id="home">
+
+                <div class="main-container">
+
+                    <div class="container2">
+
+                        <div class="swiper mySwiper2">
+
+                            <div class="swiper-wrapper">
+
+                                <% slides.forEach(slide=>{ %>
+                                    <div class="swiper-slide">
+                                        <img src="<%= slide.SlideImg %>" alt="">
+                                    </div>
+                                    <% }) %>
+
+                                        <!-- <div class="swiper-slide">
+
+                                <img src="./images/jalsa-1.jpeg" />
+
+                            </div>
+
+                            <div class="swiper-slide">
+
+                                <img src="./images/jalsa-2.jpeg" />
+
+                            </div>
+
+                            <div class="swiper-slide">
+
+                                <img src="./images/jalsa-3.jpeg" />
+
+                            </div>
+
+                            <div class="swiper-slide">
+
+                                <img src="./images/jalsa-1.jpeg" />
+
+                            </div>
+
+                            <div class="swiper-slide">
+
+                                <img src="./images/jalsa-2.jpeg" />
+
+                            </div> -->
+
+                            </div>
+
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-pagination"></div>
+
+                        </div>
+
+                        <div thumbsSlider="" class="swiper mySwiper">
+
+                            <div class="swiper-wrapper">
+
+                                <% slides.forEach(slide=>{ %>
+                                    <div class="swiper-slide">
+                                        <img src="<%= slide.SlideImg %>" alt="">
+                                    </div>
+                                    <% }) %>
+
+
+                                        <!-- <div class="swiper-slide">
+
+                                <img src="./images/jalsa-1.jpeg" />
+
+                            </div>
+
+                            <div class="swiper-slide">
+
+                                <img src="./images/jalsa-2.jpeg" />
+
+                            </div>
+
+                            <div class="swiper-slide">
+
+                                <img src="./images/jalsa-3.jpeg" />
+
+                            </div>
+
+                            <div class="swiper-slide">
+
+                                <img src="./images/jalsa-1.jpeg" />
+                            </div>
+
+                            <div class="swiper-slide">
+
+                                <img src="./images/jalsa-2.jpeg" />
+
+                            </div> -->
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- content section starts here  -->
+
+            <section id="content">
+
+                <div class="main-container">
+
+                    <div class="container2">
+
+                        <div class="row g-lg-5 g-xl-5 g-md-3 g-sm-2 g-2 justify-content-center">
+
+
+                            <!-- left column included here  -->
+
+                            <%- include('./common/left') %>
+
+                                <div class="column-center column col-12 col-sm-10 col-md-6 col-lg-6 col-xl-6">
+
+                                    <div class="card">
+
+                                        <div class="top">
+
+                                            <h1>
+
+                                                Press Release
+
+                                            </h1>
+
+                                        </div>
+
+                                        <div class="content">
+
+                                            <h3 class="text-center">
+                                                مکہ کانفرنس بعنوان ’’تواصل وتکامل‘‘ ۱۳؍ ۱۴ اگست ۲۰۲۳ء
+                                            </h3>
+
+                                            <p class="text-center">
+                                                اعتدال و وسطیت، باہمی تال میل و تعاون اور مذہبی رواداری پر
+                                                زور کے ساتھ
+                                                مکہ مکرمہ میں منعقدہ دو روزہ عالمی کانفرنس اہم قرار دادوں کی
+                                                منظوری کے ساتھ اختتام پذیر
+                                                عبدالسلام سلفی
+
+                                            </p>
+                                            <p>
+                                                اسلامی اداروں اور علماء و مشائخ کے درمیان رابطے، تال میل،
+                                                یکجہتی اور مذہبی رواداری کی شدید ضرورت اور اسے مزید فروغ
+                                                دینے کے احساس و تلقین کے ساتھ کانفرنس اختتام پذیر ہوئی۔
+
+                                            </p>
+                                            <p dir="rtl">
+                                                ۱۳-۱۴؍ اگست۲۰۲۳ء میں دو دنوں پر مشتمل یہ عالمی کانفرنس جو
+                                                ’’تواصل وتکامل‘‘ کے مرکزی عنوان سے منعقد ہوئی اسے خادم
+                                                الحرمین ملک سلمان بن عبدالعزیز ال سعوداور ان کے ولی عہد امیر
+                                                محمد بن سلمان بن عبدالعزیز ال سعود حفظہم اللہ کی سرپرستی و
+                                                تائید حاصل تھی جس کی عمومی صدارت ’’وزارۃ الشئون الاسلامیہ
+                                                والدعوۃ والارشاد‘‘ ریاض کے وزیر گرامی قدر جناب ڈاکٹر
+                                                عبداللطیف ابن عبدالعزیز ال شیخ حفظہ اللہ نے فرمائی۔
+
+                                            </p>
+                                            <p dir="rtl">
+                                                ’’وزارۃ الشئون الاسلامیہ‘‘ یہ منسٹری مملکت سعودی عرب کی
+                                                سرپرستی میں اپنے قیام سے آج تک ملت اسلامیہ کی فلاح و بہبود،
+                                                اس میں اتحاد و یگانگت، اعتدال و وسطیت اور باہمی تعاون کےلئے
+                                                شب و روز کوشاں ہے۔ یہ سب اسے اللہ کی توفیق کے بعد ہی حاصل
+                                                ہے۔
+
+                                            </p>
+                                            <p>
+                                                یہ کانفرنس بھی انھیں مبارک سلسلے کو آگے بڑھانے کی ایک بڑی
+                                                کوشش ہے۔ جس میں ۸۵؍ملکوں سے ۱۵۰؍ علماء ومشائخ اور ذمے داران
+                                                مراکز و جمعیات نے شرکت فرمائی۔
+
+                                            </p>
+                                            <p>
+                                                شریک کانفرنس صدر صوبائی جمعیت اہل حدیث ممبئی مولانا
+                                                عبدالسلام سلفی نے مکہ مکرمہ سے ممبئی پہنچنے کے بعد اپنے
+                                                اخباری بیان میں بتایا کہ اس عظیم الشان کانفرنس میں شریک
+                                                علماء ومشائخ اور روساء مراکز اسلامیہ کے جاری گرانقدر رول اور
+                                                ان کی ذمہ داریوں پر بھرپور گفتگو ہوئی ساتھ ہی کتاب وسنت کی
+                                                ہدایات اور سلف صالحین کے راستہ پر چلتے ہوئے ہر طرح کی مذموم
+                                                فرقہ بندی ، تشدد اورآپسی ٹکراؤ سے بچنے کی تلقین کی گئی اور
+                                                صراحت کے ساتھ یہ بات کہی گئی کہ دنیا میں کامیابی اور آخرت
+                                                میں نجات کی راہ یہی ہے۔
+
+                                            </p>
+                                            <p>
+                                                شرکاء کانفرنس نے باتفاق رائے اعتدال اورملت اسلامیہ میں اتحاد
+                                                اور انسانی برادری کے لئے مملکت سعودی عرب کی ہمہ جہت کوششوں
+                                                کو سراہا اور دنیا بھر کی طرف سے ان کی خدمات پر ملنے والی
+                                                تائید و تحسین پر مملکت سعودی عرب اور اس کے حکمرانوں
+                                                کومبارکباد دی اور ملت وانسانیت کے لئے مزید جدو جہد کی توفیق
+                                                کے لئے شرکاء نے دعائیہ کلمات کہے ۔
+
+                                            </p>
+                                            <p>
+                                                علماء مشائخ نے کانفرنس کے کامیاب انعقاد پر وزارت الشئون
+                                                الاسلامیہ کے وزیر دکتور عبداللطیف آل شیخ ،اس کے ترجمان اور
+                                                سارے کارکنان کا ان کے حسن انتظام اور کامیابی تک پہنچانے کی
+                                                لمبی جدوجہد اور کوششوں کو قبولیت بارگاہ الٰہی کے لئے دعائیں
+                                                کیں۔
+
+                                            </p>
+                                            <p>
+                                                قرار داد: مولانا عبدالسلام سلفی نے اس بیان کے ساتھ کانفرنس
+                                                میں منظور قرار داد جو درج ذیل ہے اسے بھی ارسال کیا۔
+
+                                            </p>
+                                            <p dir="rtl" class="text-start">
+                                                منجانب: دفتر صوبائی جمعیت اہل حدیث ممبئی
+
+                                            </p>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <!-- right column included here  -->
+
+                                <%- include('./common/right') %>
+
+
+                        </div>
+
+                    </div>
+
+            </section>
+
+            <!-- footer included here  -->
+
+            <%- include('./common/footer') %>
+
+</body>
+
+</html>

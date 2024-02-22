@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en" class="no-fs">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/dashboard/dashboard.css">
+    <!-- fontawesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <meta name="robots" content="noindex">
+    <title>Admin</title>
+</head>
+
+<body data-page="Masjid">
+
+    <div class=" main-container">
+
+        <div class="mobile-dashboard"></div>
+
+        <%- include('../common/dashboard-sidebar') %>
+
+            <div class="right">
+
+                <%- include('../common/dashboard-header') %>
+
+                    <div class="content">
+                        <div class="page">
+                            <span>
+                                <span class="bold">Dashboard</span>
+                                <i class="fa-solid fa-angle-right icon"></i>
+                            </span>
+                            <span>
+                                Masjid Registeration
+                                <i class="fa-solid fa-angle-right icon"></i>
+                            </span>
+                            <span>
+
+                                Rejected
+
+                            </span>
+                        </div>
+                        <div class="table">
+                            <div class="header no-input">
+                                <h3 class="heading">
+                                    Masjid Registeration
+                                </h3>
+                                <!-- <div class="input">
+                            <i class="fa-solid fa-magnifying-glass search-icon "></i>
+                            <input type="text" placeholder="Search students here">
+                        </div> -->
+                            </div>
+                            <div class="student-table-container">
+                                <table class="student-table">
+                                    <tr>
+                                        <th>
+                                            userId
+                                        </th>
+                                        <th>
+                                            Date
+                                        </th>
+                                        <th>
+                                            Masjid Name
+                                        </th>
+                                        <th>
+                                            Masjid Address
+                                        </th>
+                                        <th>
+                                            Masjid Location Link
+                                        </th>
+                                        <th>
+                                            Masjid President Name
+                                        </th>
+                                        <th>
+                                            Masjid President Number
+                                        </th>
+                                        <th>
+                                            Masjid Secretarie Name
+                                        </th>
+                                        <th>
+                                            Masjid Secretarie Number
+                                        </th>
+                                        <th>
+                                            Masjid Document
+                                        </th>
+                                        <th>
+                                            status
+                                        </th>
+                                        <th>
+                                            Approve
+                                        </th>
+
+                                    </tr>
+                                    <% if(MasjidData.length> 0){ %>
+                                        <% MasjidData.forEach(value=>{ %>
+
+                                            <tr>
+                                                <td class="no-break">
+                                                    <%= value.userId %>
+                                                </td>
+                                                <td class="no-break">
+                                                    <%= value.date %>
+                                                </td>
+                                                <td>
+                                                    <%= value.MasjidName %>
+                                                </td>
+                                                <td>
+                                                    <%= value.MasjidAddress %>
+                                                </td>
+                                                <td>
+                                                    <%= value.MasjidLocationLink %>
+                                                </td>
+                                                <td>
+                                                    <%= value.MasjidPresidentName %>
+                                                </td>
+                                                <td>
+                                                    <%= value.MasjidPresidentNumber %>
+                                                </td>
+                                                <td>
+                                                    <%= value.MasjidSecretarieName %>
+                                                </td>
+                                                <td>
+                                                    <%= value.MasjidSecretarieNumber %>
+                                                </td>
+                                                <!-- <td>
+                                                    <a class="btn btn-primary btn-sm" target="_blank"
+                                                        href="./masjidRegisteration/images/<%# value.image %>">
+                                                        Show Image
+                                                    </a>
+                                                </td> -->
+                                                <td>
+                                                    <a class="btn btn-primary btn-sm" target="_blank"
+                                                        href="./masjidRegisteration/documents/<%= value.document %>">
+                                                        Show Documents
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <%= value.status %>
+                                                </td>
+                                                <td>
+                                                    <button data-id="<%= value._id %>"
+                                                        class="btn btn-success approve-btn">
+                                                        Approve
+                                                    </button>
+                                                </td>
+                                            </tr>
+
+                                            <% }) %>
+                                                <% }else{ %>
+                                                    <tr>
+                                                        <td colspan="12">
+                                                            No Data Present
+                                                        </td>
+                                                    </tr>
+                                                    <% } %>
+                                </table>
+                            </div>
+                            <div class="pagination">
+                                <% if(pagination.page> 1) {%>
+                                    <a href="masjid-registeration-rejected?page=<%= pagination.page-1 %>">
+                                        <i class="fa-solid fa-angle-left"></i>
+                                    </a>
+                                    <% }else{ %>
+                                        <a href="" class="inactive">
+                                            <i class="fa-solid fa-angle-left"></i>
+                                        </a>
+                                        <% } %>
+
+                                            <span>
+                                                <%= pagination.page %> of <%= pagination.endPage %>
+                                            </span>
+
+                                            <% if(pagination.endPage> pagination.page){ %>
+                                                <a href="/masjid-registeration-rejected?page=<%= pagination.page+1 %>">
+                                                    <i class="fa-solid fa-angle-right"></i>
+                                                </a>
+
+                                                <% }else{ %>
+                                                    <a href="" class="inactive">
+                                                        <i class="fa-solid fa-angle-right"></i>
+                                                    </a>
+                                                    <% } %>
+
+
+                            </div>
+                        </div>
+                    </div>
+            </div>
+    </div>
+
+    <script src="./javascript/dashboard/dashboard.js"></script>
+    <script src="./javascript/masjidRegisteration/approved.js"></script>
+
+</body>
+
+</html>

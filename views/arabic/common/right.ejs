@@ -1,0 +1,112 @@
+<div class="column-right column col-12 col-sm-10 col-md-3 col-lg-3 col-xl-3">
+
+  <div class="card">
+
+    <div class="top">
+
+      الکتب الجديدة
+
+    </div>
+
+    <div class="content">
+
+      <div class="swiper mySwiper3">
+
+        <div class="swiper-wrapper">
+
+          <% DynamicData.bookData.forEach(value=>{ %>
+            <div class="swiper-slide">
+              <a href="/book" class="image">
+                <!-- <img src="./images/book-28.jpeg" alt="" /> -->
+                <img src="<%= value.BookImg %>" alt="">
+                <!-- <div class="img-text">
+                    جریدہ ترجمان ۱ تا ۱۵ جنوری ۲۰۲۳
+                </div> -->
+              </a>
+            </div>
+            <% }) %>
+
+        </div>
+
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="card">
+    <div class="top">
+
+
+      أخبار تراي الهلال
+
+    </div>
+    <div class="content">
+      <div class="swiper mySwiper3">
+        <div class="swiper-wrapper">
+          <% DynamicData.moon.forEach((value , index)=>{ %>
+            <% if(index < 4){ %>
+              <% if(value.Hijri==DynamicData.moon[0].Hijri){%>
+                <div class="swiper-slide">
+                  <a href="/moon" class="image">
+                    <img src="<%= value.ImgUrl %>" alt="">
+                  </a>
+                </div>
+                <% } %>
+                  <% } %>
+                    <% }) %>
+        </div>
+
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="card">
+
+    <div class="top">
+
+      فيديو مميّز
+
+    </div>
+
+    <div class="content d-flex justify-content-center">
+
+      <iframe
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen src="<%= DynamicData.videos[0].ImpVideo %>" frameborder="0">
+      </iframe>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- <div class="card">
+
+        <div class="top download">
+
+            <a href="" class="download-btn">ڈاؤن لوڈ کریں</a>
+
+        </div>
+
+    </div> -->
+
+  <!-- <div class="card">
+    <div class="top">بيان صحفي</div>
+    <div class="content">
+      <a href="/ar-press-release" class="text"> (بيان صحفي) </a>
+
+      <p class="text"></p>
+
+      <p class="light">June 3, 2023</p>
+    </div>
+  </div> -->
+</div>

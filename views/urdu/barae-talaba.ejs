@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ur">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <title>Sobai Jamiat Ahle Hadees Mumbai</title> -->
+    <!-- all css and js  files are here included -->
+    <%- include('./common/css&js') %>
+        <!-- own contact css file link  -->
+        <link rel="stylesheet" href="./css/contact.css">
+</head>
+
+<body data-active="tausia-talaba">
+
+
+    <!-- header and chats and loading animation included here  -->
+    <%- include('./common/loading') %>
+
+        <%- include('./common/header') %>
+
+            <!-- content section starts here  -->
+
+            <section id="content">
+
+                <div class="main-container">
+
+                    <div class="container2">
+
+                        <div class="row g-lg-5 g-xl-5 g-md-3 g-sm-2 g-2 justify-content-center">
+
+                            <!-- left column included here  -->
+
+                            <%- include('./common/left') %>
+
+
+                                <div class="column-center column  col-12 col-sm-10 col-md-6 col-lg-6 col-xl-6">
+
+                                    <div class="card">
+
+                                        <div class="top">
+
+                                            <h1>
+
+                                                توصیہ برائے طلبہ
+
+                                            </h1>
+
+                                        </div>
+
+                                        <div class="content">
+
+                                            <div class="form-container">
+
+                                                <form>
+
+                                                    <label dir="rtl" for="name">
+
+                                                        طالب کا نام مع ولدیت (آدھار کارڈ کے مطابق)
+                                                        <span>
+                                                            :
+                                                        </span>
+                                                    </label>
+
+                                                    <input type="text" id="name" name="StudentName" required>
+
+                                                    <label dir="rtl" for="address">
+
+                                                        مکمل پتہ/ ایڈریس
+                                                        <span>
+                                                            :
+                                                        </span>
+                                                    </label>
+
+                                                    <textarea name="Address" required id="address"></textarea>
+
+                                                    <label dir="rtl" for="number">
+
+                                                        طالب کا رابطہ نمبر
+
+                                                        <span>
+                                                            :
+                                                        </span>
+                                                    </label>
+                                                    <input type="text" id="number" name="StudentNumber" required
+                                                        pattern="[0-9]{3}[0-9]{3}[0-9]{4}">
+
+                                                    <!-- <label dir="rtl" for="image">
+
+                                                        طالب علم کی تصویر
+
+                                                        <span>
+                                                            :
+                                                        </span>
+                                                    </label>
+
+                                                    <input type="file" id="image" name="talib_ilm_ki_tasweer" required> -->
+
+                                                    <label dir="rtl" for="jamia_/_college_name_with_address">
+
+                                                        جامعہ/ کالج کا نام
+
+                                                        <span>
+                                                            :
+                                                        </span>
+                                                    </label>
+
+                                                    <input type="text" id="jamia_/_college_name_with_address"
+                                                        name="JamiaCollegeNameAddress" required>
+                                                    <!-- <textarea name="jamia_/_college_name_with_address"
+                                                        id="jamia_/_college_name_with_address" required></textarea> -->
+
+                                                    <label dir="rtl" for="degree">
+                                                        حاصل شدہ سند / ڈگری
+                                                        <span>
+                                                            :
+                                                        </span>
+                                                    </label>
+
+                                                    <input type="text" id="degree" name="Degree" required>
+
+                                                    <label dir="rtl" for="MarufShakhsName">
+
+                                                        اپنے علاقے کی کسی معروف شخصیت کا نام و رابطہ نمبر جن سے توصیہ
+                                                        لیا ہے
+                                                        <span>
+                                                            :
+                                                        </span>
+                                                    </label>
+
+                                                    <div class="two-block-input">
+
+                                                        <input type="text" id="MarufShakhsName" name="MarufShakhsName"
+                                                            required placeholder="معروف شخصیت کا نام">
+                                                        <input type="text" name="MarufShakhsNumber" required
+                                                            placeholder="موبائل نمبر" pattern="[0-9]{10}">
+                                                    </div>
+
+                                                    <!-- <textarea name="MarufShakhsNameNumber"
+                                                        id="maruf_shakhs_ka_name_aur_number" required></textarea> -->
+
+                                                    <label dir="rtl" for="tausia_hasil_karne_ki_wajah">
+                                                        توصیہ حاصل کرنے کی وجہ
+                                                        <span>
+                                                            :
+                                                        </span>
+                                                    </label>
+
+                                                    <textarea name="TausiaReason" id="tausia_hasil_karne_ki_wajah"
+                                                        required></textarea>
+
+                                                    <label for="image" dir="rtl">
+                                                        اپنی تصویر اپلوڈ کریں
+                                                        <span>
+                                                            :
+                                                        </span>
+                                                    </label>
+
+                                                    <input type="file" id="image" required name="image">
+
+                                                    <label for="document" dir="rtl">
+                                                        مطلوبہ دستاویز اپلوڈ کریں
+                                                        <span>
+                                                            :
+                                                        </span>
+                                                    </label>
+
+                                                    <input type="file" id="document" required name="document">
+
+                                                    <p class="message" style="color:var(--blue);font-size:12px;"></p>
+
+                                                    <p class="error" style="color:crimson;font-size:12px;"></p>
+
+
+                                                    <div class="submit-container">
+
+                                                        <button type="submit">
+                                                            ارسال کریں
+                                                        </button>
+
+                                                    </div>
+
+                                                    <div class="data-loading"></div>
+
+                                                    <!-- <div dir="rtl" class="note">
+
+                                                        <span>
+                                                            <b>نوٹ : </b>
+                                                            تعلیمی اسناد / ڈگری: یعنی شہادہ، کشف الدرجات (مارکشیٹ) اور
+                                                            حسن السیرۃ والسلوک (ٹی سی)، آدھار کارڈ اور ایک عدد تصویر،
+                                                            نیز اپنے علاقے کی کسی معروف شخصیت کا توصیہ' پر مشتمل اصل
+                                                            کاغذات کو اسکین کرکے درج ذیل واٹشاپ نمبر پر ارسال کریں
+                                                        </span>
+                                                        <a target="_blank"
+                                                            href="https://wa.me/+919892555244">919892555244+</a>
+
+                                                    </div> -->
+                                                </form>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <!-- right column included here  -->
+
+                                <%- include('./common/right') %>
+
+                        </div>
+
+                    </div>
+
+            </section>
+
+
+            <!-- footer included here  -->
+
+            <%- include('./common/footer') %>
+
+
+                <!-- own tausia js file link  -->
+                <script src="./javascript/bara-e-talaba.js"></script>
+
+</body>
+
+</html>

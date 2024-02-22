@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="./images/logo-square.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/donate.css">
+    <link rel="stylesheet" href="./css/admin.css">
+    <title>Admin</title>
+</head>
+
+<body>
+
+    <%- include('./common/navbar') %>
+
+        <div class="container">
+
+            <div class="table-container">
+                <table class="table table-striped">
+                    <tr>
+
+                        <th>
+                            Rollno
+                        </th>
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Qualification
+                        </th>
+                        <th>
+                            Number
+                        </th>
+                        <th>
+                            Masjid Name And Address
+                        </th>
+                        <th>
+                            Masjid President Name And No
+                        </th>
+                        <th>
+                            Masjid Seceratory Name And No
+                        </th>
+                        <th>
+                            Coming Reason
+                        </th>
+                        <th>
+                            Image
+                        </th>
+                        <th>
+                            Pdf
+                        </th>
+                        <th>
+                            Status
+                        </th>
+                        <th>
+                            Approve
+                        </th>
+                        <th>
+                            Reject
+                        </th>
+                    </tr>
+                    <% if(adminData.length> 0){ %>
+                        <% adminData.forEach((value , index)=>{ %>
+                            <tr>
+                                <td class="rollno">
+                                    <%= value.rollno %>
+                                </td>
+                                <td>
+                                    <%= value.name %>
+
+                                </td>
+                                <td>
+                                    <%= value.qualification %>
+                                </td>
+                                <td>
+                                    <%= value.number %>
+                                </td>
+                                <td>
+                                    <%= value.masjid_name_address %>
+                                </td>
+                                <td>
+                                    <%= value.masjid_president %>
+                                </td>
+                                <td>
+                                    <%= value.masjid_seceratory %>
+                                </td>
+                                <td>
+                                    <%= value.coming_reason %>
+                                </td>
+                                <td>
+                                    <a class="btn btn-primary btn-sm" target="_blank"
+                                        href="/RegisterationFiles/Images/<%= value.image %>">
+                                        <!-- <img src="<%#= value.image %>" alt=""> -->
+                                        See Image
+                                    </a>
+                                </td>
+                                <td>
+                                    <a class="btn btn-primary btn-sm" target="_blank"
+                                        href="/RegisterationFiles/Files/<%= value.pdf %>">
+                                        <!-- <iframe src="<%#= value.pdf %>"
+                            frameborder="0"></iframe> -->
+                                        See Pdf
+                                    </a>
+                                </td>
+                                <td>
+                                    <%= value.status %>
+                                </td>
+                                <td>
+                                    <button class="btn btn-success approve-btn" data-id="<%= value._id %>">
+                                        Approve
+                                    </button>
+                                </td>
+                                <td>
+                                    <button class="btn btn-danger reject-btn" data-id="<%= value._id %>">
+                                        Reject
+                                    </button>
+                                </td>
+                            </tr>
+                            <% }) %>
+                                <% }else{ %>
+
+                                    <tr>
+                                        <td colspan="13">
+                                            <b> No Data Present</b>
+                                        </td>
+                                    </tr>
+
+                                    <% } %>
+                                        <!-- <tr>
+                            <td>
+                                1
+                            </td>
+                            <td>
+                                Ammar Ansari
+                            </td>
+                            <td>
+                                ansariammar3271@gmail.com
+                            </td>
+                            <td>
+                                919892564710
+                            </td>
+                            <td>
+                                Shamsh uloom
+                            </td>
+                            <td>
+
+                                <a target="_blank"
+                                    href="./RegisterationFiles/Images/RegisterationImage-1694087601933.jpg">
+                                     <img src="./RegisterationFiles/Images/RegisterationImage-1694087601933.jpg" alt=""> 
+                        See Image
+                        </a>
+
+                        </td>
+                        <td>
+                            <a target="_blank" href="./RegisterationFiles/Files/RegisterationFile-1694096520023.pdf">
+                                <iframe src="./RegisterationFiles/Files/RegisterationFile-1694096520023.pdf"
+                                frameborder="0"></iframe>
+                                See Pdf
+                            </a>
+                        </td>
+                        <td>
+
+                            <button class="btn btn-success">
+                                Approve
+                            </button>
+
+                        </td>
+                        <td>
+                            <button class="btn btn-danger">
+                                Reject
+                            </button>
+                        </td>
+                        </tr> -->
+                </table>
+                <div class="pagination">
+                    <% if(pagination.page> 1){ %>
+
+                        <a href="/admin?page=<%= pagination.page - 1 %>">Prev</a>
+
+                        <% }else{ %>
+                            <a href="/admin" class="inactive">Prev</a>
+                            <% } %>
+
+                                <a href="" class="inactive">
+
+                                    <%= pagination.page %> Of <%= pagination.endPage %>
+
+                                </a>
+
+                                <% if(pagination.endPage> pagination.page){ %>
+                                    <a href="/admin?page=<%= pagination.page + 1 %>">Next</a>
+                                    <% }else{ %>
+                                        <a href="/admin" class="inactive">Next</a>
+                                        <% } %>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+            crossorigin="anonymous"></script>
+        <script src="./javascript/Generate-Sheet.js"></script>
+        <script src="./javascript/reject.js"></script>
+        <script src="./javascript/approved.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ur">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <title>Sobai Jamiat Ahle Hadees Mumbai</title> -->
+    <!-- all css and js  files are here included -->
+    <%- include('./common/css&js') %>
+        <link rel="stylesheet" href="./css/masajid.css">
+
+</head>
+
+<body data-active="masajid">
+
+    <!-- header and chats and loading animation included here  -->
+    <%- include('./common/loading') %>
+
+        <%- include('./common/header') %>
+
+            <!-- content section starts here  -->
+
+            <section id="content">
+
+                <div class="main-container">
+
+                    <div class="container2">
+
+                        <div class="row g-lg-5 g-xl-5 g-md-3 g-sm-2 g-2 justify-content-center">
+
+
+                            <!-- left column included here  -->
+
+                            <%- include('./common/left') %>
+
+                                <div class="column-center column col-12 col-sm-10 col-md-6 col-lg-6 col-xl-6">
+
+                                    <div class="card">
+
+                                        <div class="top">
+
+                                            <h1>
+
+                                                مساجد اہل حدیث ممبئی
+
+                                            </h1>
+
+                                        </div>
+
+                                        <div class="content">
+
+                                            <div class="head-container">
+
+                                                <!-- <div class="head-wrapper">
+
+                                                <button class="head-btn">
+                                                    ممبرا
+                                                </button>
+                                                <div class="head-content">
+
+                                                    <p class="area">
+                                                        <span><b>علاقہ :</b>
+                                                            <span>ڈونگری</span>
+                                                        </span>
+                                                    </p>
+                                                    <p class="name">
+                                                        <span><b>نام : </b><span>
+                                                                مسجد نور الاسلام
+                                                            </span></span>
+                                                    </p>
+                                                    <p class="address">
+                                                        <span>
+                                                            <b>پتہ : </b>
+                                                            <span>
+                                                                ۱۹؍نیو شوکت ہاؤسنگ سوسائٹی، ایکس بلاک کمپاؤنڈ، حبیب
+                                                                ہاسپیٹل کے
+                                                                پیچھے، ڈونگری ممبئی ۔۹
+                                                            </span>
+                                                        </span>
+                                                    </p>
+
+
+                                                    <div class="line"></div>
+
+                                                </div>
+
+
+                                            </div> -->
+
+                                                <%# places.forEach(place=>{ %>
+                                                    <% for (const place of places){ %>
+                                                        <div class="head-wrapper">
+                                                            <button class="head-btn">
+                                                                <!-- <i class="fa-solid fa-angle-down angle"></i> -->
+                                                                <i class="fa-solid fa-angles-down angle"></i>
+                                                                <span class="place-title">
+                                                                    <%= place %>
+                                                                </span>
+                                                                <!-- <i class="fa-solid fa-location-dot icon-location"></i> -->
+                                                                <img src="./images/map-icon.png" height="30px"
+                                                                    width="30px" alt="">
+                                                                <i class="fa-solid fa-plus circle"></i>
+                                                            </button>
+                                                            <div class="head-content" id="<%=  %>">
+                                                                <% data.forEach(info=>{ %>
+
+                                                                    <% if(info.Place==place){ %>
+
+                                                                        <div id="<%= info.No %>">
+                                                                            <p>
+                                                                                <span>نمبر : </span>
+                                                                                <span>
+                                                                                    <%= info.No %>
+                                                                                </span>
+                                                                            </p>
+                                                                            <p class="area">
+                                                                                <span><b>علاقہ :</b>
+                                                                                    <span>
+                                                                                        <%= info.Place %>
+                                                                                    </span>
+                                                                                </span>
+                                                                            </p>
+                                                                            <p class="name">
+                                                                                <span><b>نام : </b><span>
+                                                                                        <%= info.Name %>
+                                                                                    </span></span>
+                                                                            </p>
+                                                                            <p class="address">
+                                                                                <span>
+                                                                                    <b>پتہ : </b>
+                                                                                    <span>
+                                                                                        <%= info.Address %>
+                                                                                    </span>
+                                                                                </span>
+                                                                            </p>
+
+                                                                            <a target="_blank"
+                                                                                class="d-flex align-items-center gap-1 justify-content-end map-link"
+                                                                                href="<%= info.Map %>">
+                                                                                لوکیشن کے لئے یہاں پر کلک کریں<img
+                                                                                    src="./images/map-icon.png"
+                                                                                    height="35px" width="35px" alt="">
+                                                                            </a>
+
+                                                                            <div class="line"></div>
+                                                                        </div>
+
+                                                                        <% } %>
+                                                                            <% })%>
+                                                            </div>
+                                                        </div>
+                                                        <% }%>
+                                                            <%# }) %>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <!-- right column included here  -->
+
+                                <%- include('./common/right') %>
+
+
+                        </div>
+
+                    </div>
+
+            </section>
+
+            <!-- footer included here  -->
+
+            <%- include('./common/footer') %>
+
+                <script src="./javascript/masajid.js"></script>
+
+</body>
+
+</html>

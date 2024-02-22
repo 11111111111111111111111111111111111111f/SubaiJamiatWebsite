@@ -1,0 +1,147 @@
+<div class="column-right column col-12 col-sm-10 col-md-3 col-lg-3">
+
+    <div class="card">
+        <div class="top">Magazine</div>
+        <div class="content">
+            <div class="swiper mySwiper3">
+                <div class="swiper-wrapper">
+                    <% DynamicData.magazineData.forEach(value=>{ %>
+                        <div class="swiper-slide">
+                            <a href="/aljama" class="image">
+                                <img src="<%= value.magazineImg %>" alt="">
+                                <!-- <img src="./images/mujallah-1.jpg" alt="" /> -->
+                                <!-- <div class="img-text">
+                                جریدہ ترجمان ۱ تا ۱۵ جنوری ۲۰۲۳
+                            </div> -->
+                            </a>
+                        </div>
+                        <% }) %>
+
+                            <!-- <div class="swiper-slide">
+                        <a href="/aljama" class="image">
+                            <img src="./images/mujallah-2.jpg" alt="" />
+                            <div class="img-text">
+
+                                Jarida Tarjuman 1-15 March 2023J
+
+                            </div>
+                        </a>
+                    </div>
+                    </div> -->
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="card">
+
+        <div class="top">
+
+            Program Posters
+
+        </div>
+
+
+        <div class="content">
+
+            <div class="swiper mySwiper3">
+
+                <div class="swiper-wrapper">
+
+                    <% DynamicData.postersData.forEach((value , index)=>{ %>
+                        <% if(index < 8){ %>
+                            <div class="swiper-slide">
+
+                                <a href="/posters" class="image">
+
+                                    <!-- <img src="./images/photo-gallery-1.jpg" alt=""> -->
+                                    <img src="<%= value.PosterImg %>" alt="">
+
+                                </a>
+
+                            </div>
+                            <% } %>
+                                <% }) %>
+
+                </div>
+
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+
+            </div>
+
+
+
+
+        </div>
+    </div>
+
+    <!-- <div class="card gallery">
+
+            <div class="top">
+
+                تصویر گیلری
+
+            </div>
+            <div class="content">
+
+                <a href="/photo-gallery" class="image">
+
+                    <img src="./images/gallery-1.jpg" alt="">
+                    <div class="text">
+
+                        پریس کانفرنس
+
+                    </div>
+                </a>
+
+                <a href="/photo-gallery" class="image">
+
+                    <img src="./images/photo-gallery-1.jpg" alt="">
+
+                    <div class="text " style="text-align: center;">
+
+                        تعلیمی انعامی مقابلہ
+
+                    </div>
+
+                </a>
+
+            </div>
+
+        </div> -->
+
+    <div class="card">
+
+        <div class="top">
+
+            Latest Videos
+
+        </div>
+
+        <div class="content d-flex justify-content-center">
+
+            <!-- <iframe src="https://www.youtube.com/embed/9kGmreSrwmI" title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe> -->
+            <iframe
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen src="<%= DynamicData.videos[0].NewVideo %>" frameborder="0">
+            </iframe>
+
+        </div>
+
+    </div>
+
+    <div class="card view-container">
+        <div class="top" dir="rtl">
+            <span> Viewers : </span>
+            <span class="view">
+                0
+            </span>
+        </div>
+    </div>
+</div>

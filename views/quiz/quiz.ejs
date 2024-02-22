@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TADRIBIYA QUIZ || SUBAI JAMIAT AHLE HADEES MUMBAI</title>
+
+    <link rel="stylesheet" href="./css/donate.css" />
+
+    <style>
+      /* in donate.css there is margin on input  so remove it */
+      .questionContainer input {
+        height: unset;
+      }
+    </style>
+
+    <!-- mdb bootstrap required cdn link  -->
+
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- own css link  -->
+    <link rel="stylesheet" href="./css/quiz/quiz.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="start-container">
+        <button type="button" class="start-btn">مسابقہ شروع کریں</button>
+      </div>
+
+      <form class="questionContainer" action="/quiz-submittion" method="post">
+        <% QuizData.forEach((data , index)=>{ %>
+
+        <!-- <div
+          class="question-wrapper"
+          data-questionNo="<%= data.questionNo %>"
+          data-minute="<%= data.time.minute %>"
+          data-second="<%= data.time.second %>"
+        > -->
+        <div
+          class="question-wrapper"
+          data-questionNo="<%= data.questionNo %>"
+          data-second="<%= data.time.second %>"
+        >
+          <div class="quiz-header">
+            <div class="quiz-title">تدریبیہ کوئز</div>
+
+            <div class="quiz-time">
+              <div class="time-label">بقیہ وقت</div>
+              <div class="time">
+                <!-- <span class="minute"> 00 </span> -->
+                <!-- <span class="text"> م </span> -->
+                <!-- <span class="colon"> : </span> -->
+                <span class="second"> 00 </span>
+                <span class="text"> س </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="quiz-body">
+            <h1 class="question">
+              سوال نمبر
+              <span> <%= data.questionNo %> : </span>
+
+              <%= data.question %>
+            </h1>
+
+            <ul class="options">
+              <input
+                type="radio"
+                checked
+                style="display: none"
+                value="null"
+                name="q<%= data.questionNo %>"
+              />
+              <% data.ans.forEach((value)=>{ %>
+              <li>
+                <span class="form-check">
+                  <input
+                    type="radio"
+                    id="<%= value.optionNo %><%= data.questionNo %>"
+                    class="form-check-input"
+                    name="q<%= data.questionNo  %>"
+                    value="<%= value.optionNo %>"
+                  />
+                </span>
+                <label for="<%= value.optionNo %><%= data.questionNo %>">
+                  <%= value.option %>
+                </label>
+              </li>
+              <% }) %>
+            </ul>
+
+            <% if(index !=QuizData.length - 1){ %>
+
+            <div class="next-btn-container">
+              <button class="next-btn" type="button">آگلے سوال پہ جائیں</button>
+            </div>
+
+            <% }else{ %>
+            <div class="submit-btn-container">
+              <button class="submit-btn" type="submit">کوئز سبمٹ کریں</button>
+            </div>
+            <% } %>
+          </div>
+        </div>
+
+        <% }) %>
+      </form>
+    </div>
+
+    <script src="./javascript/quiz/quiz.js"></script>
+  </body>
+</html>

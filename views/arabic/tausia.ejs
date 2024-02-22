@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobai Jamiat Ahle Hadees Mumbai</title>
+    <!-- all css and js  files are here included -->
+    <%- include('./common/css&js') %>
+        <!-- own contact css file link  -->
+        <link rel="stylesheet" href="./css/contact.css">
+</head>
+
+<body data-active="tausia">
+
+
+    <!-- header and chats and loading animation included here  -->
+    <%- include('./common/loading') %>
+
+        <%- include('./common/header') %>
+
+            <!-- content section starts here  -->
+
+            <section id="content">
+
+                <div class="main-container">
+
+                    <div class="container2">
+
+                        <div class="row g-lg-5 g-xl-5 g-md-3 g-sm-2 g-2 justify-content-center">
+
+                            <!-- left column included here  -->
+
+                            <%- include('./common/left') %>
+
+
+                                <div class="column-center column  col-12 col-sm-10 col-md-6 col-lg-6 col-xl-6">
+
+                                    <div class="card">
+
+                                        <div class="top">
+
+                                            <h1>
+                                                لطلب التزكية
+
+                                            </h1>
+                                        </div>
+
+                                        <div class="content">
+
+                                            <div class="form-container">
+
+                                                <form>
+
+                                                    <div class="two-input">
+
+                                                        <select name="Qism" required>
+                                                            <option value="" selected disabled>قسم</option>
+                                                            <option value="مسجد">مسجد</option>
+                                                            <option value="اقامتی مدرسہ">اقامتی مدرسہ</option>
+                                                            <option value="غیر اقامتی مدرسہ">غیر اقامتی مدرسہ</option>
+                                                        </select>
+
+
+                                                        <select name="Braye" required>
+                                                            <option value="" selected disabled>برائے</option>
+                                                            <option value="طلبہ">طلبہ</option>
+                                                            <option value="طالبات">طالبات</option>
+                                                            <option value="طلبہ ـ طالبات">طلبہ / طالبات</option>
+                                                            <option value="مسجد">مسجد</option>
+                                                        </select>
+
+                                                    </div>
+                                                    <label for="MasjidMadarsaName">
+                                                        : مسجد یا مدرسہ نام مع مکمل پتہ
+                                                    </label>
+                                                    <!-- name="Masjid_/_Madarsa_Name_Aur_Address -->
+                                                    <div class="two-block-input">
+                                                        <input type="text" name="MasjidMadarsaName"
+                                                            id="MasjidMadarsaName" required minlength="3"
+                                                            placeholder="مسجد یا مدرسہ نام">
+                                                        <input type="text" required minlength="3"
+                                                            name="MasjidMadarsaAddress" placeholder="مع مکمل پتہ">
+                                                    </div>
+
+                                                    <label for="Society_Trust_Name">
+                                                        رجسٹرڈ سوسائٹی / ٹرسٹ کا نام
+                                                    </label>
+                                                    <!-- name="Society_Trust_Name" -->
+                                                    <input type="text" id="Society_Trust_Name" required
+                                                        name="SocietyTrustName">
+
+                                                    <label dir="rtl" for="Tota_Number_Of_Students">
+                                                        <span>
+                                                            کل طلبہ / طالبات کی تعداد
+                                                        </span>
+                                                        <span>
+                                                            :
+                                                        </span>
+                                                    </label>
+                                                    <!-- name="Tota_Number_Of_Students" -->
+                                                    <input type="number" id="Tota_Number_Of_Students"
+                                                        name="TotalNumberOfStudents" required>
+
+                                                    <label dir="rtl" for="Aqamti_Talba_Talbat_Ki_Tadad">
+                                                        <span>
+                                                            اقامتی طلبہ / طالبات کی تعداد
+                                                        </span>
+                                                        <span>
+                                                            :
+                                                        </span>
+                                                    </label>
+                                                    <!-- name="Aqamti_Talba_Talbat_Ki_Tadad" -->
+                                                    <input type="number" id="Aqamti_Talba_Talbat_Ki_Tadad"
+                                                        name="TotalNumberOfAqamtiStudents" required>
+
+                                                    <!-- <label for="city">
+                                                        : شہر
+                                                    </label>
+                                                    <input type="text" name="City" id="city" required>
+
+                                                    <label for="District">
+                                                        : ضلع
+                                                    </label>
+                                                    <input type="text" name="District" id="District" required>
+
+                                                    <label for="country">
+                                                        : ریاست
+                                                    </label>
+                                                    <input type="text" name="Country" id="country" required>
+
+                                                    <label for="pin-code">
+                                                        : پن کوڈ
+                                                    </label>
+                                                    <input type="number" name="Pin Code" id="pin-code" required> -->
+
+                                                    <!-- <label for="address">
+                                                        : مکمل پتہ
+                                                    </label>
+
+                                                    <textarea id="address" required minlength="3"
+                                                        name="Address"></textarea> -->
+
+                                                    <label dir="rtl">
+
+                                                        <span>
+                                                            سوسائٹی / ٹرسٹ کے صدر و سیکریٹری کا نام اور موبائل نمبر
+
+                                                        </span>
+                                                        <span>
+                                                            :
+                                                        </span>
+
+                                                    </label>
+
+                                                    <div class="two-block-input">
+                                                        <textarea name="SocietyTrustPresidentNameNumber"
+                                                            placeholder="صدر کا نام اور موبائل نمبر"
+                                                            required></textarea>
+                                                        <textarea name="SocietyTrustSecretarieNameNumber"
+                                                            placeholder="سیکریٹری کا نام اور موبائل نمبر"
+                                                            required></textarea>
+                                                    </div>
+
+                                                    <!-- <input type="text"
+                                                        name="Society_Trust_Ke_Sadr_W_Secretarie_Ka_Name_Aur_Mobile_Number"
+                                                        id="Society_Trust_Ke_Sadr_W_Secretarie_Ka_Name_Aur_Mobile_Number"
+                                                        required> -->
+                                                    <!-- name="Society_Trust_Ke_Sadr_W_Secretarie_Ka_Name_Aur_Mobile_Number" -->
+                                                    <!-- <textarea name="SocietyTrustPresidentSecretarieNameNumber"
+                                                        id="Society_Trust_Ke_Sadr_W_Secretarie_Ka_Name_Aur_Mobile_Number"
+                                                        cols="30" rows="10" required></textarea> -->
+
+                                                    <!-- <label for="guardian_number">
+                                                        : ذمہ دار کا فون نمبر
+                                                    </label>
+                                                    <input type="text" pattern="[0-9]{10}"
+                                                        name="Mobile Number Of Person Responsible" id="guardian_number"
+                                                        required> -->
+
+
+                                                    <label dir="rtl">
+
+                                                        <span>
+                                                            سفیر کا نام اور موبائل نمبر
+                                                        </span>
+                                                        <span>
+                                                            :
+                                                        </span>
+                                                    </label>
+                                                    <input type="text" name="SafeerName" placeholder="سفیر کا نام"
+                                                        required>
+                                                    <input type="text" name="SafeerNumber"
+                                                        placeholder="سفیر کا موبائل نمبر" required pattern="[0-9]{10}">
+                                                    <!-- <input type="text" name="Safeer_Ka_Name_Aur_Mobile_Number"
+                                                        id="Safeer_Ka_Name_Aur_Mobile_Number" required> -->
+                                                    <!-- name="Safeer_Ka_Name_Aur_Mobile_Number" -->
+                                                    <!--<textarea name="SafeerNameNumber"
+                                                                                                        id="Safeer_Ka_Name_Aur_Mobile_Number" required></textarea> -->
+
+
+                                                    <!-- <label for="Ambassadors_number">
+                                                        : سفیر کا فون نمبر
+                                                    </label>
+                                                    <input type="text" pattern="[0-9]{10}"
+                                                        name="Ambassadors Mobile Number" id="Ambassadors_number"
+                                                        required> -->
+
+                                                    <label dir="rtl"
+                                                        for="Zilai_Jamiat_Ke_Amir_W_Nazim_Ke_Nam_Aur_Mobile_Number">
+
+                                                        <span>
+                                                            ضلعی جمعیت اہل حدیث کے امیر و ناظم کے نام اور موبائل
+                                                            نمبر
+                                                        </span>
+                                                        <span>
+                                                            :
+                                                        </span>
+                                                    </label>
+                                                    <!-- <input type="text"
+                                                        name="Zilai_Jamiat_Ke_Amir_W_Nazim_Ke_Nam_Aur_Mobile_Number"
+                                                        id="Zilai_Jamiat_Ke_Amir_W_Nazim_Ke_Nam_Aur_Mobile_Number"
+                                                        required> -->
+                                                    <!-- name="Zilai_Jamiat_Ke_Amir_W_Nazim_Ke_Nam_Aur_Mobile_Number" -->
+                                                    <textarea name="DistrictJamiatAmirNazimNameNumber"
+                                                        id="Zilai_Jamiat_Ke_Amir_W_Nazim_Ke_Nam_Aur_Mobile_Number"
+                                                        required></textarea>
+                                                    <!--
+                                                    <label for="District_jamiat_incharge_number">
+                                                        : ضلعی جمعیت اہل حدیث کے ذمہ دار کا فون نمبر
+                                                    </label>
+                                                    <input type="text" pattern="[0-9]{10}"
+                                                        name="District Jamiat Incharge Mobile Number"
+                                                        id="District_jamiat_incharge_number" required> -->
+
+                                                    <label dir="rtl"
+                                                        for="Subai_Jamiat_Ke_Amir_W_Nazim_Ke_Nam_Aur_Mobile_Number">
+                                                        <span>
+                                                            صوبائی جمعیت اہل حدیث کے امیر و ناظم کے نام اور موبائل نمبر
+
+                                                        </span>
+                                                        <span>
+                                                            :
+                                                        </span>
+                                                    </label>
+                                                    <!-- <input type="text"
+                                                        name="Subai_Jamiat_Ke_Amir_W_Nazim_Ke_Nam_Aur_Mobile_Number"
+                                                        id="Subai_Jamiat_Ke_Amir_W_Nazim_Ke_Nam_Aur_Mobile_Number"
+                                                        required> -->
+                                                    <!-- name="Subai_Jamiat_Ke_Amir_W_Nazim_Ke_Nam_Aur_Mobile_Number" -->
+                                                    <textarea name="SubaiJamiatAmirNazimNameNumber"
+                                                        id="Subai_Jamiat_Ke_Amir_W_Nazim_Ke_Nam_Aur_Mobile_Number"
+                                                        required></textarea>
+
+                                                    <!-- <label for="Provincial_jamiat_incharge_number">
+                                                        : صوبائی جمعیت اہل حدیث کے ذمہ دار کا فون نمبر
+                                                    </label>
+                                                    <input type="text" pattern="[0-9]{10}"
+                                                        name="Provincial Jamiat Incharge Mobile Number"
+                                                        id="Provincial_jamiat_incharge_number" required> -->
+
+                                                    <label dir="rtl">
+                                                        توصیہ طلب کرنے کا مقصد اور اس کی تفصیل
+                                                        <span>
+                                                            :</span>
+                                                    </label>
+                                                    <textarea name="TausiaReason" class="small-textarea"
+                                                        maxlength="200"></textarea>
+
+                                                    <label dir="rtl" for="Safeer_Ka_Name">
+                                                        <span>
+                                                            سفیر کی تصویر
+                                                        </span>
+                                                        <span>
+                                                            :
+                                                        </span>
+                                                    </label>
+                                                    <!-- name="Safeer_Ka_Name" -->
+                                                    <input id="Safeer_Ka_Name" class="file" type="file"
+                                                        name="SafeerImage" required>
+
+                                                    <label for="document" dir="rtl">
+                                                        اپنا دستاویز اپلوڈ کریں
+                                                    </label>
+                                                    <input type="file" name="document" id="documnet" required>
+
+
+                                                    <p class="message" style="color:var(--blue);font-size:12px;"></p>
+
+                                                    <p class="error" style="color:crimson;font-size:12px;">
+                                                    </p>
+
+                                                    <div class="submit-container">
+
+
+                                                        <button type="submit">
+                                                            سبمٹ کریں
+                                                        </button>
+
+                                                    </div>
+
+                                                    <div class="data-loading"></div>
+
+                                                    <!-- <div dir="rtl" class="note">
+
+                                                        <span>
+                                                            <b>نوٹ : </b>
+                                                            <a target="_blank" href="/tausia-rules">
+                                                                مطلوبہ دستاویز
+                                                            </a>
+                                                            اس واٹس اپ نمبر پر کلک کرکے ارسال کریں
+                                                        </span>
+                                                        <a href="https://wa.me/+919892555244">+919892555244</a>
+
+                                                    </div> -->
+
+                                                </form>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <!-- right column included here  -->
+
+                                <%- include('./common/right') %>
+
+                        </div>
+
+                    </div>
+
+            </section>
+
+
+            <!-- footer included here  -->
+
+            <%- include('./common/footer') %>
+
+
+                <!-- own tausia js file link  -->
+                <script src="./javascript/tausia.js"></script>
+
+</body>
+
+</html>

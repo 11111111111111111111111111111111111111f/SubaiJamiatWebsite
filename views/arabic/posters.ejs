@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="ur">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <title>Sobai Jamiat Ahle Hadees Mumbai</title> -->
+    <!-- all css and js  files are here included -->
+    <%- include('./common/css&js') %>
+</head>
+
+<body data-active="posters">
+
+
+    <!-- header and chats and loading animation included here  -->
+    <%- include('./common/loading') %>
+
+        <%- include('./common/header') %>
+
+            <!-- content section starts here  -->
+
+            <section id="content">
+
+                <div class="main-container">
+
+                    <div class="container2">
+
+                        <div class="row g-lg-5 g-xl-5 g-md-3 g-sm-2 g-2 justify-content-center">
+
+                            <!-- left column included here  -->
+
+                            <%- include('./common/left') %>
+
+                                <div class="column-center  column col-12 col-sm-10 col-md-6 col-lg-6 col-xl-6">
+
+                                    <div class="card">
+
+                                        <div class="top">
+                                            <h1>
+                                                ملصقات برنامج الدعوة
+
+                                            </h1>
+                                        </div>
+
+                                        <div class="content">
+
+                                            <div class="row images justify-content-center image-btn-container g-3">
+
+                                                <% DynamicData.postersData.forEach(data=>{%>
+
+                                                    <div href="" class="img col-lg-4 col-xl-4 col-md-6 col-sm-6 col-12">
+
+                                                        <a target="_blank" href="<%= data.ViewPoster %>">
+                                                            <img class="gallery-images" src="<%= data.PosterImg %>"
+                                                                alt="">
+                                                        </a>
+                                                        <!-- <p class="text">
+
+                                                    Seminar Photo 19-Marh-2017
+
+                                                </p> -->
+                                                    </div>
+                                                    <% }) %>
+
+                                                        <!-- <div href="" class="img col-lg-4 col-xl-4 col-md-6 col-sm-6 col-12">
+
+                                                <img class="gallery-images" src="./images/book-6.jpeg" alt="">
+                                                <p class="text">
+
+                                                    29th All India Ahle Hadees Conference
+
+                                                </p>
+                                            </div> -->
+
+                                            </div>
+
+                                            <!-- <div class="image-gallery">
+
+                                            <div class="back">
+                                                <i class="fa-solid fa-arrow-left"></i> Back
+                                            </div>
+
+                                            <div class="row g-5 gallery-img">
+
+                                                <div href="" class="img col-lg-4 col-xl-4 col-md-6 col-sm-6 col-12">
+
+                                                    <a target="_blank" href="./images/book-1.jpeg">
+
+                                                        <img src="./images/book-1.jpeg" alt="">
+
+                                                    </a>
+
+                                                    <p class="text">
+
+                                                        29th All India Ahle Hadees Conference
+
+                                                    </p>
+                                                </div>
+
+                                                <div href="" class="img col-lg-4 col-xl-4 col-md-6 col-sm-6 col-12">
+
+                                                    <a target="_blank" href="./images/book-1.jpeg">
+
+                                                        <img src="./images/book-1.jpeg" alt="">
+
+                                                    </a>
+
+                                                    <p class="text">
+
+                                                        29th All India Ahle Hadees Conference
+
+                                                    </p>
+                                                </div>
+                                                <div href="" class="img col-lg-4 col-xl-4 col-md-6 col-sm-6 col-12">
+
+                                                    <a target="_blank" href="./images/book-1.jpeg">
+
+                                                        <img src="./images/book-1.jpeg" alt="">
+
+                                                    </a>
+
+                                                    <p class="text">
+
+                                                        29th All India Ahle Hadees Conference
+
+                                                    </p>
+                                                </div>
+                                                <div href="" class="img col-lg-4 col-xl-4 col-md-6 col-sm-6 col-12">
+
+                                                    <a target="_blank" href="./images/book-1.jpeg">
+
+                                                        <img src="./images/book-1.jpeg" alt="">
+
+                                                    </a>
+
+                                                    <p class="text">
+
+                                                        29th All India Ahle Hadees Conference
+
+                                                    </p>
+                                                </div>
+                                                <div href="" class="img col-lg-4 col-xl-4 col-md-6 col-sm-6 col-12">
+
+                                                    <a target="_blank" href="./images/book-1.jpeg">
+
+                                                        <img src="./images/book-1.jpeg" alt="">
+
+                                                    </a>
+
+                                                    <p class="text">
+
+                                                        29th All India Ahle Hadees Conference
+
+                                                    </p>
+                                                </div>
+                                                <div href="" class="img col-lg-4 col-xl-4 col-md-6 col-sm-6 col-12">
+
+                                                    <a target="_blank" href="./images/book-1.jpeg">
+
+                                                        <img src="./images/book-1.jpeg" alt="">
+
+                                                    </a>
+
+                                                    <p class="text">
+
+                                                        29th All India Ahle Hadees Conference
+
+                                                    </p>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="row g-5 gallery-img">
+
+                                                <div href="" class="img col-lg-4 col-xl-4 col-md-6 col-sm-6 col-12">
+
+                                                    <a target="_blank" href="./images/book-1.jpeg">
+
+                                                        <img src="./images/book-1.jpeg" alt="">
+
+                                                    </a>
+
+                                                    <p class="text">
+
+                                                        29th All India Ahle Hadees Conference
+
+                                                    </p>
+                                                </div>
+
+                                                <div href="" class="img col-lg-4 col-xl-4 col-md-6 col-sm-6 col-12">
+
+                                                    <a target="_blank" href="./images/book-1.jpeg">
+
+                                                        <img src="./images/book-1.jpeg" alt="">
+
+                                                    </a>
+
+                                                    <p class="text">
+
+                                                        29th All India Ahle Hadees Conference
+
+                                                    </p>
+                                                </div>
+                                                <div href="" class="img col-lg-4 col-xl-4 col-md-6 col-sm-6 col-12">
+
+                                                    <a target="_blank" href="./images/book-1.jpeg">
+
+                                                        <img src="./images/book-1.jpeg" alt="">
+
+                                                    </a>
+
+                                                    <p class="text">
+
+                                                        29th All India Ahle Hadees Conference
+
+                                                    </p>
+                                                </div>
+                                                <div href="" class="img col-lg-4 col-xl-4 col-md-6 col-sm-6 col-12">
+
+                                                    <a target="_blank" href="./images/book-1.jpeg">
+
+                                                        <img src="./images/book-1.jpeg" alt="">
+
+                                                    </a>
+
+                                                    <p class="text">
+
+                                                        29th All India Ahle Hadees Conference
+
+                                                    </p>
+                                                </div>
+                                                <div href="" class="img col-lg-4 col-xl-4 col-md-6 col-sm-6 col-12">
+
+                                                    <a target="_blank" href="./images/book-1.jpeg">
+
+                                                        <img src="./images/book-1.jpeg" alt="">
+
+                                                    </a>
+
+                                                    <p class="text">
+
+                                                        29th All India Ahle Hadees Conference
+
+                                                    </p>
+                                                </div>
+                                                <div href="" class="img col-lg-4 col-xl-4 col-md-6 col-sm-6 col-12">
+
+                                                    <a target="_blank" href="./images/book-1.jpeg">
+
+                                                        <img src="./images/book-1.jpeg" alt="">
+
+                                                    </a>
+
+                                                    <p class="text">
+
+                                                        29th All India Ahle Hadees Conference
+
+                                                    </p>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="row g-5 gallery-img">
+
+                                                <div href="" class="img col-lg-4 col-xl-4 col-md-6 col-sm-6 col-12">
+
+                                                    <a target="_blank" href="./images/book-1.jpeg">
+
+                                                        <img src="./images/book-1.jpeg" alt="">
+
+                                                    </a>
+
+                                                    <p class="text">
+
+                                                        29th All India Ahle Hadees Conference
+
+                                                    </p>
+                                                </div>
+
+                                                <div href="" class="img col-lg-4 col-xl-4 col-md-6 col-sm-6 col-12">
+
+                                                    <a target="_blank" href="./images/book-1.jpeg">
+
+                                                        <img src="./images/book-1.jpeg" alt="">
+
+                                                    </a>
+
+                                                    <p class="text">
+
+                                                        29th All India Ahle Hadees Conference
+
+                                                    </p>
+                                                </div>
+                                                <div href="" class="img col-lg-4 col-xl-4 col-md-6 col-sm-6 col-12">
+
+                                                    <a target="_blank" href="./images/book-1.jpeg">
+
+                                                        <img src="./images/book-1.jpeg" alt="">
+
+                                                    </a>
+
+                                                    <p class="text">
+
+                                                        29th All India Ahle Hadees Conference
+
+                                                    </p>
+                                                </div>
+                                                <div href="" class="img col-lg-4 col-xl-4 col-md-6 col-sm-6 col-12">
+
+                                                    <a target="_blank" href="./images/book-1.jpeg">
+
+                                                        <img src="./images/book-1.jpeg" alt="">
+
+                                                    </a>
+
+                                                    <p class="text">
+
+                                                        29th All India Ahle Hadees Conference
+
+                                                    </p>
+                                                </div>
+                                                <div href="" class="img col-lg-4 col-xl-4 col-md-6 col-sm-6 col-12">
+
+                                                    <a target="_blank" href="./images/book-1.jpeg">
+
+                                                        <img src="./images/book-1.jpeg" alt="">
+
+                                                    </a>
+
+                                                    <p class="text">
+
+                                                        29th All India Ahle Hadees Conference
+
+                                                    </p>
+                                                </div>
+                                                <div href="" class="img col-lg-4 col-xl-4 col-md-6 col-sm-6 col-12">
+
+                                                    <a target="_blank" href="./images/book-1.jpeg">
+
+                                                        <img src="./images/book-1.jpeg" alt="">
+
+                                                    </a>
+
+                                                    <p class="text">
+
+                                                        29th All India Ahle Hadees Conference
+
+                                                    </p>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="row g-5 gallery-img">
+
+                                                <div href="" class="img col-lg-4 col-xl-4 col-md-6 col-sm-6 col-12">
+
+                                                    <a target="_blank" href="./images/book-1.jpeg">
+
+                                                        <img src="./images/book-1.jpeg" alt="">
+
+                                                    </a>
+
+                                                    <p class="text">
+
+                                                        29th All India Ahle Hadees Conference
+
+                                                    </p>
+                                                </div>
+
+                                                <div href="" class="img col-lg-4 col-xl-4 col-md-6 col-sm-6 col-12">
+
+                                                    <a target="_blank" href="./images/book-1.jpeg">
+
+                                                        <img src="./images/book-1.jpeg" alt="">
+
+                                                    </a>
+
+                                                    <p class="text">
+
+                                                        29th All India Ahle Hadees Conference
+
+                                                    </p>
+                                                </div>
+                                                <div href="" class="img col-lg-4 col-xl-4 col-md-6 col-sm-6 col-12">
+
+                                                    <a target="_blank" href="./images/book-1.jpeg">
+
+                                                        <img src="./images/book-1.jpeg" alt="">
+
+                                                    </a>
+
+                                                    <p class="text">
+
+                                                        29th All India Ahle Hadees Conference
+
+                                                    </p>
+                                                </div>
+                                                <div href="" class="img col-lg-4 col-xl-4 col-md-6 col-sm-6 col-12">
+
+                                                    <a target="_blank" href="./images/book-1.jpeg">
+
+                                                        <img src="./images/book-1.jpeg" alt="">
+
+                                                    </a>
+
+                                                    <p class="text">
+
+                                                        29th All India Ahle Hadees Conference
+
+                                                    </p>
+                                                </div>
+                                                <div href="" class="img col-lg-4 col-xl-4 col-md-6 col-sm-6 col-12">
+
+                                                    <a target="_blank" href="./images/book-1.jpeg">
+
+                                                        <img src="./images/book-1.jpeg" alt="">
+
+                                                    </a>
+
+                                                    <p class="text">
+
+                                                        29th All India Ahle Hadees Conference
+
+                                                    </p>
+                                                </div>
+                                                <div href="" class="img col-lg-4 col-xl-4 col-md-6 col-sm-6 col-12">
+
+                                                    <a target="_blank" href="./images/book-1.jpeg">
+
+                                                        <img src="./images/book-1.jpeg" alt="">
+
+                                                    </a>
+
+                                                    <p class="text">
+
+                                                        29th All India Ahle Hadees Conference
+
+                                                    </p>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="row g-5 gallery-img">
+
+                                                <div href="" class="img col-lg-4 col-xl-4 col-md-6 col-sm-6 col-12">
+
+                                                    <a target="_blank" href="./images/book-1.jpeg">
+
+                                                        <img src="./images/book-1.jpeg" alt="">
+
+                                                    </a>
+
+                                                    <p class="text">
+
+                                                        29th All India Ahle Hadees Conference
+
+                                                    </p>
+                                                </div>
+
+                                                <div href="" class="img col-lg-4 col-xl-4 col-md-6 col-sm-6 col-12">
+
+                                                    <a target="_blank" href="./images/book-1.jpeg">
+
+                                                        <img src="./images/book-1.jpeg" alt="">
+
+                                                    </a>
+
+                                                    <p class="text">
+
+                                                        29th All India Ahle Hadees Conference
+
+                                                    </p>
+                                                </div>
+                                                <div href="" class="img col-lg-4 col-xl-4 col-md-6 col-sm-6 col-12">
+
+                                                    <a target="_blank" href="./images/book-1.jpeg">
+
+                                                        <img src="./images/book-1.jpeg" alt="">
+
+                                                    </a>
+
+                                                    <p class="text">
+
+                                                        29th All India Ahle Hadees Conference
+
+                                                    </p>
+                                                </div>
+                                                <div href="" class="img col-lg-4 col-xl-4 col-md-6 col-sm-6 col-12">
+
+                                                    <a target="_blank" href="./images/book-1.jpeg">
+
+                                                        <img src="./images/book-1.jpeg" alt="">
+
+                                                    </a>
+
+                                                    <p class="text">
+
+                                                        29th All India Ahle Hadees Conference
+
+                                                    </p>
+                                                </div>
+                                                <div href="" class="img col-lg-4 col-xl-4 col-md-6 col-sm-6 col-12">
+
+                                                    <a target="_blank" href="./images/book-1.jpeg">
+
+                                                        <img src="./images/book-1.jpeg" alt="">
+
+                                                    </a>
+
+                                                    <p class="text">
+
+                                                        29th All India Ahle Hadees Conference
+
+                                                    </p>
+                                                </div>
+                                                <div href="" class="img col-lg-4 col-xl-4 col-md-6 col-sm-6 col-12">
+
+                                                    <a target="_blank" href="./images/book-1.jpeg">
+
+                                                        <img src="./images/book-1.jpeg" alt="">
+
+                                                    </a>
+
+                                                    <p class="text">
+
+                                                        29th All India Ahle Hadees Conference
+
+                                                    </p>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="row g-5 gallery-img">
+
+                                                <div href="" class="img col-lg-4 col-xl-4 col-md-6 col-sm-6 col-12">
+
+                                                    <a target="_blank" href="./images/book-1.jpeg">
+
+                                                        <img src="./images/book-1.jpeg" alt="">
+
+                                                    </a>
+
+                                                    <p class="text">
+
+                                                        29th All India Ahle Hadees Conference
+
+                                                    </p>
+                                                </div>
+
+                                                <div href="" class="img col-lg-4 col-xl-4 col-md-6 col-sm-6 col-12">
+
+                                                    <a target="_blank" href="./images/book-1.jpeg">
+
+                                                        <img src="./images/book-1.jpeg" alt="">
+
+                                                    </a>
+
+                                                    <p class="text">
+
+                                                        29th All India Ahle Hadees Conference
+
+                                                    </p>
+                                                </div>
+                                                <div href="" class="img col-lg-4 col-xl-4 col-md-6 col-sm-6 col-12">
+
+                                                    <a target="_blank" href="./images/book-1.jpeg">
+
+                                                        <img src="./images/book-1.jpeg" alt="">
+
+                                                    </a>
+
+                                                    <p class="text">
+
+                                                        29th All India Ahle Hadees Conference
+
+                                                    </p>
+                                                </div>
+                                                <div href="" class="img col-lg-4 col-xl-4 col-md-6 col-sm-6 col-12">
+
+                                                    <a target="_blank" href="./images/book-1.jpeg">
+
+                                                        <img src="./images/book-1.jpeg" alt="">
+
+                                                    </a>
+
+                                                    <p class="text">
+
+                                                        29th All India Ahle Hadees Conference
+
+                                                    </p>
+                                                </div>
+                                                <div href="" class="img col-lg-4 col-xl-4 col-md-6 col-sm-6 col-12">
+
+                                                    <a target="_blank" href="./images/book-1.jpeg">
+
+                                                        <img src="./images/book-1.jpeg" alt="">
+
+                                                    </a>
+
+                                                    <p class="text">
+
+                                                        29th All India Ahle Hadees Conference
+
+                                                    </p>
+                                                </div>
+                                                <div href="" class="img col-lg-4 col-xl-4 col-md-6 col-sm-6 col-12">
+
+                                                    <a target="_blank" href="./images/book-1.jpeg">
+
+                                                        <img src="./images/book-1.jpeg" alt="">
+
+                                                    </a>
+
+                                                    <p class="text">
+
+                                                        29th All India Ahle Hadees Conference
+
+                                                    </p>
+                                                </div>
+
+                                            </div>
+
+                                        </div> -->
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <!-- right column included here  -->
+
+                                <%- include('./common/right') %>
+
+                        </div>
+
+                    </div>
+
+            </section>
+
+
+            <!-- footer included here  -->
+
+            <%- include('./common/footer') %>
+
+
+                <!-- own photo script file link  -->
+                <!-- <script src="./javascript/photo.js"></script> -->
+
+</body>
+
+</html>

@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="ur">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <title>Sobai Jamiat Ahle Hadees Mumbai</title> -->
+    <!-- all css and js  files are here included -->
+    <%- include('./urdu/common/css&js') %>
+        <!-- own contact css file link  -->
+        <link rel="stylesheet" href="./css/contact.css">
+        <style>
+            .file-btns {
+                margin-top: 10px;
+                text-align: center;
+            }
+
+            .file-btns .btn {
+                display: inline-block;
+                padding-inline: 20px;
+                width: 150px;
+                margin-inline: 10px;
+                cursor: pointer;
+            }
+        </style>
+</head>
+
+<body data-active="update-tausia">
+
+
+    <!-- header and chats and loading animation included here  -->
+    <%- include('./urdu/common/loading') %>
+
+        <%- include('./urdu/common/header') %>
+
+            <!-- content section starts here  -->
+
+            <section id="content">
+
+                <div class="main-container">
+
+                    <div class="container2">
+
+                        <div class="row g-lg-5 g-xl-5 g-md-3 g-sm-2 g-2 justify-content-center">
+
+                            <!-- left column included here  -->
+
+                            <%- include('./urdu/common/left') %>
+
+
+                                <div class="column-center column  col-12 col-sm-10 col-md-6 col-lg-6 col-xl-6">
+
+                                    <div class="card">
+
+                                        <div class="top">
+
+                                            <h1>
+                                                توصیہ اپڈیٹ کریں
+                                            </h1>
+
+                                        </div>
+
+
+                                        <div class="content">
+
+                                            <div class="form-container">
+
+                                                <form>
+
+                                                    <div class="two-input">
+
+                                                        <select name="Qism" required>
+                                                            <% if(data.Qism=='مسجد' ){ %>
+                                                                <option value="" disabled>قسم
+                                                                </option>
+                                                                <option selected value="مسجد">مسجد</option>
+                                                                <option value="اقامتی مدرسہ">اقامتی مدرسہ
+                                                                </option>
+                                                                <option value="غیر اقامتی مدرسہ">غیر اقامتی
+                                                                    مدرسہ
+                                                                </option>
+                                                                <% }else if(data.Qism=='اقامتی مدرسہ' ){ %>
+                                                                    <option value="" disabled>قسم
+                                                                    </option>
+                                                                    <option value="مسجد">مسجد</option>
+                                                                    <option selected value="اقامتی مدرسہ">اقامتی مدرسہ
+                                                                    </option>
+                                                                    <option value="غیر اقامتی مدرسہ">غیر اقامتی
+                                                                        مدرسہ
+                                                                    </option>
+                                                                    <% }else if(data.Qism=='غیر اقامتی مدرسہ' ){ %>
+                                                                        <option value="" disabled>قسم
+                                                                        </option>
+                                                                        <option value="مسجد">مسجد</option>
+                                                                        <option value="اقامتی مدرسہ">اقامتی مدرسہ
+                                                                        </option>
+                                                                        <option selected value="غیر اقامتی مدرسہ">غیر
+                                                                            اقامتی
+                                                                            مدرسہ
+                                                                        </option>
+                                                                        <% }%>
+
+                                                        </select>
+
+
+                                                        <select name="Braye" required>
+                                                            <% if(data.Braye=="طلبہ" ) { %>
+
+                                                                <option value="" disabled>برائے
+                                                                </option>
+                                                                <option selected value="طلبہ">طلبہ</option>
+                                                                <option value="طالبات">طالبات</option>
+                                                                <option value="طلبہ ـ طالبات">طلبہ /
+                                                                    طالبات
+                                                                </option>
+                                                                <option value="مسجد">مسجد</option>
+
+                                                                <%}else if(data.Braye=="طالبات" ) {%>
+
+                                                                    <option value="" disabled>برائے
+                                                                    </option>
+                                                                    <option value="طلبہ">طلبہ</option>
+                                                                    <option selected value="طالبات">طالبات</option>
+                                                                    <option value="طلبہ ـ طالبات">طلبہ /
+                                                                        طالبات
+                                                                    </option>
+                                                                    <option value="مسجد">مسجد</option>
+
+                                                                    <% } else if(data.Braye=='طلبہ ـ طالبات' ){ %>
+
+                                                                        <option value="" disabled>برائے
+                                                                        </option>
+                                                                        <option value="طلبہ">طلبہ</option>
+                                                                        <option value="طالبات">طالبات</option>
+                                                                        <option selected value="طلبہ ـ طالبات">طلبہ /
+                                                                            طالبات
+                                                                        </option>
+                                                                        <option value="مسجد">مسجد</option>
+
+                                                                        <% } else if(data.Braye=='مسجد' ){ %>
+
+                                                                            <option value="" disabled>برائے
+                                                                            </option>
+                                                                            <option value="طلبہ">طلبہ</option>
+                                                                            <option value="طالبات">طالبات</option>
+                                                                            <option value="طلبہ ـ طالبات">طلبہ /
+                                                                                طالبات
+                                                                            </option>
+                                                                            <option selected value="مسجد">مسجد</option>
+
+                                                                            <% } %>
+
+                                                        </select>
+
+                                                    </div>
+                                                    <label for="MasjidMadarsaName">
+                                                        : مسجد یا مدرسہ نام مع مکمل پتہ
+                                                    </label>
+                                                    <!-- name="Masjid_/_Madarsa_Name_Aur_Address -->
+                                                    <div class="two-block-input">
+                                                        <input type="text" name="MasjidMadarsaName"
+                                                            id="MasjidMadarsaName" required minlength="3"
+                                                            placeholder="مسجد یا مدرسہ نام"
+                                                            value="<%= data.MasjidMadarsaName %>">
+                                                        <input type="text" required minlength="3"
+                                                            name="MasjidMadarsaAddress" placeholder="مع مکمل پتہ"
+                                                            value="<%= data.MasjidMadarsaAddress %>">
+                                                    </div>
+
+                                                    <label for="Society_Trust_Name">
+                                                        رجسٹرڈ سوسائٹی / ٹرسٹ کا نام
+                                                    </label>
+                                                    <!-- name="Society_Trust_Name" -->
+                                                    <input type="text" id="Society_Trust_Name" required
+                                                        name="SocietyTrustName" value="<%= data.SocietyTrustName %>">
+
+                                                    <label dir="rtl" for="Tota_Number_Of_Students">
+                                                        <span>
+                                                            کل طلبہ / طالبات کی تعداد
+                                                        </span>
+                                                        <span>
+                                                            :
+                                                        </span>
+                                                    </label>
+                                                    <!-- name="Tota_Number_Of_Students" -->
+                                                    <input type="number" id="Tota_Number_Of_Students"
+                                                        name="TotalNumberOfStudents" required
+                                                        value="<%= data.TotalNumberOfStudents %>">
+
+                                                    <label dir="rtl" for="Aqamti_Talba_Talbat_Ki_Tadad">
+                                                        <span>
+                                                            اقامتی طلبہ / طالبات کی تعداد
+                                                        </span>
+                                                        <span>
+                                                            :
+                                                        </span>
+                                                    </label>
+                                                    <input type="number" id="Aqamti_Talba_Talbat_Ki_Tadad"
+                                                        name="TotalNumberOfAqamtiStudents" required
+                                                        value="<%= data.TotalNumberOfAqamtiStudents %>">
+
+
+                                                    <label dir="rtl">
+
+                                                        <span>
+                                                            سوسائٹی / ٹرسٹ کے صدر و سیکریٹری کا نام اور موبائل نمبر
+
+                                                        </span>
+                                                        <span>
+                                                            :
+                                                        </span>
+
+                                                    </label>
+
+                                                    <div class="two-block-input">
+                                                        <textarea name="SocietyTrustPresidentNameNumber"
+                                                            placeholder="صدر کا نام اور موبائل نمبر"
+                                                            required> <%= data.SocietyTrustPresidentNameNumber %> </textarea>
+                                                        <textarea name="SocietyTrustSecretarieNameNumber"
+                                                            placeholder="سیکریٹری کا نام اور موبائل نمبر"
+                                                            required> <%= data.SocietyTrustSecretarieNameNumber %> </textarea>
+                                                    </div>
+
+
+
+
+                                                    <label dir="rtl">
+
+                                                        <span>
+                                                            سفیر کا نام اور موبائل نمبر
+                                                        </span>
+                                                        <span>
+                                                            :
+                                                        </span>
+                                                    </label>
+                                                    <input type="text" name="SafeerName" placeholder="سفیر کا نام"
+                                                        required value="<%= data.SafeerName %>">
+                                                    <input type="text" name="SafeerNumber"
+                                                        placeholder="سفیر کا موبائل نمبر" required pattern="[0-9]{10}"
+                                                        value="<%= data.SafeerNumber %>">
+
+
+                                                    <div class="file-show-btns file-btns">
+
+                                                        <a href="http://localhost:5000/tausia-images/<%= data.SafeerImage %>"
+                                                            target="_blank" class="btn show-image">
+                                                            تصویر دیکھیں
+                                                        </a>
+                                                        <a href="http://localhost:5000/tausia-documents/<%= data.Document %>"
+                                                            target="_blank" class="btn show-document">
+                                                            دستاویز دیکھیں
+                                                        </a>
+
+                                                    </div>
+
+                                                    <div class="file-update-btns file-btns">
+                                                        <button class="btn image-update-btn" type="button">
+                                                            تصویر اپڈیٹ کریں</button>
+                                                        <button class="btn document-update-btn" type="button">دستاویذ
+                                                            اپڈیٹ
+                                                            کریں</button>
+                                                    </div>
+
+                                                    <div class="file-container">
+
+                                                        <div class="update-image"></div>
+                                                        <div class="update-document"></div>
+
+                                                    </div>
+
+
+                                                    <label dir="rtl"
+                                                        for="Zilai_Jamiat_Ke_Amir_W_Nazim_Ke_Nam_Aur_Mobile_Number">
+
+                                                        <span>
+                                                            ضلعی جمعیت اہل حدیث کے امیر و ناظم کے نام اور موبائل
+                                                            نمبر
+                                                        </span>
+                                                        <span>
+                                                            :
+                                                        </span>
+                                                    </label>
+                                                    <textarea name="DistrictJamiatAmirNazimNameNumber"
+                                                        id="Zilai_Jamiat_Ke_Amir_W_Nazim_Ke_Nam_Aur_Mobile_Number"
+                                                        required> <%= data.DistrictJamiatAmirNazimNameNumber %> </textarea>
+                                                    <label dir="rtl"
+                                                        for="Subai_Jamiat_Ke_Amir_W_Nazim_Ke_Nam_Aur_Mobile_Number">
+                                                        <span>
+                                                            صوبائی جمعیت اہل حدیث کے امیر و ناظم کے نام اور موبائل نمبر
+
+                                                        </span>
+                                                        <span>
+                                                            :
+                                                        </span>
+                                                    </label>
+                                                    <textarea name="SubaiJamiatAmirNazimNameNumber"
+                                                        id="Subai_Jamiat_Ke_Amir_W_Nazim_Ke_Nam_Aur_Mobile_Number"
+                                                        required> <%= data.SubaiJamiatAmirNazimNameNumber %> </textarea>
+
+
+                                                    <p class="message" style="color:var(--blue);font-size:12px;"></p>
+
+                                                    <p class="error" style="color:crimson;font-size:12px;">
+                                                    </p>
+
+                                                    <div class="submit-container">
+
+
+                                                        <button type="submit">
+                                                            اپڈیٹ کریں
+                                                        </button>
+
+                                                    </div>
+
+                                                    <div class="data-loading"></div>
+
+                                                    <!-- <div dir="rtl" class="note">
+
+                                                        <span>
+                                                            <b>نوٹ : </b>
+                                                            <a target="_blank" href="/tausia-rules">
+                                                                مطلوبہ دستاویز
+                                                            </a>
+                                                            اس واٹس اپ نمبر پر کلک کرکے ارسال کریں
+                                                        </span>
+                                                        <a href="https://wa.me/+919892555244">+919892555244</a>
+
+                                                    </div> -->
+                                                </form>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <!-- right column included here  -->
+
+                                <%- include('./urdu/common/right') %>
+
+                        </div>
+
+                    </div>
+
+            </section>
+
+
+            <!-- footer included here  -->
+
+            <%- include('./urdu/common/footer') %>
+
+                <script>
+                    const error = document.querySelector( '.error' )
+                    const message = document.querySelector( '.message' )
+
+                    let updateImageHtml = `<label dir="rtl" for="Safeer_Ka_Name">
+                                                                <span>
+                                                                    سفیر کی تصویر
+                                                                </span>
+                                                                <span>
+                                                                    :
+                                                                </span>
+                                                            </label>
+
+                                                            <input id="Safeer_Ka_Name" class="file" type="file"
+                                                                name="SafeerImage" required>`
+
+                    let updateDocumentHtml = `<label for="document" dir="rtl">
+                                                        اپنا دستاویز اپلوڈ کرین
+                                                    </label>
+                                                    <input type="file" name="document" id="documnet" required>
+                                                    `
+
+                    const fileShowBtns = document.querySelector( '.file-show-btns' )
+                    // const fileUpdateBtns = document.querySelectorAll( '.file-update-btns .btns' )
+                    const imageUpdateBtn = document.querySelector( '.file-update-btns .image-update-btn' )
+                    const documentUpdateBtn = document.querySelector( '.file-update-btns .document-update-btn' )
+                    const fileContainer = document.querySelector( '.file-container' )
+
+                    imageUpdateBtn.onclick = () => {
+
+                        fileContainer.querySelector( '.update-image' ).innerHTML = updateImageHtml
+                        fileShowBtns.querySelector( '.show-image' ).style.display = 'none'
+
+                    }
+
+                    documentUpdateBtn.onclick = () => {
+                        fileContainer.querySelector( '.update-document' ).innerHTML = updateDocumentHtml
+                        fileShowBtns.querySelector( '.show-document' ).style.display = 'none'
+                    }
+
+
+                    const form = document.querySelector( ".form-container form" )
+                    form.onsubmit = async ( e ) => {
+                        e.preventDefault()
+
+                        document.body.style.cursor = 'wait'
+                        message.innerText = 'اپڈیٹ ہو رہا ہے۔۔۔'
+
+                        let formData = new FormData( form )
+
+                        let imageInput = document.querySelector( '.update-image input[name=SafeerImage]' )
+
+                        if ( imageInput != null ) {
+
+                            if ( imageInput.files[ 0 ].type != 'image/jpeg' && imageInput.files[ 0 ].type != 'image/jpg' && imageInput.files[ 0 ].type != 'image/png' ) {
+
+                                error.innerHTML = 'Please upload png or jpeg or jpg image'
+                                return
+
+                            } else {
+
+                                let imageSizeInByte = imageInput.files[ 0 ].size
+                                let imageSizeInKb = Math.floor( imageSizeInByte / 1024 )
+
+                                if ( imageSizeInKb > 300 ) {
+
+                                    error.innerHTML = 'Image size should be less than 300kb'
+                                    return
+
+                                } else {
+
+                                    error.innerHTML = ''
+                                    let imageName = document.querySelector( '.show-image' ).href.split( '/' ).pop()
+
+                                    let newFile = new File( [ imageInput.files[ 0 ] ], imageName, { type: imageInput.files[ 0 ].type } )
+                                    formData.set( 'SafeerImage', newFile )
+
+                                }
+
+                            }
+
+                        }
+
+                        let fileInput = document.querySelector( '.update-document input[name=document]' )
+
+                        if ( fileInput != null ) {
+                            if ( fileInput.files[ 0 ].type != 'application/pdf' ) {
+                                error.innerHTML = 'Upload pdf file'
+                                return
+                            } else {
+
+                                let imageSizeInByte = fileInput.files[ 0 ].size
+                                let imageSizeInKb = Math.floor( imageSizeInByte / 1024 )
+                                if ( imageSizeInKb > 1024 ) {
+                                    error.innerHTML = 'Pdf size should be less than 1MB'
+                                    return
+                                } else {
+                                    error.innerHTML = ''
+                                    let fileName = document.querySelector( '.show-document' ).href.split( '/' ).pop()
+                                    let newFile = new File( [ fileInput.files[ 0 ] ], fileName, { type: fileInput.files[ 0 ].type } )
+                                    formData.set( 'document', newFile )
+                                }
+
+                            }
+
+                        }
+
+                        try {
+                            const request = await fetch( '/update-tausia-data', {
+                                method: 'post',
+                                body: formData
+                            } )
+                            const response = await request.json()
+
+                            if ( response.status == 'success' ) {
+                                message.innerText = 'مبارک ہو اپڈیٹ ہو چکا۔'
+                                document.body.style.cursor = 'auto'
+                                setTimeout( () => {
+                                    message.innerText = ''
+                                    location.reload()
+                                }, 1000 )
+                            } else {
+                                location.href = '/error'
+                            }
+                        } catch ( error ) {
+                            console.log( 'error occured', error )
+                            // location.href = '/error'
+                        }
+                    }
+
+                </script>
+
+</body>
+
+</html>

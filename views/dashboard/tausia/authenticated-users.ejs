@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" class="no-fs">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/dashboard/dashboard.css">
+    <!-- fontawesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+
+    <meta name="robots" content="noindex">
+
+    <title>Admin</title>
+</head>
+
+<body data-page="Tausia">
+
+    <div class=" main-container">
+
+        <div class="mobile-dashboard"></div>
+
+        <%- include('../common/dashboard-sidebar') %>
+
+            <div class="right">
+
+                <%- include('../common/dashboard-header') %>
+
+                    <div class="content">
+                        <div class="page">
+                            <span>
+                                <span class="bold">Dashboard</span>
+                                <i class="fa-solid fa-angle-right icon"></i>
+                            </span>
+                            <span>
+                                Tausia Registeration
+                                <i class="fa-solid fa-angle-right icon"></i>
+                            </span>
+                            <span>
+
+                                Authenticated Users
+
+                            </span>
+                        </div>
+                        <div class="table">
+                            <div class="header no-input">
+                                <h3 class="heading">
+                                    Authenticated Users Tausia
+                                </h3>
+
+                                <!-- <div class="input">
+                                    <i class="fa-solid fa-magnifying-glass search-icon "></i>
+                                    <input type="text" placeholder="Search students here">
+                                </div> -->
+
+                            </div>
+                            <div class="student-table-container">
+                                <table class="student-table">
+                                    <tr>
+                                        <th>
+                                            userId
+                                        </th>
+                                        <th>
+                                            Date
+                                        </th>
+                                        <th>
+                                            Tausia Id
+                                        </th>
+                                        <th>
+                                            Expiry Date
+                                        </th>
+                                        <th>
+                                            Authentication Image
+                                        </th>
+
+                                    </tr>
+                                    <% if(TausiaData.length> 0){ %>
+                                        <% TausiaData.forEach(value=>{ %>
+
+                                            <tr>
+                                                <td class="no-break">
+                                                    <%= value.userId %>
+                                                </td>
+                                                <td class="no-break">
+                                                    <%= value.date %>
+                                                </td>
+                                                <td>
+                                                    <%= value.tausiaId %>
+                                                </td>
+                                                <td>
+                                                    <%= value.expiryDate %>
+                                                </td>
+                                                <td>
+                                                    <a class="btn btn-primary btn-sm" target="_blank"
+                                                        href="./tausiaAuthenticationImage/<%= value.authenticationImage %>">
+                                                        Show Image
+                                                    </a>
+                                                </td>
+
+                                            </tr>
+
+                                            <% }) %>
+                                                <% }else{ %>
+                                                    <tr>
+                                                        <td colspan="4">
+                                                            No Data Present
+                                                        </td>
+                                                    </tr>
+                                                    <% } %>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+    </div>
+
+    <script src="./javascript/dashboard/dashboard.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobai Jamiat Ahle Hadees Mumbai</title>
+
+    <!-- all css and js  files are here included -->
+    <%- include('./common/css&js') %>
+
+</head>
+
+<body data-active="mujallah">
+
+    <!-- all css and js  files are here included -->
+    <%- include('./common/loading') %>
+
+        <%- include('./common/header') %>
+
+            <!-- content section starts here  -->
+
+            <section id="content">
+
+                <div class="main-container">
+
+                    <div class="container2">
+
+                        <div class="row g-lg-5 g-xl-5 g-md-3 g-sm-2 g-2 justify-content-center">
+
+                            <!-- left column included here  -->
+
+                            <%- include('./common/left') %>
+
+
+                                <div class="column-center  column  book col-12 col-sm-10 col-md-6 col-lg-6 col-xl-6">
+
+                                    <div class="card">
+
+                                        <div class="top">
+
+                                            <h1>
+                                                مجلة الجماعة
+
+                                            </h1>
+                                        </div>
+
+                                        <div class="content">
+
+
+                                            <!-- <div class="row mt-3">
+
+                                    <div class="col-lg-5 col-xl-5 col-md-5 col-sm-6 col-12">
+
+                                        <a href="" class="image">
+
+                                            <img src="./images/mujallah-3.jpeg" alt="">
+
+                                        </a>
+                                        <a class="link" href="">
+                                            جریدہ ترجمان ۱۶ تا ۲۸ فروری ۲۰۲۳
+                                        </a>
+
+                                    </div>
+
+                                    <div class="col-lg-7 col-xl-7 col-md-7 col-sm-6 col-12">
+
+                                        <p class="light">
+                                            June-1-15-2023-F Download
+                                        </p>
+
+                                        <a href="" class="btn mt-3">Read More</a>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="line"></div>  -->
+
+
+                                            <!-- <div class="pagination">
+
+                        <span class="btn no-hover">1 of &nbsp; 3</span>
+                        <a href="/aljma" class="btn active">1</a>
+                        <a href="/aljama-2" class="btn">2</a>
+                        <a href="/aljama-3" class="btn">3</a>
+                        <a href="/aljama-2" class="btn">Next</a>
+
+                    </div> -->
+
+                                            <% for(i=pagination.start - 1; i<=pagination.end - 1;i++){ %>
+
+                                                <div class="row justify-content-center mt-3" id="<%= data[i].No %>">
+
+                                                    <div class="col-xl-5 col-lg-5 col-md-6  col-sm-8 col-12">
+
+                                                        <h3 class="text-center my-3">
+                                                            <b>
+                                                                <%= data[i].Name %>
+                                                            </b>
+                                                        </h3>
+
+                                                        <div class="d-flex flex-column justify-content-center">
+                                                            <a class="image">
+
+                                                                <img class="img-fluid" src="<%= img[i] %>" alt="">
+
+                                                            </a>
+
+                                                            <a download class="download-pdf" target="_blank"
+                                                                href="<%= data[i].Download %>">
+                                                                ڈاؤنلوڈ
+                                                            </a>
+
+                                                            <p class="unicode text-center">یونیکوڈ</p>
+
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="line"></div>
+
+                                                <% } %>
+
+                                                    <div class="pagination">
+                                                        <% if(page < dataLength){ %>
+                                                            <a href="/ar-aljama?page=<%= page+1 %>" class="btn"><i
+                                                                    class="fa-solid fa-angle-left"></i></a>
+                                                            <% } %>
+                                                                <% for(i=dataLength;i>=1;i--){ %>
+                                                                    <% if(i==page){ %>
+                                                                        <a href="/ar-aljama?page=<%= i %>"
+                                                                            class="btn active">
+                                                                            <%= i %>
+                                                                        </a>
+                                                                        <% }else { %>
+                                                                            <a href="/ar-aljama?page=<%= i %>"
+                                                                                class="btn">
+                                                                                <%= i %>
+                                                                            </a>
+                                                                            <% } %>
+
+                                                                                <% } %>
+                                                                                    <span class="btn no-hover">
+                                                                                        <%= page %> of &nbsp; <%=
+                                                                                                dataLength %>
+                                                                                    </span>
+                                                                                    <% if(page>1){ %>
+                                                                                        <a href="/ar-aljama?page=<%= page-1 %>"
+                                                                                            class="btn"><i
+                                                                                                class="fa-solid fa-angle-right"></i></a>
+                                                                                        <% } %>
+                                                    </div>
+
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <!-- right column included here  -->
+
+                                <%- include('./common/right') %>
+
+                        </div>
+
+                    </div>
+
+            </section>
+
+
+            <!-- footer included here  -->
+
+            <%- include('./common/footer') %>
+
+</body>
+
+</html>

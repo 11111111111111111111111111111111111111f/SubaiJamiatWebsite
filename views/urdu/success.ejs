@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>donate us</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .container {
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            overflow-x: auto;
+            align-items: center;
+            background: #00d999;
+        }
+
+        table {
+            border-collapse: collapse;
+            background: white;
+            border-radius: 5px;
+            width: 500px;
+            max-width: 100%;
+            word-break: break-all;
+            margin-inline: 5px;
+        }
+
+        table th {
+            font-size: 25px;
+            font-weight: 600;
+        }
+
+        table td,
+        table th {
+            padding: 5px 10px;
+        }
+
+        button {
+            background: #00d999;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 3px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+
+        }
+
+        button:hover {
+            background: #02b680;
+        }
+
+        .submit-container {
+            text-align: center;
+            margin-bottom: 0;
+
+        }
+
+        .error {
+            color: crimson;
+            font-size: 14px;
+            text-align: right;
+            display: block;
+        }
+
+        .success {
+            color: #00d999;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        @media print {
+            .no-print {
+                display: none;
+            }
+
+            .container {
+                height: fit-content;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+    <div class="container">
+        <table border="1">
+            <tr class="center">
+                <th colspan="2">Transaction Details</th>
+            </tr>
+            <tr>
+                <td>Order id : </td>
+                <td>
+                    <%= data.order_id %>
+                </td>
+            </tr>
+            <tr>
+                <td> name :</td>
+                <td>
+                    <%= data.name %>
+                </td>
+            </tr>
+            <tr>
+                <td>currency :</td>
+                <td>INR</td>
+            </tr>
+            <tr>
+                <td>amount :</td>
+                <td>
+                    <%= data.amount %>
+                </td>
+            </tr>
+            <tr>
+                <td>time : </td>
+                <td>
+                    <%= data.time %>
+                </td>
+            </tr>
+            <tr class="no-print">
+                <td colspan="2" class="center"><a class="success" href="/">Go back to home page</a></td>
+            </tr>
+            <tr class="no-print">
+                <td colspan="2" class="center print-btn"><button>Print Details</button></td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        const btn = document.querySelector( '.print-btn' )
+        btn.onclick = () => {
+            window.print()
+        }
+    </script>
+
+</body>
+
+</html>

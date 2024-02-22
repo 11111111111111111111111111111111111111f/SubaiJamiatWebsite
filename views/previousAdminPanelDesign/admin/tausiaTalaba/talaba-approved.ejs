@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="./images/logo-square.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/donate.css">
+    <link rel="stylesheet" href="./css/admin.css">
+    <title>Admin</title>
+    <style>
+        .status-input {
+            width: 150px;
+            text-align: center;
+            border: none;
+            outline: none;
+            background: transparent;
+        }
+    </style>
+</head>
+
+<body>
+
+    <%- include('./common/navbar') %>
+
+        <div class="container">
+
+            <div class="table-container">
+                <table class="table table-striped">
+                    <tr>
+
+                        <th>
+                            userId
+                        </th>
+                        <th>
+                            Date
+                        </th>
+                        <th>
+                            StudentName
+                        </th>
+                        <th>
+                            Address
+                        </th>
+                        <th>
+                            StudentNumber
+                        </th>
+                        <th>
+                            JamiaCollegeNameAddress
+                        </th>
+                        <th>
+                            Degree
+                        </th>
+                        <th>
+                            MarufShakhsName
+                        </th>
+                        <th>
+                            MarufShakhsNumber
+                        </th>
+                        <th>
+                            TausiaReason
+                        </th>
+                        <th>
+                            Image
+                        </th>
+                        <th>
+                            Document
+                        </th>
+                        <th>
+                            Download Pdf
+                        </th>
+                        <th>
+                            Status
+                        </th>
+                        <th>
+                            Update Status
+                        </th>
+                        <th>
+                            Reject
+                        </th>
+                    </tr>
+                    <% if(TalabaData.length> 0){ %>
+                        <% TalabaData.forEach((value , index)=>{ %>
+                            <tr>
+                                <td class="rollno no-break">
+                                    <%=value.userId %>
+                                </td>
+                                <td class="no-break">
+                                    <%= value.date %>
+                                </td>
+                                <td>
+                                    <%= value.StudentName %>
+
+                                </td>
+                                <td>
+                                    <%= value.Address %>
+                                </td>
+                                <td>
+                                    <%= value.StudentNumber %>
+                                </td>
+                                <td>
+                                    <%= value.JamiaCollegeNameAddress %>
+                                </td>
+                                <td>
+                                    <%= value.Degree%>
+                                </td>
+                                <td>
+                                    <%= value.MarufShakhsName %>
+                                </td>
+                                <td>
+                                    <%= value.MarufShakhsNumber %>
+                                </td>
+                                <td>
+                                    <%= value.TausiaReason %>
+                                </td>
+                                <td>
+                                    <a class="btn btn-primary btn-sm" target="_blank"
+                                        href="/TausiaTalaba/images/<%= value.image %>">
+
+                                        See Image
+                                    </a>
+                                </td>
+                                <td>
+                                    <a class="btn btn-primary btn-sm" target="_blank"
+                                        href="/TausiaTalaba/documents/<%= value.document %>">
+
+                                        See Document
+                                    </a>
+                                </td>
+                                <td>
+                                    <button class="btn btn-primary download-pdf-btn btn-small"
+                                        data-id="<%= value._id %>">
+                                        Download Pdf
+                                    </button>
+                                </td>
+                                <td>
+
+                                    <input class="status-input" data-id="<%= value._id %>" type="text"
+                                        value="<%= value.status %>">
+
+                                </td>
+                                <td>
+                                    <button class="btn btn-warning update-btn btn-sm" data-id="<%= value._id %>">
+                                        Update Status
+                                    </button>
+                                </td>
+
+                                <td>
+                                    <button class="btn btn-danger reject-btn" data-id="<%= value._id %>">
+                                        Reject
+                                    </button>
+                                </td>
+                            </tr>
+                            <% }) %>
+                                <% }else{ %>
+
+                                    <tr>
+                                        <td colspan="17">
+                                            <b> No Data Present</b>
+                                        </td>
+                                    </tr>
+
+                                    <% } %>
+
+                </table>
+                <div class="pagination">
+                    <% if(pagination.page> 1){ %>
+
+                        <a href="/tausia-talaba-approved?page=<%= pagination.page - 1 %>">Prev</a>
+
+                        <% }else{ %>
+                            <a href="/tausia-talaba-approved" class="inactive">Prev</a>
+                            <% } %>
+
+                                <a href="" class="inactive">
+
+                                    <%= pagination.page %> Of <%= pagination.endPage %>
+
+                                </a>
+
+                                <% if(pagination.endPage> pagination.page){ %>
+                                    <a href="/tausia-talaba-approved?page=<%= pagination.page + 1 %>">Next</a>
+                                    <% }else{ %>
+                                        <a href="/tausia-talaba-approved" class="inactive">Next</a>
+                                        <% } %>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+            crossorigin="anonymous"></script>
+
+        <script src="./javascript/TausiaTalaba/rejected.js"></script>
+        <script src="./javascript/TausiaTalaba/update-talaba-status.js"></script>
+</body>
+
+</html>

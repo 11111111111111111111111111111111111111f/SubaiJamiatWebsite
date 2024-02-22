@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ur">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <title>Sobai Jamiat Ahle Hadees Mumbai</title> -->
+
+    <!-- all css and js  files are here included -->
+    <%- include('./common/css&js') %>
+        <!-- own contact css file link  -->
+        <link rel="stylesheet" href="./css/contact.css">
+
+</head>
+
+<body data-active="donate">
+
+    <!-- header and chats and loading animation included here  -->
+    <%- include('./common/header') %>
+
+        <!-- content section starts here  -->
+
+        <section id="content">
+
+            <div class="main-container">
+
+                <div class="container2">
+
+                    <div class="row g-lg-5 g-xl-5 g-md-3 g-sm-2 g-2 justify-content-center">
+
+
+                        <!-- left column included here  -->
+
+                        <%- include('./common/left') %>
+
+                            <div class="column-center column col-12 col-sm-10 col-md-6 col-lg-6 col-xl-6">
+
+                                <div class="card">
+
+                                    <div class="top">
+
+                                        تعاون کریں
+
+                                    </div>
+
+                                    <div class="content">
+
+
+                                        <div class="form-container">
+
+                                            <form action="">
+
+                                                <label for="name">اپنا نام درج کریں</label>
+                                                <input type="text" id="name" name="name">
+
+                                                <label for="number"> اپنا فون نمبر درج کریں</label>
+                                                <input type="number" id="number" name="number">
+
+                                                <label for="amount">تعاون کی رقم</label>
+                                                <input type="number" id="amount" name="amount">
+
+                                                <div class="two-input">
+                                                    <select name="transaction-mode">
+                                                        <option value="" selected disabled>تعاون کا زریعہ</option>
+                                                        <option value="phonepe">phonepe</option>
+                                                        <option value="google pay">google pay</option>
+                                                        <option value="paytm">paytm</option>
+                                                    </select>
+                                                </div>
+
+                                                <div class="two-input">
+
+                                                    <select name="donation-type">
+                                                        <option value="" selected disabled>تعاون کی قسمیں</option>
+                                                        <option value="علماء ودعاۃ کی کفالت میں تعاون">علماء ودعاۃ کی
+                                                            کفالت میں تعاون</option>
+                                                        <option value="طلبہ کی کفالت میں تعاون">طلبہ کی کفالت میں تعاون
+                                                        </option>
+                                                        <option value="کتب کی نشر واشاعت میں تعاون">کتب کی نشر واشاعت
+                                                            میں تعاون</option>
+                                                        <option value="تعمیر مساجد میں تعاون">تعمیر مساجد میں تعاون
+                                                        </option>
+                                                        <option value="ریلیف فنڈ میں تعاون">ریلیف فنڈ میں تعاون</option>
+                                                    </select>
+                                                </div>
+
+                                                <div class="d-flex justify-content-around flex-wrap text-start">
+                                                    <div class="account-details">
+                                                        <p><b>Account details : </b></p>
+                                                        <p><b>A/C :</b> Subai Jamiat Ahle Hadees Mumbai</p>
+                                                        <p><b>A/C NO:</b> 50200067741431</p>
+                                                        <p><b>Bank:</b> HDFC and Branch: Kurla West </p>
+                                                        <p><b>IFSC Code:</b> HDFC0007453 (ALL ZEROS)</p>
+                                                    </div>
+                                                    <span>
+                                                        <img src="./images/jamiat-qr-code.jpg"
+                                                            style="max-width:100%;width:200px;">
+                                                    </span>
+
+
+
+                                                </div>
+
+                                                <p class="message" style="color:var(--blue);font-size:12px;"></p>
+
+                                                <div class="submit-container">
+
+                                                    <input type="submit" value="ارسال کریں">
+
+                                                </div>
+
+                                            </form>
+
+                                        </div>
+
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <!-- right column included here  -->
+
+                            <%- include('./common/right') %>
+
+
+                    </div>
+
+                </div>
+
+        </section>
+
+        <!-- footer included here  -->
+
+        <%- include('./common/footer') %>
+
+</body>
+
+</html>

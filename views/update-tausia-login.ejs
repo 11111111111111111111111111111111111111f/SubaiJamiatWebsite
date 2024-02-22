@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="./images/logo-square.png">
+    <link rel="stylesheet" href="./css/donate.css">
+    <title>Update Tausia Registeration Data Login || Subai Jamiat Ahle Hadees Mumbai</title>
+    <style>
+        /* nastalique fonts */
+        @import url("https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;500;600;700&display=swap");
+
+        * {
+            font-family: "Noto Nastaliq Urdu", serif;
+            text-align: right;
+            direction: rtl;
+        }
+
+        .heading {
+            text-decoration: none;
+        }
+
+        .submit-container button {
+
+            padding-block: 0;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form>
+            <h1 class="heading">
+                توصیہ اپڈیٹ کرنے کے لئے لاگ ان کریں
+            </h1>
+            <div>
+                <label for="userId"> اپنا یوسر آئی ڈی ڈالیں</label>
+                <input type="text" id="userId" name="userId" placeholder="یوسر آئی ڈی ڈالیں">
+            </div>
+            <div>
+                <label for="password"> پاسورڈ ڈالیں</label>
+                <input type="password" id="password" name="password" placeholder="پاسورڈ ڈالیں">
+            </div>
+            <span class="error"></span>
+            <span class="success"></span>
+            <div class='submit-container'>
+                <button type="submit">
+                    لاگ ان کریں
+                </button>
+            </div>
+        </form>
+        <script>
+            const form = document.querySelector( 'form' )
+            const error = document.querySelector( '.error' )
+            const userId = document.querySelector( 'input[name=userId]' )
+            const password = document.querySelector( 'input[name=password]' )
+
+            form.onsubmit = async ( e ) => {
+                e.preventDefault()
+                if ( userId.value == '' || password.value.length == '' ) {
+                    // error.innerHTML = 'Please Enter Valid Credentials'
+                    error.innerHTML = 'پوری معلومات ڈالیں'
+                    return
+                } else {
+                    error.innerHTML = ''
+                }
+                // let formData = new FormData( form )
+                let formData = {
+                    userId: userId.value,
+                    password: password.value
+                }
+                let request = await fetch( '/update-tausia-registeration-data', {
+                    method: 'post',
+                    body: JSON.stringify( formData ),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                } )
+                let response = await request.json()
+                if ( response.status == 'invalid' ) {
+
+                    // error.innerHTML = 'Please Enter Valid Credentials'
+
+                    error.innerHTML = 'صحیح معلومات ڈالیں'
+
+                } else if ( response.status == 'valid' ) {
+                    location.href = '/update-tausia-registeration'
+                } else {
+                    location.href = '/error'
+                }
+            }
+        </script>
+    </div>
+</body>
+
+</html>

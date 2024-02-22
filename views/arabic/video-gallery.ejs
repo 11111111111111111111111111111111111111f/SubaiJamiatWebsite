@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobai Jamiat Ahle Hadees Mumbai</title>
+    <!-- all css and js  files are here included -->
+    <%- include('./common/css&js') %>
+</head>
+
+<body data-active="video-gallery">
+
+    <!-- header and chats and loading animation included here  -->
+    <%- include('./common/loading') %>
+
+        <%- include('./common/header') %>
+
+            <!-- content section starts here  -->
+
+            <section id="content">
+
+                <div class="main-container">
+
+                    <div class="container2">
+
+                        <div class="row g-lg-5 g-xl-5 g-md-3 g-sm-2 g-2 justify-content-center">
+
+                            <!-- left column included here  -->
+
+                            <%- include('./common/left') %>
+
+
+                                <div class="column-center column  col-12 col-sm-10 col-md-6 col-lg-6 col-xl-6">
+
+                                    <div class="card">
+
+                                        <div class="top">
+
+                                            <h1>
+                                                أشرطة الفيديو
+
+                                            </h1>
+                                        </div>
+
+                                        <div class="content">
+
+                                            <div class="images row justify-content-center">
+
+                                                <% for(i=pagination.start - 1; i<=pagination.end - 1;i++){ %>
+
+                                                    <div class="img col-lg-6 col-xl-6 col-md-6 col-sm-6 col-12">
+
+                                                        <iframe
+                                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                                            allowfullscreen src="<%= youtubeData[i].Link %>"
+                                                            frameborder="0"></iframe>
+
+                                                    </div>
+                                                    <% } %>
+                                                        <div class="pagination text-center" dir="ltr">
+                                                            <% if(page < dataLength){ %>
+                                                                <a href="/video-gallery?page=<%= page+1 %>"
+                                                                    class="btn"><i
+                                                                        class="fa-solid fa-angle-left"></i></a>
+                                                                <% } %>
+                                                                    <% for(i=dataLength;i>=1;i--){ %>
+                                                                        <% if(i==page){ %>
+                                                                            <a href="/video-gallery?page=<%= i %>"
+                                                                                class="btn active">
+                                                                                <%= i %>
+                                                                            </a>
+                                                                            <% }else { %>
+                                                                                <a href="/video-gallery?page=<%= i %>"
+                                                                                    class="btn">
+                                                                                    <%= i %>
+                                                                                </a>
+                                                                                <% } %>
+
+                                                                                    <% } %>
+                                                                                        <span class="btn no-hover">
+                                                                                            <%= page %> of &nbsp; <%=
+                                                                                                    dataLength %>
+                                                                                        </span>
+                                                                                        <% if(page>1){ %>
+                                                                                            <a href="/video-gallery?page=<%= page-1 %>"
+                                                                                                class="btn"><i
+                                                                                                    class="fa-solid fa-angle-right"></i></a>
+                                                                                            <% } %>
+                                                        </div>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <!-- right column included here  -->
+
+                                <%- include('./common/right') %>
+
+                        </div>
+
+                    </div>
+
+            </section>
+
+
+            <!-- footer included here  -->
+
+            <%- include('./common/footer') %>
+
+
+
+</body>
+
+</html>

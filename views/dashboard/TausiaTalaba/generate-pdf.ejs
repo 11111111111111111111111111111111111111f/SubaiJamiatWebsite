@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tausia pdf</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            direction: rtl;
+            font-family: 'Noto Nastaliq Urdu';
+        }
+
+        .container {
+            padding: 10px 10px 10px 10px;
+            width: 100%;
+            min-height: 100vh;
+        }
+
+        .heading {
+            text-align: center;
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        .sub-heading {
+            text-align: center;
+            font-size: 17px;
+        }
+
+        .flex-container {
+            padding-inline: 50px;
+            font-size: 18px;
+        }
+
+        .flex {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .safeer-image {
+            /* margin-top: 5px; */
+            text-align: center;
+        }
+
+        .safeer-image img {
+            margin-bottom: 15px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 1px solid grey;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: fit-content;
+            margin-inline: auto;
+            margin-bottom: 20px;
+        }
+
+        td {
+            border: 1px solid black;
+            padding: 5px 10px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .empty {
+            min-width: 50px;
+        }
+
+        .signature {
+            text-align: left;
+            margin-left: 150px;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-around;
+            align-items: start;
+            gap: 10px;
+        }
+
+        /* 
+        .two-column {
+            padding: 0;
+            display: flex;
+            height: 100%;
+        }
+
+        .two-column span.first {
+            border: none;
+            border-left: 1px solid black;
+        }
+
+        .two-column span {
+            height: 100%;
+            padding-inline: 5px;
+            display: block;
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <header>
+
+            <div class="date">
+
+                <div>
+                    <b>
+                        طلب نمبر :
+                    </b>
+                    <span>
+                        <%= userId %>
+                    </span>
+                </div>
+
+                <div>
+                    <b>بتاریخ : </b>
+                    <span>
+                        <%= date %>
+                    </span>
+                </div>
+
+            </div>
+            <div>
+                <h1 class="heading">
+                    <%= StudentName %>
+                </h1>
+                <h2 class="sub-heading">
+                    (<%= JamiaCollegeNameAddress %>)
+                </h2>
+            </div>
+
+            <div class="safeer-image">
+                <div>
+                    <img src="http://localhost:5000/TausiaTalaba/images/<%= image %>" alt="student image">
+                </div>
+            </div>
+        </header>
+
+        <table>
+
+            <tr>
+                <td>
+
+                    : طالب کا نام مع ولدیت
+
+                </td>
+                <td>
+                    <%= StudentName %>
+                </td>
+
+                <td class="empty">
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    مکمل پتہ/ ایڈریس :
+                </td>
+                <td>
+                    <%= Address %>
+                </td>
+
+                <td class="empty"></td>
+            </tr>
+            <tr>
+                <td>
+                    طالب کا رابطہ نمبر :
+
+                </td>
+                <td>
+                    <%= StudentNumber %>
+                </td>
+
+                <td class="empty"></td>
+            </tr>
+            <tr>
+                <td>
+
+                    جامعہ/ کالج کا نام :
+
+
+                </td>
+                <td>
+                    <%= JamiaCollegeNameAddress %>
+                </td>
+
+                <td class="empty"></td>
+            </tr>
+            <tr>
+                <td>
+
+                    حاصل شدہ سند / ڈگری :
+
+
+                </td>
+                <td>
+                    <%= Degree %>
+                </td>
+
+                <td class="empty"></td>
+            </tr>
+            <tr>
+                <td>
+                    علاقے کی کسی معروف شخصیت کا نام و رابطہ نمبر جن سے توصیہ لیا ہے
+                </td>
+                <td>
+                    <%= MarufShakhsName %>
+                        <br>
+                        <%= MarufShakhsNumber %>
+                </td>
+
+                <td class="empty"></td>
+            </tr>
+            <tr>
+                <td>
+                    توصیہ حاصل کرنے کی وجہ :
+
+                </td>
+                <td>
+                    <%= TausiaReason %>
+                </td>
+
+                <td class="empty"></td>
+            </tr>
+
+        </table>
+
+        <div class="flex-container">
+
+            <div class="signature">
+                <b>
+                    دستخط امیر :
+                </b>
+            </div>
+
+        </div>
+
+    </div>
+</body>
+
+</html>

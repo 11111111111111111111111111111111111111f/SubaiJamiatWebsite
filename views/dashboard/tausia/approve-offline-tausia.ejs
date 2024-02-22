@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en" class="no-fs">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/dashboard/dashboard.css">
+    <!-- fontawesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+
+    <meta name="robots" content="noindex">
+
+    <title>Admin</title>
+</head>
+
+<body data-page="Tausia">
+
+    <div class=" main-container">
+
+        <div class="mobile-dashboard"></div>
+
+        <%- include('../common/dashboard-sidebar') %>
+
+            <div class="right">
+
+                <%- include('../common/dashboard-header') %>
+
+                    <div class="content">
+                        <div class="page">
+                            <span>
+                                <span class="bold">Dashboard</span>
+                                <i class="fa-solid fa-angle-right icon"></i>
+                            </span>
+                            <span>
+                                Tausia Registeration
+                                <i class="fa-solid fa-angle-right icon"></i>
+                            </span>
+                            <span>
+
+                                Approve Offline Tausia
+
+                            </span>
+                        </div>
+                        <div class="form-container">
+                            <form>
+                                <h3 class="heading">
+                                    Upload Offline Released Tausia
+                                </h3>
+                                <label for="tausiaId">
+                                    Enter tausia id :
+                                </label>
+                                <input type="text" id="tausiaId" placeholder="tausia id" name="tausiaId">
+                                <label for="expiryDate">
+                                    Enter tausia expiry date :
+                                </label>
+                                <input type="date" id="expiryDate" name="expiryDate">
+                                <label for="Image">
+                                    Upload image
+                                </label>
+                                <input type="file" id="Image" name="Image">
+                                <p class="message"></p>
+                                <input type="submit" class="btn btn-primary" value="Upload">
+                            </form>
+                        </div>
+                    </div>
+            </div>
+    </div>
+
+    <script src="./javascript/dashboard/dashboard.js"></script>
+    <script src="./javascript/tausia-reject.js"></script>
+    <script src="./javascript/update-status.js"></script>
+    <script>
+
+        const form = document.querySelector( '.form-container form' )
+        function setMsg ( message, status = "success" ) {
+            let msgPara = document.querySelector( '.message' )
+            msgPara.innerText = message;
+            if ( status == "success" ) {
+                msgPara.style.color = 'lightseagreen';
+            } else if ( status == "error" ) {
+                msgPara.style.color = 'crimson'
+            }
+        }
+        form.onsubmit = ( e ) => {
+
+            e.preventDefault()
+
+            let tausiaIdInput = form.querySelector( '#tausiaId' )
+            let expiryDateInput = form.querySelector( '#expiryDate' )
+            let imageInput = form.querySelector( '#Image' )
+
+            if ( tausiaIdInput.value.trim().length == 0 ) {
+
+                setMsg( "Please enter tausiaInput field properly.", "error" )
+                return
+            } else if ( expiryDateInput.value.trim().length == 0 ) {
+                setMsg( "Please enter expiry field properly", "error" )
+                return
+            }
+
+            if ( imageInput.files.length == 0 ) {
+                setMsg( "Please upload file" , "error" )
+                return
+            } else if ( !( imageInput.files[ 0 ].type == "image/jpg" || imageInput.files[ 0 ].type == "image/jpeg" || imageInput.files[ 0 ].type == "image/png" ) ) {
+                setMsg( "Please uploda an image" , "error" )
+                return
+            } else if ( imageInput.files[ 0 ].type == "image/jpg" || imageInput.files[ 0 ].type == "image/jpeg" || imageInput.files[ 0 ].type == "image/png" ) {
+
+                let sizeInKb = imageInput.files[ 0 ].size
+                let sizeInMb = Math.ceil( sizeInKb / 1024 )
+
+                if ( sizeInMb > 1024 ) {
+                    setMsg("Image size should be less than 1mb" , "error")
+                    return
+                }else{
+                    setMsg("")
+                }
+
+            }
+
+
+            let tempDate = expiryDateInput.value.split( '-' )
+            let convertedExpiryDate = tempDate[ 0 ] + '-' + tempDate[ 1 ] + '-' + tempDate[ 2 ] //year + "-" + month + "-" + day
+
+            let today = new Date()
+                today = `${today.getFullYear()}-${today.getMonth()}-${today.getDay()}`
+
+            let inputFile = new File(
+                [ imageInput.files[ 0 ] ],
+                imageInput.files[ 0 ].name,
+                { type: imageInput.files[ 0 ].type }
+            )
+
+            let formData = new FormData()
+            formData.append( "tausiaId", tausiaIdInput.value )
+            formData.append( "expiryDate", convertedExpiryDate )
+            formData.append( "Image", inputFile )
+            formData.append("Date",today)
+
+            fetch( '/upload-offline-released-tausia', {
+                method: 'POST',
+                body: formData,
+            } ).then( response => response.json() )
+                .then( response => {
+                    if(response.status == 'success'){
+                        setMsg("Tausia uploaded successfully." , "success")
+                        setTimeout(()=>{
+                            location.reload()
+                        },3000)
+                        return
+                    }else{
+                        
+                        setMsg(response.message , "error")
+                        return
+                    }
+                } )
+
+
+        }
+
+    </script>
+
+</body>
+
+</html>

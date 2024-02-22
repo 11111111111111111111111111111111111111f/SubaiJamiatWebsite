@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ur">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <title>Sobai Jamiat Ahle Hadees Mumbai</title> -->
+    <!-- all css and js  files are here included -->
+    <%- include('./common/css&js') %>
+        <link rel="stylesheet" href="./css/masajid.css">
+        <style>
+            a.head-btn {
+                font-size: 1.6rem !important;
+            }
+        </style>
+</head>
+
+<body data-active="fikh-w-fatawa">
+
+    <!-- header and chats and loading animation included here  -->
+    <%- include('./common/loading') %>
+
+
+        <%- include('./common/header') %>
+
+
+            <!-- content section starts here  -->
+
+            <section id="content">
+
+                <div class="main-container">
+
+                    <div class="container2">
+
+                        <div class="row g-lg-5 g-xl-5 g-md-3 g-sm-2 g-2 justify-content-center">
+
+
+                            <!-- left column included here  -->
+
+                            <%- include('./common/left') %>
+
+                                <div class="column-center column col-12 col-sm-10 col-md-6 col-lg-6 col-xl-6">
+
+                                    <div class="card moon">
+
+                                        <div class="top">
+
+                                            <h1>
+
+                                                فقہ و فتاویٰ
+
+                                            </h1>
+
+                                        </div>
+
+                                        <div class="content">
+
+                                            <div class="head-container">
+                                                <% FatawaTitles.forEach(value=>{ %>
+                                                    <div class="head-wrapper">
+
+                                                        <a href="/<%= value.No %>" class="head-btn">
+
+                                                            <span class="place-title flex-grow-1 text-center">
+                                                                <span dir="rtl">
+                                                                    <%= value.Title %>
+                                                                </span>
+                                                            </span>
+
+                                                        </a>
+                                                    </div>
+                                                    <% }) %>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- right column included here  -->
+
+                                <%- include('./common/right') %>
+
+                        </div>
+
+                    </div>
+
+            </section>
+
+            <!-- footer included here  -->
+
+            <%- include('./common/footer') %>
+</body>
+
+</html>

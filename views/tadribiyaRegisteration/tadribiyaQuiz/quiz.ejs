@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> TADRIBIYA QUIZ || SUBAI JAMIAT AHLE HADEES MUMBAI </title>
+
+    <link rel="stylesheet" href="./css/donate.css">
+
+    <style>
+        /* in donate.css there is margin on input  so remove it */
+        .questionContainer input {
+            height: unset;
+        }
+    </style>
+
+    <!-- mdb bootstrap required cdn link  -->
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.min.css" rel="stylesheet" />
+
+
+    <!-- own css link  -->
+    <link rel="stylesheet" href="./css/quiz.css">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="start-container">
+            <div class="hero">
+                <img src="https://dorar.net/contest_assets/img/_bg.png" class="bg-image">
+
+                <h1 class="heading">
+                    مسابقہ صوبائی جمیعت اہل حدیث ممبئی
+                </h1>
+                <h3>
+                    مسابقہ ماہ رمضان المبارک
+                </h3>
+                <p>
+                    <b>
+                        ’صوبائل جمیعت اہل حدیث ممبئی‘
+                    </b>
+                    ویب سائٹ پر اپنے معزز زائرین کے لئے ایک مفید علمی مسابقہ پیش کررہی ہے،
+                    <br>
+                    جس کا مقصد آپ کی علمی صلاحیت کو نکھارنا اور دینی اعتبار سے بیداری پیدا کرنا ہے۔
+                </p>
+
+                <button class="start-btn">
+                    مسابقہ کے لئے کلک کریں
+                    <span class="btn-icon">
+                        <i class="fa-solid fa-left-long"></i>
+                    </span>
+                </button>
+            </div>
+
+            <div class="rules-container">
+
+
+                <h1 class="rules-heading">
+                    آن لائن مسابقہ کے شرائط
+                </h1>
+
+                <div class="rule-box-container">
+
+                    <div class="rule-box">
+                        <div class="rule-icon">
+                            <img src="https://dorar.net/contest_assets/img/con-icon.svg" alt="">
+                        </div>
+                        <div class="rule">
+
+                            یہ مسابقہ پندرہ رمضان تک جاری رہے گا، اس درمیان خواہش مند حضرات اپنی دلچسپی کا مظاہرہ کرتے
+                            ہوئے
+                            اس میں حصہ لے سکتے ہیں۔
+
+                        </div>
+                    </div>
+
+
+                    <div class="rule-box">
+                        <div class="rule-icon">
+                            <img src="https://dorar.net/contest_assets/img/con-icon.svg" alt="">
+                        </div>
+                        <div class="rule">
+                            یہ مسابقہ
+                            ’
+                            <a href="https://drive.google.com/file/d/1gnQK6D8qW-T5j5BhjdMfrEqyv6WQxpzl/view" download
+                                target="_blank">
+                                کتاب التوحید
+                            </a>
+                            از شیخ الاسلام محمد بن عبد الوہاب‘ کے نصف حصہ یعنی باب اول تا باب ۳۳ پر
+                            مشتمل ہے۔
+                        </div>
+                    </div>
+
+                    <div class="rule-box">
+                        <div class="rule-icon">
+                            <img src="https://dorar.net/contest_assets/img/con-icon.svg" alt="">
+                        </div>
+                        <div class="rule">
+
+                            ہر سوال کے تحت چار آپشن دئے گئے ہیں، جن میں سے آپ کو کوئی ایک صحیح جواب منتخب کرنا ہے۔
+
+                        </div>
+                    </div>
+
+                    <div class="rule-box">
+                        <div class="rule-icon">
+                            <img src="https://dorar.net/contest_assets/img/con-icon.svg" alt="">
+                        </div>
+                        <div class="rule">
+
+                            ہر سوال کا ایک متعین وقت مقرر ہوگا آپ کو اسی میں جواب دینا ہوگا۔
+
+                        </div>
+                    </div>
+
+                    <div class="rule-box">
+                        <div class="rule-icon">
+                            <img src="https://dorar.net/contest_assets/img/con-icon.svg" alt="">
+                        </div>
+                        <div class="rule">
+
+                            ہر مشارک کو صرف ایک مرتبہ ہی حصہ لینے کی اجازت ہوگی۔
+
+                        </div>
+                    </div>
+                    <div class="rule-box">
+                        <div class="rule-icon">
+                            <img src="https://dorar.net/contest_assets/img/con-icon.svg" alt="">
+                        </div>
+                        <div class="rule">
+
+                            پچیس رمضان تک مسابقہ میں ممتاز نمبر سے کامیاب
+                            ہونے والوں کی لسٹ جاری کی جائے گی ان شاء اللہ ۔
+                        </div>
+                    </div>
+                    <div class="rule-box">
+                        <div class="rule-icon">
+                            <img src="https://dorar.net/contest_assets/img/con-icon.svg" alt="">
+                        </div>
+                        <div class="rule">
+
+                            شرکت کرنے والوں میں سے پہلے پانچ ممتازین کو انعامات سے نوازا جائیگا ان شاء اللہ۔
+
+                        </div>
+                    </div>
+                    <div class="rule-box">
+                        <div class="rule-icon">
+                            <img src="https://dorar.net/contest_assets/img/con-icon.svg" alt="">
+                        </div>
+                        <div class="rule">
+
+                            اپنے تمام مطلوبہ معلومات کو صحیح طریقے سے پور کریں اور واٹس اپ موبائل نمبر درج کریں۔
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="quiz-start-row">
+
+                    <div class="text-right">
+                        انعام
+                        <span>
+                            :
+                        </span>
+                    </div>
+                    <div>
+                        <button class="start-btn">
+                            مسابقہ کے لئے کلک کریں
+                            <span class="btn-icon">
+                                <i class="fa-solid fa-left-long"></i>
+                            </span>
+                        </button>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+
+        <!-- <div class="start-container">
+
+            <h1 class="heading">
+                آن لائن مسابقہ کے شرائط
+            </h1>
+
+            <div class="note">
+                <a href="/imp-notice" target="_blank">
+                    <span>
+                        نوٹ
+                    </span>
+                    <span>
+                        :
+                    </span>
+                </a> 
+                <ul>
+                    <li>
+                        <span>
+                            <b>
+
+                                آن لائن مسابقہ کے شرائط
+                    
+                        </b>
+                            <span>:</span>
+                        </span>
+
+                        ہر سوال کا چار جواب دیے گئے ہیں۔ ان میں سے آپ کو ایک صحیح جواب چننا ہے اور ہر سوال کا ایک مخصوص
+                        وقت مقرر ہے آپ کو اتنے وقت میں سوال کو حل کرنا ہے نہیں تو سیدھا نیا سوال آجائیگا۔
+
+                    </li>
+                    <li>
+                        ایک بار کوئز شروع ہونے کے بعد اس سے پیچھے نہیں آسکتے۔
+                    </li>
+                    <li>
+                        ایک بار کوئز کھیلنے کے بعد آپ اسکو دوبارہ نہیں دیکھ سکتے۔
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <button class="start-btn" type="button">
+                مسابقہ کے لئے کلک کریں
+            </button>
+
+        </div> -->
+
+        <form class="questionContainer" action="/quiz-submittion" method="post">
+
+            <% QuizData.forEach((data , index)=>{ %>
+
+                <div class="question-wrapper" data-questionNo="<%= data.questionNo %>"
+                    data-minute="<%= data.time.minute %>" data-second="<%= data.time.second %>">
+
+                    <div class="quiz-header">
+                        <div class="quiz-title">
+
+                            تدریبیہ کوئز
+
+                        </div>
+
+                        <div class="quiz-time">
+
+                            <div class="time-label">
+                                بقیہ وقت
+                            </div>
+                            <div class="time">
+
+                                <span class="minute">
+                                    00
+                                </span>
+                                <span class="text">
+                                    م
+                                </span>
+                                <span class="colon">
+                                    :
+                                </span>
+                                <span class="second">
+                                    00
+                                </span>
+                                <span class="text">
+                                    س
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="quiz-body">
+
+                        <h1 class="question">
+                            سوال نمبر
+                            <span>
+                                <%= data.questionNo %>
+                                    :
+                            </span>
+
+                            <%= data.question %>
+
+                        </h1>
+
+                        <ul class="options">
+                            <input type="radio" checked style="display:none;" value="null"
+                                name="q<%= data.questionNo %>">
+                            <% data.ans.forEach((value)=>{ %>
+                                <li>
+                                    <span class="form-check">
+                                        <input type="radio" id="<%= value.optionNo %><%= data.questionNo %>"
+                                            class="form-check-input" name="q<%= data.questionNo  %>"
+                                            value="<%= value.optionNo %>">
+                                    </span>
+                                    <label for="<%= value.optionNo %><%= data.questionNo %>">
+                                        <%= value.option %>
+                                    </label>
+                                </li>
+                                <% }) %>
+                        </ul>
+
+                        <% if(index !=QuizData.length - 1){ %>
+
+                            <div class="next-btn-container">
+                                <button class="next-btn" type="button">
+                                    آگلے سوال پہ جائیں
+                                </button>
+                            </div>
+
+                            <% }else{ %>
+                                <div class="submit-btn-container">
+                                    <button class="submit-btn" type="submit">
+                                        کوئز سبمٹ کریں
+                                    </button>
+                                </div>
+                                <% } %>
+
+                    </div>
+
+                </div>
+
+                <% }) %>
+
+                    <!-- <div class="question-wrapper" data-questionNo="1" data-minute="00" data-second="59">
+
+                        <div class="quiz-header">
+
+                            <div class="quiz-title">
+                                تدریبیہ کوئز
+                            </div>
+
+                            <div class="quiz-time">
+
+                                بقیہ وقت
+
+                                <div class="time">
+
+                                    <span class="text">
+                                        s
+                                    </span>
+                                    <span class="second">
+                                        00
+                                    </span>
+
+                                    <span class="colon">
+                                        :
+                                    </span>
+                                    <span class="text">
+                                        m
+                                    </span>
+                                    <span class="minute">
+                                        00
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+
+                        </div>
+
+                        <div>
+                            <h1 class="question">
+                                سوال نمبر
+                                <span>
+                                    ۱
+                                    :
+                                </span>
+                                السلام علیکم ورحمت اللہ وبرکاتہ کب کہتے ہیں
+                            </h1>
+
+                            <ul class="options">
+
+                                <li>
+
+                                    <span class="form-check">
+                                        <input type="radio" id="a2" class="form-check-input" name="option" value="a">
+                                    </span>
+
+                                    <label for="a2">
+
+                                        جب ہم سونے جاتے ہیں تب کہتے ہیں
+
+                                    </label>
+
+                                </li>
+                                <li>
+
+                                    <span class="form-check">
+                                        <input type="radio" id="b2" class="form-check-input" name="option" value="b">
+                                    </span>
+
+                                    <label for="b2">
+
+
+                                        جب ہم سو کے اٹھتے ہیں تب کہتے ہیں
+
+                                    </label>
+
+                                </li>
+                                <li>
+
+                                    <span class="form-check">
+                                        <input type="radio" id="c3" class="form-check-input" name="option" value="c">
+                                    </span>
+
+                                    <label for="c3">
+
+                                        جب ہم کھانا کھانے جاتے ہیں تب کہتے ہیں
+
+                                    </label>
+
+                                </li>
+                                <li>
+
+                                    <span class="form-check">
+                                        <input type="radio" id="d4" class="form-check-input" name="option" value="d">
+                                    </span>
+
+                                    <label for="d4">
+
+                                        جب کسی سے ملتے ہیں یا جب بھی کسے سے جدا ہوتے وقت کہتے ہیں
+
+                                    </label>
+
+                                </li>
+                            </ul>
+                            <div class="next-btn-container">
+                                <button class="next-btn" type="button">
+                                    آگلے سوال پہ جائیں
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="question-wrapper" data-questionNo="2" data-minute="00" data-second="30">
+
+                        <div class="quiz-header">
+
+                            <div class="quiz-title">
+                                تدریبیہ کوئز
+                            </div>
+
+                            <div class="quiz-time">
+
+                                بقیہ وقت
+
+                                <div class="time">
+
+                                    <span>
+                                        s
+                                    </span>
+                                    <span class="second">
+                                        00
+                                    </span>
+
+                                    <span class="colon">
+                                        :
+                                    </span>
+                                    <span>
+                                        m
+                                    </span>
+                                    <span class="minute">
+                                        00
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+
+                        </div>
+
+                        <div>
+                            <h1 class="question">
+                                سوال نمبر
+                                <span>
+                                    ۲
+                                    :
+                                </span>
+                                السلام علیکم ورحمت اللہ وبرکاتہ کب کہتے ہیں
+                            </h1>
+
+                            <ul class="options">
+
+                                <li>
+
+                                    <span class="form-check">
+                                        <input type="radio" id="a" class="form-check-input" name="option" value="a">
+                                    </span>
+
+                                    <label for="a">
+
+                                        جب ہم سونے جاتے ہیں تب کہتے ہیں
+
+
+                                    </label>
+
+                                </li>
+                                <li>
+
+                                    <span class="form-check">
+                                        <input type="radio" id="b" class="form-check-input" name="option" value="b">
+                                    </span>
+
+                                    <label for="b">
+
+
+                                        جب ہم سو کے اٹھتے ہیں تب کہتے ہیں
+
+                                    </label>
+
+                                </li>
+                                <li>
+
+                                    <span class="form-check">
+                                        <input type="radio" id="c" class="form-check-input" name="option" value="c">
+                                    </span>
+
+                                    <label for="c">
+
+                                        جب ہم کھانا کھانے جاتے ہیں تب کہتے ہیں
+
+                                    </label>
+
+                                </li>
+                                <li>
+
+                                    <span class="form-check">
+                                        <input type="radio" id="d" class="form-check-input" name="option" value="d">
+                                    </span>
+
+                                    <label for="d">
+
+                                        جب کسی سے ملتے ہیں یا جب بھی کسے سے جدا ہوتے وقت کہتے ہیں
+
+                                    </label>
+
+                                </li>
+                            </ul>
+                            <div class="next-btn-container">
+                                <button class="next-btn" type="button">
+                                    آگلے سوال پہ جائیں
+                                </button>
+                            </div>
+                        </div>
+
+                    </div> -->
+
+        </form>
+
+
+    </div>
+
+    <script src="./javascript/quiz.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tausia pdf</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            direction: rtl;
+            font-family: 'Noto Nastaliq Urdu';
+        }
+
+        .container {
+            padding: 10px 10px 10px 10px;
+            width: 100%;
+            min-height: 100vh;
+        }
+
+        .heading {
+            text-align: center;
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        .sub-heading {
+            text-align: center;
+            font-size: 17px;
+        }
+
+        .flex-container {
+            padding-inline: 50px;
+            font-size: 18px;
+        }
+
+        .flex {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .safeer-image {
+            /* margin-top: 5px; */
+            text-align: center;
+        }
+
+        .safeer-image img {
+            margin-bottom: 15px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 1px solid grey;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: fit-content;
+            margin-inline: auto;
+            margin-bottom: 20px;
+        }
+
+        td {
+            border: 1px solid black;
+            padding: 5px 10px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .empty {
+            min-width: 50px;
+        }
+
+        .signature {
+            text-align: left;
+            margin-left: 150px;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-around;
+            align-items: start;
+            gap: 10px;
+        }
+
+        /* 
+        .two-column {
+            padding: 0;
+            display: flex;
+            height: 100%;
+        }
+
+        .two-column span.first {
+            border: none;
+            border-left: 1px solid black;
+        }
+
+        .two-column span {
+            height: 100%;
+            padding-inline: 5px;
+            display: block;
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <header>
+
+            <div class="date">
+
+                <div>
+                    <b>
+                        طلب نمبر :
+                    </b>
+                    <span>
+                        <%= userId %>
+                    </span>
+                </div>
+
+                <div>
+                    <b>بتاریخ : </b>
+                    <span>
+                        <%= date %>
+                    </span>
+                </div>
+
+            </div>
+            <div>
+                <h1 class="heading">
+                    <%= MasjidMadarsaName %>
+                </h1>
+                <h2 class="sub-heading">
+                    (<%= MasjidMadarsaAddress %>)
+                </h2>
+            </div>
+
+            <div class="safeer-image">
+                <div>
+                    <img src="http://localhost:5000/tausia-images/<%= SafeerImage %>" alt="SafeerImage">
+                </div>
+            </div>
+        </header>
+
+        <table>
+
+            <tr>
+                <td>
+                    ادارہ/ مسجد :
+                </td>
+                <td>
+                    <%= Qism %>
+                </td>
+                <td></td>
+                <td class="empty">
+
+                </td>
+            </tr>
+            <tr>
+                <td>برائے : </td>
+                <td>
+                    <%= Braye %>
+                </td>
+                <td></td>
+                <td class="empty"></td>
+            </tr>
+            <tr>
+                <td>مسجد یا مدرسہ نام مع مکمل پتہ : </td>
+                <td>
+                    <%= MasjidMadarsaName %><br>
+                        <%= MasjidMadarsaAddress %>
+                </td>
+                <td></td>
+                <td class="empty"></td>
+            </tr>
+            <tr>
+                <td>رجشٹرڈ سوسائٹی / ٹرسٹ کا نام : </td>
+                <td>
+                    <%= SocietyTrustName %>
+                </td>
+                <td></td>
+                <td class="empty"></td>
+            </tr>
+            <tr>
+                <td>کل طلبہ / طالبات کی تعداد : </td>
+                <td>
+                    <%= TotalNumberOfStudents %>
+                </td>
+                <td></td>
+                <td class="empty"></td>
+            </tr>
+            <tr>
+                <td>اقامتی طلبہ / طالبات کی تعداد : </td>
+                <td>
+                    <%= TotalNumberOfAqamtiStudents %>
+                </td>
+                <td></td>
+                <td class="empty"></td>
+            </tr>
+            <tr>
+                <td> سوسائٹی / ٹرسٹ کے صدر کا نام اور موبائل نمبر : </td>
+                <td>
+                    <%= SocietyTrustPresidentNameNumber %>
+                </td>
+                <td></td>
+                <td class="empty"></td>
+            </tr>
+            <tr>
+                <td>سوسائٹی / ٹرسٹ کے سیکریٹری کا نام اور موبائل نمبر : </td>
+                <td>
+                    <%= SocietyTrustSecretarieNameNumber %>
+                </td>
+                <td></td>
+                <td class="empty"></td>
+            </tr>
+            <tr>
+                <td>سفیر کا نام / سفیر کا نمبر</td>
+                <td>
+
+                    <%= SafeerName %>
+
+                </td>
+                <td>
+                    <%= SafeerNumber %>
+                </td>
+
+                <td class="empty"></td>
+            </tr>
+            <!-- <tr>
+                <td>سفیر کا نمبر : </td>
+                <td>
+                    <%= SafeerNumber %>
+                </td>
+                <td></td>
+                <td class="empty"></td>
+            </tr> -->
+            <tr>
+                <td>ضلعی جمعیت اہل حدیث کے امیر و ناظم کے نام اور موبائل نمبر : </td>
+                <td>
+                    <%= DistrictJamiatAmirNazimNameNumber %>
+                </td>
+                <td></td>
+                <td class="empty"></td>
+            </tr>
+            <tr>
+                <td>صوبائی جمعیت اہل حدیث کے امیر و ناظم کے نام اور موبائل نمبر : </td>
+                <td>
+                    <%= SubaiJamiatAmirNazimNameNumber %>
+                </td>
+                <td></td>
+                <td class="empty"></td>
+            </tr>
+            <tr>
+                <td>
+                    توصیہ طلب کرنے کا مقصد اور اس کی تفصیل:
+                </td>
+                <td>
+                    <%= TausiaReason %>
+                </td>
+                <td></td>
+                <td class="empty"></td>
+            </tr>
+
+        </table>
+
+        <div class="flex-container">
+
+            <div class="signature">
+                <b>
+                    دستخط امیر :
+                </b>
+            </div>
+
+        </div>
+
+    </div>
+</body>
+
+</html>

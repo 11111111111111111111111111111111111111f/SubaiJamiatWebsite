@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="./images/logo-square.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/donate.css">
+    <link rel="stylesheet" href="./css/admin.css">
+    <style>
+        .status-input {
+            width: 150px;
+            text-align: center;
+            border: none;
+            outline: none;
+            background: transparent;
+        }
+
+        .file {
+            max-width: 150px;
+        }
+
+        .tausia-id {
+            width: 120px;
+            padding-inline: 10px;
+            outline: none;
+            border: 2px solid grey;
+        }
+    </style>
+    <title>Tausia Admin Page || Subai Jamiat Ahle Hadees Mumbai</title>
+</head>
+
+<body>
+
+    <%- include('./common/tausia-navbar') %>
+
+        <div class="container">
+            <div class="table-container">
+                <table class="table table-striped">
+                    <tr>
+                        <th>
+                            userId
+                        </th>
+                        <th>
+                            Date
+                        </th>
+                        <th>
+                            Qism
+                        </th>
+                        <th>
+                            Braye
+                        </th>
+                        <th>
+                            MasjidMadarsaName
+                        </th>
+                        <th>
+                            MasjidMadarsaAddress
+                        </th>
+                        <th>
+                            SocietyTrustName
+                        </th>
+                        <th>
+                            TotalNumberOfStudents
+                        </th>
+                        <th>
+                            TotalNumberOfAqamtiStudents
+                        </th>
+                        <th>
+                            SocietyTrustPresidentNameNumber
+                        </th>
+                        <th>
+                            SocietyTrustSecretarieNameNumber
+                        </th>
+                        <th>
+                            SafeerName
+                        </th>
+                        <th>
+                            SafeerNumber
+                        </th>
+
+                        <th>
+                            DistrictJamiatAmirNazimNameNumber
+                        </th>
+                        <th>
+                            SubaiJamiatAmirNazimNameNumber
+                        </th>
+                        <th>
+                            SafeerImage
+                        </th>
+                        <th>
+                            Document
+                        </th>
+                        <th>
+                            TausiaReason
+                        </th>
+                        <th>
+                            Status
+                        </th>
+                        <th>
+                            Update
+                        </th>
+                        <th>
+                            Download Pdf
+                        </th>
+                        <th>
+                            Upload Image
+                        </th>
+                        <th>
+                            Upload Tausia Id
+                        </th>
+                        <th>
+                            Upload Btn
+                        </th>
+                        <th>
+                            Reject
+                        </th>
+
+                    </tr>
+                    <% if(TausiaData.length> 0){ %>
+                        <% TausiaData.forEach(value=>{ %>
+
+                            <tr>
+                                <td class="no-break">
+                                    <%= value.userId %>
+                                </td>
+                                <td class="no-break">
+                                    <%= value.date %>
+                                </td>
+                                <td>
+                                    <%= value.Qism %>
+                                </td>
+                                <td>
+                                    <%= value.Braye %>
+                                </td>
+                                <td>
+                                    <%= value.MasjidMadarsaName %>
+                                </td>
+                                <td>
+                                    <%= value.MasjidMadarsaAddress %>
+                                </td>
+                                <td>
+                                    <%= value.SocietyTrustName %>
+                                </td>
+                                <td>
+                                    <%= value.TotalNumberOfStudents %>
+                                </td>
+                                <td>
+                                    <%= value.TotalNumberOfAqamtiStudents %>
+                                </td>
+                                <td>
+                                    <%= value.SocietyTrustPresidentNameNumber %>
+                                </td>
+                                <td>
+                                    <%= value.SocietyTrustSecretarieNameNumber %>
+                                </td>
+                                <td>
+                                    <%= value.SafeerName %>
+                                </td>
+                                <td>
+                                    <%= value.SafeerNumber %>
+                                </td>
+                                <td>
+                                    <%= value.DistrictJamiatAmirNazimNameNumber %>
+                                </td>
+                                <td>
+                                    <%= value.SubaiJamiatAmirNazimNameNumber %>
+                                </td>
+                                <td>
+                                    <a class="btn btn-primary btn-sm" target="_blank"
+                                        href="./tausia-images/<%= value.SafeerImage %>">
+                                        Show Image
+                                    </a>
+                                </td>
+                                <td>
+                                    <a class="btn btn-primary btn-sm" target="_blank"
+                                        href="./tausia-documents/<%= value.Document %>">
+                                        Show Documents
+                                    </a>
+                                </td>
+                                <td>
+                                    <%= value.TausiaReason %>
+                                </td>
+                                <td>
+                                    <input class="status-input" data-id="<%= value._id %>" type="text"
+                                        value="<%= value.status %>">
+                                </td>
+                                <td>
+                                    <button data-id="<%= value._id %>"
+                                        class="btn text-white btn-warning update-btn btn-sm">Update Status</button>
+                                </td>
+                                <td>
+                                    <button data-id="<%= value._id %>" class="btn btn-primary btn-sm download-pdf-btn">
+                                        Download Pdf
+                                    </button>
+                                </td>
+                                <td>
+                                    <input type="file" class="file" data-id="<%= value._id %>">
+                                </td>
+                                <td>
+                                    <input type="text" class="tausia-id" data-id="<%= value._id %>">
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-primary upload-btn btn-small"
+                                        data-id="<%= value._id %>">
+                                        Upload
+                                    </button>
+                                </td>
+                                <td>
+                                    <button data-id="<%= value._id %>" class=" btn btn-danger reject">
+                                        Reject
+                                    </button>
+                                </td>
+                            </tr>
+
+                            <% }) %>
+                                <% }else{ %>
+                                    <tr>
+                                        <td colspan="25">
+                                            No Data Present
+                                        </td>
+                                    </tr>
+                                    <% } %>
+                </table>
+
+                <div class="pagination">
+                    <% if(pagination.page> 1){ %>
+
+                        <a href="/tausia-approved?page=<%= pagination.page - 1 %>">Prev</a>
+
+                        <% }else{ %>
+                            <a href="/tausia-approved" class="inactive">Prev</a>
+                            <% } %>
+
+                                <a href="" class="inactive">
+
+                                    <%= pagination.page %> Of <%= pagination.endPage %>
+
+                                </a>
+
+
+
+                                <% if(pagination.endPage> pagination.page){ %>
+                                    <a href="/tausia-approved?page=<%= pagination.page + 1 %>">Next</a>
+                                    <% }else{ %>
+                                        <a href="/tausia-approved" class="inactive">Next</a>
+                                        <% } %>
+                
+                </div>
+
+            </div>
+        </div>
+        <!-- <script src="./javascript/tausia-approve.js"></script> -->
+        <script src="./javascript/tausia-reject.js"></script>
+        <script src="./javascript/update-status.js"></script>
+        <script>
+
+            const uploadBtns = document.querySelectorAll( '.upload-btn' )
+            const files = document.querySelectorAll( '.file' )
+
+            uploadBtns.forEach( btn => {
+
+                btn.onclick = () => {
+
+                    let id = btn.getAttribute( 'data-id' )
+
+                    let input = document.querySelector( `.tausia-id[data-id="${ id }"]` )
+
+                    let file = document.querySelector( `.file[data-id="${ id }"]` )
+
+                    if ( file.files[ 0 ] == undefined ) {
+
+                        alert( 'Please upload file' )
+                        return
+
+                    } else if ( file.files[ 0 ].type != 'image/jpeg' && file.files[ 0 ].type != 'image/jpg' && file.files[ 0 ].type != 'image/png' ) {
+
+                        alert( 'Please upload jpeg or jpg or png image' )
+                        return
+
+                    } else if ( file.files[ 0 ].type == 'image/jpeg' || file.files[ 0 ].type == 'image/jpg' || file.files[ 0 ].type == 'image/png' ) {
+
+                        let sizeInKb = file.files[ 0 ].size
+                        let sizeInMb = Math.ceil( sizeInKb / 1024 )
+
+                        if ( sizeInMb > 300 ) {
+                            alert( 'Image size should be less than  1mb' )
+                            return
+                        }
+                    }
+
+                    if ( input.value == '' || input.value.trim().length == '' ) {
+                        alert( "Please upload tausia-id" )
+                        return
+                    }
+
+
+                    const InputFile = new File( [ file.files[ 0 ] ], file.files[ 0 ].name, { type: file.files[ 0 ].type } )
+
+                    let formData = new FormData()
+                    formData.append( 'image', InputFile )
+                    formData.append( 'id', id )
+                    formData.append( 'tausiaId', input.value.trim() )
+
+                    fetch( '/tausia-authentication-image', {
+                        method: 'post',
+                        body: formData
+                    } ).then( response => {
+                        return response.json()
+                    } ).then( response => {
+
+                        if ( response.status == 'success' ) {
+
+                            location.reload()
+
+                        } else {
+
+                            location.href = '/error'
+
+                        }
+
+                    } )
+
+
+
+                }
+
+            } )
+
+
+
+
+        </script>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+            crossorigin="anonymous"></script>
+</body>
+
+</html>

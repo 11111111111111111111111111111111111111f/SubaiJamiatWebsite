@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en" class="no-fs">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/dashboard/dashboard.css">
+    <!-- fontawesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <meta name="robots" content="noindex">
+    <title>Admin</title>
+</head>
+
+<body data-page="Tadribiya">
+
+    <div class=" main-container">
+
+        <div class="mobile-dashboard"></div>
+
+        <%- include('../common/dashboard-sidebar') %>
+
+            <div class="right">
+
+                <%- include('../common/dashboard-header') %>
+
+                    <div class="content">
+                        <div class="page">
+                            <span>
+                                <span class="bold">Dashboard</span>
+                                <i class="fa-solid fa-angle-right icon"></i>
+                            </span>
+                            <span>
+                                Tadribiya Registeration
+                                <i class="fa-solid fa-angle-right icon"></i>
+                            </span>
+                            <span>
+
+                                Approved
+
+                            </span>
+                        </div>
+                        <div class="table">
+                            <div class="header no-input">
+                                <h3 class="heading">
+                                    Tadribiya Registeration
+                                </h3>
+                                <button class="btn btn-primary Generate-All-Data-Sheet">
+                                    All Data Sheet
+                                </button>
+
+                                <button type="button" class="btn btn-primary Generate-sheet">
+                                    Approved Sheet
+                                </button>
+                                <!-- <div class="input">
+                            <i class="fa-solid fa-magnifying-glass search-icon "></i>
+                            <input type="text" placeholder="Search students here">
+                        </div> -->
+                            </div>
+                            <div class="student-table-container">
+                                <table class="student-table">
+                                    <tr>
+                                        <th>
+                                            Rollno
+                                        </th>
+                                        <th>
+                                            Name
+                                        </th>
+                                        <th>
+                                            Qualification
+                                        </th>
+                                        <th>
+                                            Number
+                                        </th>
+                                        <th>
+                                            Masjid Name And Address
+                                        </th>
+                                        <th>
+                                            Masjid President Name And No
+                                        </th>
+                                        <th>
+                                            Masjid Secretaroy Name And NO
+                                        </th>
+                                        <th>
+                                            Coming Reason
+                                        </th>
+                                        <th>
+                                            Image
+                                        </th>
+                                        <th>
+                                            Pdf
+                                        </th>
+                                        <th>
+                                            Status
+                                        </th>
+                                        <th>
+                                            Reject
+                                        </th>
+                                    </tr>
+                                    <% if(adminData.length> 0){ %>
+                                        <% adminData.forEach((value , index)=>{ %>
+                                            <tr>
+                                                <td class="rollno">
+                                                    <%= value.rollno %>
+                                                </td>
+                                                <td>
+                                                    <%= value.name %>
+
+                                                </td>
+                                                <td>
+                                                    <%= value.qualification %>
+                                                </td>
+                                                <td>
+                                                    <%= value.number %>
+                                                </td>
+                                                <td>
+                                                    <%= value.masjid_name_address %>
+                                                </td>
+                                                <td>
+                                                    <%= value.masjid_president %>
+                                                </td>
+                                                <td>
+                                                    <%= value.masjid_seceratory %>
+                                                </td>
+                                                <td>
+                                                    <%= value.coming_reason %>
+                                                </td>
+                                                <td>
+                                                    <a class="btn btn-primary btn-sm" target="_blank"
+                                                        href="/RegisterationFiles/Images/<%= value.image %>">
+                                                        See Image
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <a class="btn btn-primary btn-sm" target="_blank"
+                                                        href="/RegisterationFiles/Files/<%= value.pdf %>">
+                                                        See Pdf
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <%= value.status %>
+                                                </td>
+                                                <td>
+                                                    <button class="btn btn-danger reject-btn"
+                                                        data-id="<%= value._id %>">
+                                                        Reject
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <% }) %>
+                                                <% }else{ %>
+
+                                                    <tr>
+                                                        <td colspan="12">
+                                                            <b> No Data Present</b>
+                                                        </td>
+                                                    </tr>
+
+                                                    <% } %>
+                                </table>
+                            </div>
+                            <div class="pagination">
+                                <% if(pagination.page> 1) {%>
+                                    <a href="/approved?page=<%= pagination.page-1 %>">
+                                        <i class="fa-solid fa-angle-left"></i>
+                                    </a>
+                                    <% }else{ %>
+                                        <a href="" class="inactive">
+                                            <i class="fa-solid fa-angle-left"></i>
+                                        </a>
+                                        <% } %>
+
+                                            <span>
+                                                <%= pagination.page %> of <%= pagination.endPage %>
+                                            </span>
+
+                                            <% if(pagination.endPage> pagination.page){ %>
+                                                <a href="/approved?page=<%= pagination.page+1 %>">
+                                                    <i class="fa-solid fa-angle-right"></i>
+                                                </a>
+
+                                                <% }else{ %>
+                                                    <a href="" class="inactive">
+                                                        <i class="fa-solid fa-angle-right"></i>
+                                                    </a>
+                                                    <% } %>
+
+
+                            </div>
+                        </div>
+                    </div>
+            </div>
+    </div>
+
+    <script src="./javascript/dashboard/dashboard.js"></script>
+    <script src="./javascript/reject.js"></script>
+    <script src="./javascript/Generate-Sheet.js"></script>
+
+</body>
+
+</html>
