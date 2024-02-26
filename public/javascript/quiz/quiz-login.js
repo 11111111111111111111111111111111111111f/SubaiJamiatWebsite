@@ -41,6 +41,7 @@ form.onsubmit = async ( e ) => {
 
     if ( response.status == 'success' ) {
         setMsg( "You are logged in", "success" )
+        location.href = '/quiz'
     } else if ( response.status == 'failure' ) {
         setMsg( 'Something went wrong please try again', "failure" )
     } else if ( response.status == 'no-exist' ) {

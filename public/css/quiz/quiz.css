@@ -5,9 +5,9 @@
     font-family: "Noto Nastaliq Urdu", serif;
     text-align: right;
     direction: rtl;
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
@@ -21,24 +21,25 @@ body {
     background: unset;
     flex-direction: column;
     align-items: center;
-    justify-content: start;
-    min-height:100vh;
+    justify-content: center;
+    min-height: 100vh;
 }
 
-.container .start-container{
-    height:100vh;
-    width:100%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:url("https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=1528&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
-    background-size:cover;
-    background-position:center;
+.container .start-container {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url("../../images/bg-gif.gif") rgba(0, 0, 0, 0.5);
+    background-blend-mode: multiply;
+    background-size: cover;
+    background-position: center;
 }
 
-.container .start-container button{
-    border-color:white;
-    color:white;
+.container .start-container button {
+    border-color: white;
+    color: white;
 }
 
 .container button {
@@ -115,19 +116,93 @@ ul {
     margin: 10px 0;
 }
 
+/* -------------------------- simple quiz application without colorful ---------------------- */
+
+.container {
+    background: #f0f0f0;
+}
+
 .questionContainer {
-    /* max-width: 95%; */
-    width: 100%;
-    height: 100vh;
-    max-height: 100vh;
-    overflow-y: auto;
-    /* background: #f0f0f0; */
-    background: white;
+    width: 500px;
+    max-width: 95%;
     padding: 0;
 }
 
 .questionContainer.active {
     display: block;
+}
+
+
+.questionContainer .options {
+    list-style: none;
+    padding-inline: 20px;
+}
+
+
+.questionContainer input {
+    padding: 0;
+}
+
+.questionContainer span {
+    margin-left: 10px;
+}
+
+.questionContainer .options li {
+    margin: 20px 0;
+    display: flex;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.questionContainer .options li label {
+    flex-grow: 1;
+    cursor: pointer;
+}
+
+.question-wrapper .quiz-header {
+    border-bottom: 1px solid #a8a8a8;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 20px 15px 20px;
+    margin-bottom: 10px;
+    column-gap: 15px;
+}
+
+
+.question-wrapper .quiz-body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    background: white;
+}
+
+.question-wrapper .quiz-body .question {
+    background: white;
+    padding-bottom: 5px;
+    padding-inline: 20px;
+    font-size: 18px;
+}
+
+
+/* ---------------------------- color ful quiz design ---------------------------------------  */
+/* 
+
+.questionContainer span,
+label {
+    display: inline-block !important;
+    margin-right: 10px;
+}
+
+
+.questionContainer {
+    width: 100%;
+    height: 100vh;
+    max-height: 100vh;
+    overflow-y: auto;
+    background: #f0f0f0;
+    background: white;
+    padding: 0;
 }
 
 .questionContainer .options {
@@ -140,26 +215,21 @@ ul {
     padding-inline: 20px;
 }
 
-.questionContainer .question {
-    font-size: 20px;
-    margin-bottom: 20px;
-    /* color: crimson; */
-    color: #282828;
-    line-height: 2.6;
-}
-
-.questionContainer span,
-label {
-    /* display: inline-block !important; */
-    margin-right: 10px;
-}
-
 .questionContainer input {
     padding: 0;
 }
 
+
+
+.questionContainer .question {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #282828;
+    line-height: 2.6;
+}
+
+
 .questionContainer .options li {
-    /* margin: 20px 0; */
     display: flex;
     align-items: center;
     border-radius: 5px;
@@ -169,6 +239,7 @@ label {
     font-size: 18px;
     transition: all 0.3s ease;
 }
+
 
 .questionContainer .options li span.form-check {
     display: none;
@@ -181,27 +252,23 @@ label {
 
 .questionContainer .options li:nth-child(2) {
     background: #005AC5;
-    /* box-shadow: 0 0 10px 0 #02418f inset; */
     border: 5px outset #02418f;
 }
 
 .questionContainer .options li:nth-child(3) {
     background: #136C00;
-    /* box-shadow: 0 0 10px 0 #0f4e01 inset; */
     border: 5px outset #0f4e01;
 
 }
 
 .questionContainer .options li:nth-child(4) {
     background: #D28D01;
-    /* box-shadow: 0 0 10px 0 #744d01 inset; */
     border: 5px outset #744d01;
 
 }
 
 .questionContainer .options li:last-child {
     background: #CD1C24;
-    /* box-shadow: 0 0 10px 0 #8f1319 inset; */
     border: 5px outset #8f1319;
 
 }
@@ -232,36 +299,6 @@ label {
 }
 
 
-li {
-    line-height: 2.5;
-}
-
-.question-wrapper {
-    height: 100%;
-    display: none;
-    flex-direction: column;
-}
-
-.question-wrapper.active {
-    display: flex;
-}
-
-.question-wrapper .next-btn-container , 
-.submit-btn-container 
-{
-    /* width: fit-content; */
-    /* margin-right: auto; */
-    width:100%;
-    padding:20px;
-    text-align:center;
-}
-
-.question-wrapper .next-btn-container
-/* , .question-wrapper .submit-btn-container { */
-{
-    display: none;
-}
-
 .question-wrapper .quiz-header {
     border-bottom: 1px solid #a8a8a8;
     display: flex;
@@ -285,29 +322,87 @@ li {
     background: white;
     padding-bottom: 5px;
     padding-inline: 20px;
+} */
+
+
+/* quiz color ful design ends here */
+
+
+li {
+    line-height: 2.5;
 }
 
+.question-wrapper {
+    height: 100%;
+    display: none;
+    flex-direction: column;
+}
+
+.question-wrapper.active {
+    display: flex;
+}
+
+.question-wrapper .next-btn-container,
+.submit-btn-container {
+    /* width: fit-content; */
+    /* margin-right: auto; */
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+}
+
+
+/* with submit btn visible */
+/* .question-wrapper .next-btn-container{
+    {
+    display: none;
+} */
+
+/* with submit btn hided */
+/*
+.question-wrapper .next-btn-container
+
+, .question-wrapper .submit-btn-container{
+    display: none;
+} */
+
+
+
+
+
+/* quiz time design with minute */
+
+/*
+.question-wrapper .quiz-header .quiz-time {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    background: #f0f0f0;
+    padding-right: 8px;
+    overflow: hidden;
+    border-radius: 5px;
+    line-height: 1.4;
+} */
+
+
+/* quiz time design without minute */
 
 .question-wrapper .quiz-header .quiz-time {
     display: flex;
-    /* align-items: center; */
-    /* column-gap: 10px; */
-    /* background: white; */
     background: #f0f0f0;
-    /* padding-right: 8px; */
     overflow: hidden;
-    /* border-radius: 5px; */
-    line-height:1.4;
+    line-height: 1.4;
 }
 
 
-.question-wrapper .quiz-header .quiz-time div.time-label{
+.question-wrapper .quiz-header .quiz-time div.time-label {
     padding-right: 8px;
-    background:#f0f0f0;
-    border:4px outset #f0f0f0;
+    background: #f0f0f0;
+    border: 4px outset #f0f0f0;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
 }
+
 .question-wrapper .quiz-header .quiz-time div.time {
     background: #282828;
     padding-bottom: 8px;
@@ -342,35 +437,35 @@ form div {
 }
 
 /* form wrapper design here */
-.form-wrapper{
-    display:flex;
-    justify-content:center;
-    align-items:center;
+.form-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     /* background:url('../images/bg-gif.gif') rgba(0, 0, 0, 0.5);
     background-size:cover;
     background-blend-mode: multiply; */
-    background:#f0f0f0;
+    background: #f0f0f0;
 }
 
-.form-wrapper .form{
-    padding:20px;
-    background:white;
-    border-radius:5px;
-    box-shadow:0 4px 5px rgba(0, 0, 0, 0.5);
+.form-wrapper .form {
+    padding: 20px;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.5);
     width: 500px;
     max-width: 100%;
     margin-inline: 15px;
 }
 
-.form-wrapper .form label{
+.form-wrapper .form label {
     display: inline-block;
-    margin-bottom:10px;
+    margin-bottom: 10px;
 }
 
-.form-wrapper .form input{
-    height:40px;
-    margin-bottom:15px;
-    padding-inline:10px;
+.form-wrapper .form input {
+    height: 40px;
+    margin-bottom: 15px;
+    padding-inline: 10px;
 }
 
 
@@ -386,4 +481,3 @@ form div {
     }
 
 }
-
