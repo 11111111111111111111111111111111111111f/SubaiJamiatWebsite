@@ -7,6 +7,32 @@
     const form = document.querySelector( 'form.questionContainer' )
     const startBtn = document.querySelector( '.start-btn' )
 
+    form.onsubmit = async ( e ) => {
+        e.preventDefault();
+        let formData = new FormData( form )
+
+        let data = {};
+        for ( let [ key, value ] of formData.entries() ) {
+            data[ key ] = value
+        }
+
+        const request = await fetch( '/save-quiz-data', {
+            method: "post",
+            body: JSON.stringify( data ),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        } )
+
+        const response = await request.json()
+        if ( response.status == "success" ) {
+            location.href = "/quiz-registeration"
+        } else {
+            location.reload()
+        }
+
+    }
+
     startBtn.onclick = () => {
         startBtn.parentElement.style.display = 'none'
         form.classList.add( 'active' )
@@ -94,12 +120,12 @@
 
             }
 
-            nextMinute = ( nextMinute < 10 ) ? '0' + nextMinute : nextMinute
+            // nextMinute = ( nextMinute < 10 ) ? '0' + nextMinute : nextMinute
             nextSecond = ( nextSecond < 10 ) ? '0' + nextSecond : nextSecond
 
-            if ( nextMinute ) {
-                minute.innerText = nextMinute
-            }
+            // if ( nextMinute ) {
+            //     minute.innerText = nextMinute
+            // }
 
             if ( nextSecond ) {
 

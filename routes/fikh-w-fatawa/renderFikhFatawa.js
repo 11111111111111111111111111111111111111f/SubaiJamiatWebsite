@@ -5,6 +5,7 @@ const express = require( 'express' )
 const app = express.Router()
 const puppeteer = require( 'puppeteer' )
 const fatawaTitle = require( '../methods/fatawa-title' )
+const fs = require('fs')
 
 
 app.get( '/fikh-w-fatawa', async ( req, res ) => {
@@ -18,6 +19,17 @@ app.get( '/fikh-w-fatawa', async ( req, res ) => {
     }
 
 } )
+
+
+function readFiles ( path, callback ) {
+    fs.readdir( path, ( err, fileNames ) => {
+        if ( err ) {
+            callback( err, null )
+            return
+        }
+        callback( null, fileNames )
+    } )
+}
 
 async function renderPageForAllFatawa () {
 
@@ -54,31 +66,48 @@ async function generateAllFatawaJawabPdf () {
 
     let FatawaTitles = await getFatawaTitles()
 
-    for ( i = 0; i < FatawaTitles.length; i++ ) {
+    readFiles( './public/fatawaJawabPdf', async ( err, fileNames ) => {
+        if ( err ) {
+            console.log( "error occured while reading files from public/fatawaJawabPdf" )
+            return
+        }
 
-        const browser = await puppeteer.launch( {
-            headless: 'new',
-            // executablePath: '/usr/bin/chromium-browser',
-        } )
-        const page = await browser.newPage()
-        let pdfName = `fatawa-jawab-${ FatawaTitles[ i ].No }`;
-        await page.goto( `https://www.ahlehadeesmumbai.com/fatawa-jawab-${ FatawaTitles[ i ].No }`, { waitUntil: 'networkidle0' } )
-        await page.emulateMediaType( 'screen' )
-        let GeneratedPdf = await page.pdf( {
-            path: `./public/fatawaJawabPdf/${ pdfName }.pdf`,
-            format: 'A4',
-            printBackground: true
-        } )
+        for ( i = 0; i < FatawaTitles.length; i++ ) {
 
-        await browser.close()
-        console.log( FatawaTitles[ i ].No, "pdf created" )
+            let pdfName = `fatawa-jawab-${ FatawaTitles[ i ].No }.pdf`;
 
-    }
+            if(fileNames.includes(pdfName)){
+                console.log(pdfName + " is already created")
+                continue ;
+            }
+
+
+            const browser = await puppeteer.launch( {
+                headless: 'new',
+                // executablePath: '/usr/bin/chromium-browser',
+            } )
+
+            const page = await browser.newPage()
+            await page.goto( `https://www.ahlehadeesmumbai.com/fatawa-jawab-${ FatawaTitles[ i ].No }`, { waitUntil: 'networkidle0' } )
+            await page.emulateMediaType( 'screen' )
+            let GeneratedPdf = await page.pdf( {
+                path: `./public/fatawaJawabPdf/${ pdfName }`,
+                format: 'A4',
+                printBackground: true
+            } )
+
+            await browser.close()
+            console.log( FatawaTitles[ i ].No, "pdf created" )
+
+        }
+
+    } )
 
 }
 
 renderPageForAllFatawa()
 generateAllFatawaJawabPdf()
+
 
 
 //for arabic page

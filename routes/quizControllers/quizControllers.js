@@ -19,8 +19,8 @@ function renderQuizLoginPage ( req, res ) {
     res.render( "quiz/quiz-login" )
 }
 
-function renderQuizRules(req , res){
-    res.render("quiz/quiz-rules")
+function renderQuizRules ( req, res ) {
+    res.render( "quiz/quiz-rules" )
 }
 
 async function renderQuizResultPage ( req, res ) {
@@ -67,6 +67,7 @@ async function QuizLoginAuthorization ( req, res ) {
         if ( isExist != null ) {
             req.session.quizLoggedIn = true
             res.send( { status: "success" } )
+
         } else {
             res.send( { status: "no-exist" } )
         }
@@ -74,6 +75,10 @@ async function QuizLoginAuthorization ( req, res ) {
     } catch ( error ) {
         res.send( { status: "failure" } )
     }
+
+}
+
+function saveQuizDataSessionToDb(){
 
 }
 
@@ -88,7 +93,7 @@ function isLoggedIn ( req ) {
 }
 
 function loginRegPageMiddleware ( req, res, next ) {
-    if ( isLoggedIn(req) ) {
+    if ( isLoggedIn( req ) ) {
 
         return res.redirect( '/quiz-rules' )
 
@@ -98,7 +103,7 @@ function loginRegPageMiddleware ( req, res, next ) {
 
 function quizPageMiddleware ( req, res, next ) {
 
-    if ( !isLoggedIn(req) ) {
+    if ( !isLoggedIn( req ) ) {
         return res.redirect( '/quiz-login' )
     }
 
@@ -131,6 +136,18 @@ async function quizResult ( req, res ) {
 
 }
 
+function saveQuizDataToSession ( req, res ) {
+
+    try {
+        let data = req.body
+        console.log( data )
+        req.session.quizData = data
+        res.send( { status: "success" } )
+    } catch ( error ) {
+        res.send( { status: "failure" } )
+    }
+}
+
 module.exports = {
     renderQuizPage: renderQuizPage,
     quizResult: quizResult,
@@ -139,7 +156,8 @@ module.exports = {
     saveQuizRegisterationData: saveQuizRegisterationData,
     renderQuizLoginPage: renderQuizLoginPage,
     QuizLoginAuthorization: QuizLoginAuthorization,
-    quizPageMiddleware : quizPageMiddleware,
-    loginRegPageMiddleware : loginRegPageMiddleware,
-    renderQuizRules : renderQuizRules
+    quizPageMiddleware: quizPageMiddleware,
+    loginRegPageMiddleware: loginRegPageMiddleware,
+    renderQuizRules: renderQuizRules,
+    saveQuizDataToSession : saveQuizDataToSession
 }
