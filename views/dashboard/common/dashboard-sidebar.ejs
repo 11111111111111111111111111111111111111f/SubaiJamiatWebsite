@@ -1,199 +1,178 @@
 <div class="left">
-    <div class="logo">
-    </div>
-    <div class="links">
-        <a href="#" data-page="home" class="d-link">
-            <span>
-                <i class="fa-solid fa-house icon"></i>
-                <span class="text">
-                    Home
-                </span>
-            </span>
+  <div class="logo"></div>
+  <div class="links">
+    <a href="#" data-page="home" class="d-link">
+      <span>
+        <i class="fa-solid fa-house icon"></i>
+        <span class="text"> Home </span>
+      </span>
+    </a>
+
+    <span class="dropdown">
+      <span class="d-link drop-open" data-page="Tadribiya">
+        <span>
+          <i class="fa-solid fa-calendar-days"></i>
+          <span class="text"> Tadribiya Reg </span>
+        </span>
+        <i class="fa-solid fa-angle-down icon icon-close"></i>
+      </span>
+      <div class="dropdown-menu">
+        <a href="/admin" class="d-link">
+          <span>
+            <i class="fa-solid fa-angle-right icon"></i>
+            <span class="text"> Pending </span>
+          </span>
         </a>
-
-        <span class="dropdown">
-            <span class="d-link drop-open" data-page="Tadribiya">
-                <span>
-                    <i class="fa-solid fa-calendar-days"></i>
-                    <span class="text">
-                        Tadribiya Reg
-                    </span>
-                </span>
-                <i class="fa-solid fa-angle-down icon icon-close"></i>
-            </span>
-            <div class="dropdown-menu">
-                <a href="/admin" class="d-link">
-                    <span>
-                        <i class="fa-solid fa-angle-right icon"></i>
-                        <span class="text">
-                            Pending
-                        </span>
-                    </span>
-                </a>
-                <a href="/approved" class="d-link">
-                    <span>
-                        <i class="fa-solid fa-angle-right icon"></i>
-                        <span class="text">
-                            Approved
-                        </span>
-                    </span>
-                </a>
-                <a href="/rejected" class="d-link">
-                    <span>
-                        <i class="fa-solid fa-angle-right icon"></i>
-                        <span class="text">
-                            Rejected
-                        </span>
-                    </span>
-                </a>
-            </div>
-        </span>
-
-        <span class="dropdown">
-            <span class="d-link drop-open" data-page="Tausia">
-                <span>
-                    <i class="fa-regular fa-address-card"></i>
-                    <span class="text">
-                        Tausia Reg
-                    </span>
-                </span>
-                <i class="fa-solid fa-angle-down icon icon-close"></i>
-            </span>
-            <div class="dropdown-menu">
-                <a href="/tausia-admin" class="d-link">
-                    <span>
-                        <i class="fa-solid fa-angle-right icon"></i>
-                        <span class="text">
-                            Pending
-                        </span>
-                    </span>
-                </a>
-                <a href="/tausia-approved" class="d-link">
-                    <span>
-                        <i class="fa-solid fa-angle-right icon"></i>
-                        <span class="text">
-                            Approved
-                        </span>
-                    </span>
-                </a>
-                <a href="/tausia-rejected" class="d-link">
-                    <span>
-                        <i class="fa-solid fa-angle-right icon"></i>
-                        <span class="text">
-                            Rejected
-                        </span>
-                    </span>
-                </a>
-                <a href="/tausia-offline-approval-form" class="d-link">
-                    <span>
-                        <i class="fa-solid fa-angle-right icon"></i>
-                        <span class="text">
-                            Approve Offline Tausia
-                        </span>
-                    </span>
-                </a>
-                <a href="/tausia-authenticated-users" class="d-link">
-                    <span>
-                        <i class="fa-solid fa-angle-right icon"></i>
-                        <span class="text">
-                            Authentic Users
-                        </span>
-                    </span>
-                </a>
-                <a href="/tausia-offline-authenticated-users" class="d-link">
-                    <span>
-                        <i class="fa-solid fa-angle-right icon"></i>
-                        <span class="text">
-                            Offline Authentic Users
-                        </span>
-                    </span>
-                </a>
-            </div>
-        </span>
-
-        <span class="dropdown">
-            <span class="d-link drop-open" data-page="Masjid">
-                <span>
-                    <i class="fa-regular fa-address-card"></i>
-                    <span class="text">
-                        Masjid Reg
-                    </span>
-                </span>
-                <i class="fa-solid fa-angle-down icon icon-close"></i>
-            </span>
-            <div class="dropdown-menu">
-                <a href="masjid-registeration-admin" class="d-link">
-                    <span>
-                        <i class="fa-solid fa-angle-right icon"></i>
-                        <span class="text">
-                            Pending
-                        </span>
-                    </span>
-                </a>
-                <a href="masjid-registeration-approved" class="d-link">
-                    <span>
-                        <i class="fa-solid fa-angle-right icon"></i>
-                        <span class="text">
-                            Approved
-                        </span>
-                    </span>
-                </a>
-                <a href="masjid-registeration-rejected" class="d-link">
-                    <span>
-                        <i class="fa-solid fa-angle-right icon"></i>
-                        <span class="text">
-                            Rejected
-                        </span>
-                    </span>
-                </a>
-            </div>
-        </span>
-
-        <span class="dropdown">
-            <span class="d-link drop-open" data-page="TausiaTalaba">
-                <span>
-                    <i class="fa-regular fa-address-card"></i>
-                    <span class="text">
-                        Tausia Talaba Reg
-                    </span>
-                </span>
-                <i class="fa-solid fa-angle-down icon icon-close"></i>
-            </span>
-            <div class="dropdown-menu">
-                <a href="tausia-talaba-admin" class="d-link">
-                    <span>
-                        <i class="fa-solid fa-angle-right icon"></i>
-                        <span class="text">
-                            Pending
-                        </span>
-                    </span>
-                </a>
-                <a href="tausia-talaba-approved" class="d-link">
-                    <span>
-                        <i class="fa-solid fa-angle-right icon"></i>
-                        <span class="text">
-                            Approved
-                        </span>
-                    </span>
-                </a>
-                <a href="tausia-talaba-rejected" class="d-link">
-                    <span>
-                        <i class="fa-solid fa-angle-right icon"></i>
-                        <span class="text">
-                            Rejected
-                        </span>
-                    </span>
-                </a>
-            </div>
-        </span>
-        <a href="/video-upload" data-page="home" class="d-link">
-            <span>
-                <i class="fa-solid fa-video icon"></i>
-                <span class="text">
-                    Upload Video
-                </span>
-            </span>
+        <a href="/approved" class="d-link">
+          <span>
+            <i class="fa-solid fa-angle-right icon"></i>
+            <span class="text"> Approved </span>
+          </span>
         </a>
-    </div>
+        <a href="/rejected" class="d-link">
+          <span>
+            <i class="fa-solid fa-angle-right icon"></i>
+            <span class="text"> Rejected </span>
+          </span>
+        </a>
+      </div>
+    </span>
 
+    <span class="dropdown">
+      <span class="d-link drop-open" data-page="Tausia">
+        <span>
+          <i class="fa-regular fa-address-card"></i>
+          <span class="text"> Tausia Reg </span>
+        </span>
+        <i class="fa-solid fa-angle-down icon icon-close"></i>
+      </span>
+      <div class="dropdown-menu">
+        <a href="/tausia-admin" class="d-link">
+          <span>
+            <i class="fa-solid fa-angle-right icon"></i>
+            <span class="text"> Pending </span>
+          </span>
+        </a>
+        <a href="/tausia-approved" class="d-link">
+          <span>
+            <i class="fa-solid fa-angle-right icon"></i>
+            <span class="text"> Approved </span>
+          </span>
+        </a>
+        <a href="/tausia-rejected" class="d-link">
+          <span>
+            <i class="fa-solid fa-angle-right icon"></i>
+            <span class="text"> Rejected </span>
+          </span>
+        </a>
+        <a href="/tausia-offline-approval-form" class="d-link">
+          <span>
+            <i class="fa-solid fa-angle-right icon"></i>
+            <span class="text"> Approve Offline Tausia </span>
+          </span>
+        </a>
+        <a href="/tausia-authenticated-users" class="d-link">
+          <span>
+            <i class="fa-solid fa-angle-right icon"></i>
+            <span class="text"> Authentic Users </span>
+          </span>
+        </a>
+        <a href="/tausia-offline-authenticated-users" class="d-link">
+          <span>
+            <i class="fa-solid fa-angle-right icon"></i>
+            <span class="text"> Offline Authentic Users </span>
+          </span>
+        </a>
+      </div>
+    </span>
+
+    <span class="dropdown">
+      <span class="d-link drop-open" data-page="Masjid">
+        <span>
+          <i class="fa-regular fa-address-card"></i>
+          <span class="text"> Masjid Reg </span>
+        </span>
+        <i class="fa-solid fa-angle-down icon icon-close"></i>
+      </span>
+      <div class="dropdown-menu">
+        <a href="masjid-registeration-admin" class="d-link">
+          <span>
+            <i class="fa-solid fa-angle-right icon"></i>
+            <span class="text"> Pending </span>
+          </span>
+        </a>
+        <a href="masjid-registeration-approved" class="d-link">
+          <span>
+            <i class="fa-solid fa-angle-right icon"></i>
+            <span class="text"> Approved </span>
+          </span>
+        </a>
+        <a href="masjid-registeration-rejected" class="d-link">
+          <span>
+            <i class="fa-solid fa-angle-right icon"></i>
+            <span class="text"> Rejected </span>
+          </span>
+        </a>
+      </div>
+    </span>
+
+    <span class="dropdown">
+      <span class="d-link drop-open" data-page="TausiaTalaba">
+        <span>
+          <i class="fa-regular fa-address-card"></i>
+          <span class="text"> Tausia Talaba Reg </span>
+        </span>
+        <i class="fa-solid fa-angle-down icon icon-close"></i>
+      </span>
+      <div class="dropdown-menu">
+        <a href="tausia-talaba-admin" class="d-link">
+          <span>
+            <i class="fa-solid fa-angle-right icon"></i>
+            <span class="text"> Pending </span>
+          </span>
+        </a>
+        <a href="tausia-talaba-approved" class="d-link">
+          <span>
+            <i class="fa-solid fa-angle-right icon"></i>
+            <span class="text"> Approved </span>
+          </span>
+        </a>
+        <a href="tausia-talaba-rejected" class="d-link">
+          <span>
+            <i class="fa-solid fa-angle-right icon"></i>
+            <span class="text"> Rejected </span>
+          </span>
+        </a>
+      </div>
+    </span>
+    <a href="/video-upload" data-page="home" class="d-link">
+      <span>
+        <i class="fa-solid fa-video icon"></i>
+        <span class="text"> Upload Video </span>
+      </span>
+    </a>
+    <span class="dropdown">
+      <span class="d-link drop-open" data-page="Quiz">
+        <span>
+            <i class="fa-solid fa-list-check"></i>
+          <span class="text"> QUIZ </span>
+        </span>
+        <i class="fa-solid fa-angle-down icon icon-close"></i>
+      </span>
+      <div class="dropdown-menu">
+        <a href="/add-quiz" class="d-link">
+          <span>
+            <i class="fa-solid fa-angle-right icon"></i>
+            <span class="text"> Add Quiz </span>
+          </span>
+        </a>
+        <a href="/show-quiz" class="d-link">
+          <span>
+            <i class="fa-solid fa-angle-right icon"></i>
+            <span class="text"> SHOW QUIZ </span>
+          </span>
+        </a>
+      </div>
+    </span>
+  </div>
 </div>

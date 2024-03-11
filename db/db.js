@@ -41,6 +41,12 @@ function quizRegisterationCollection(){
     return collection
 }
 
+function quizResultDb(){
+    const db = client.db('sj_registeration')
+    const collection = db.collection("QuizResult")
+    return collection
+}
+
 function offlineApprovedTausiaCollection(){
 
     const db = client.db('sj_registeration')
@@ -49,6 +55,7 @@ function offlineApprovedTausiaCollection(){
 
 }
 
+
 module.exports = {
     tadribiyaRegDb: createConnection(),
     tausiaDb: tausiaCollectionConnection(),
@@ -56,7 +63,8 @@ module.exports = {
     tausiaTalabaDb: tausiaTalabaCollectionConnection(),
     quiz : {
         quizQuestionListDb: quizQuestionListCollection(),
-        quizRegisterationDb : quizRegisterationCollection()
+        quizRegisterationDb : quizRegisterationCollection(),
+        quizResultDb  : quizResultDb()
     },
     offlineApprovedTausiaCollection: offlineApprovedTausiaCollection()
 }

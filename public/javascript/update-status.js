@@ -58,14 +58,16 @@ function GeneratePdf () {
         }
     } ).then( response => response.json() )
         .then( response => {
+            document.body.style.cursor = 'auto';
             if ( response.status == 'success' ) {
 
-                document.body.style.cursor = 'auto'
                 window.open( `https://ahlehadeesmumbai.com/TausiaApproved/${ response.pdf }` )
 
+            }else if(response.status == 'error'){
+                console.log(response.error);
             }
         } ).catch( error => {
-            // console.log( error )
+            console.log( error )
             location.href = '/error'
         } )
 

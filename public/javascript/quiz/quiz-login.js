@@ -31,7 +31,7 @@ form.onsubmit = async ( e ) => {
 
     const request = await fetch( '/quiz-login', {
         method: 'post',
-        body: JSON.stringify(obj),
+        body: JSON.stringify( obj ),
         headers: {
             'Content-Type': 'application/json'
         }
@@ -40,12 +40,27 @@ form.onsubmit = async ( e ) => {
     const response = await request.json()
 
     if ( response.status == 'success' ) {
+
         setMsg( "You are logged in", "success" )
-        location.href = '/quiz'
+
+        if ( response.saved == 'current' || response.saved == 'already') {
+
+            location.href = '/quiz-result'
+
+        } else {
+
+            location.href = '/quiz'
+
+        }
+
     } else if ( response.status == 'failure' ) {
+
         setMsg( 'Something went wrong please try again', "failure" )
+
     } else if ( response.status == 'no-exist' ) {
+
         setMsg( "Please enter valid number and password", "failure" )
+
     }
 
 }

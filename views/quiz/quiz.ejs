@@ -30,27 +30,32 @@
   </head>
 
   <body>
+    <% if(isQuizAvailable){ %>
+
     <div class="container">
       <div class="start-container">
         <button type="button" class="start-btn">مسابقہ شروع کریں</button>
       </div>
 
-      <form class="questionContainer" >
+    <form class="questionContainer" data-quizId="<%= quizId %>">
         <% QuizData.forEach((data , index)=>{ %>
 
+        <!-- Question Wrapper With Minute -->
         <!-- <div
-          class="question-wrapper"
-          data-questionNo="<%= data.questionNo %>"
-          data-minute="<%= data.time.minute %>"
-          data-second="<%= data.time.second %>"
-        > -->
+            class="question-wrapper"
+            data-questionNo="<%# data.questionNo %>"
+            data-minute="<%# data.time.minute %>"
+            data-second="<%# data.time.second %>"
+          > -->
+
+        <!-- Question Wrapper Without Minute -->
         <div
           class="question-wrapper"
           data-questionNo="<%= data.questionNo %>"
           data-second="<%= data.time.second %>"
         >
           <div class="quiz-header">
-            <div class="quiz-title">مسابقہ صوبائی جمیعت</div>
+            <div class="quiz-title"><%= QuizTitle %></div>
 
             <div class="quiz-time">
               <div class="time-label">بقیہ وقت</div>
@@ -117,5 +122,15 @@
     </div>
 
     <script src="./javascript/quiz/quiz.js"></script>
+
+    <% }else{ %>
+
+    <div class="container">
+      <div class="box">
+        فی الحال کوئی کوئز مسابقہ جاری نہیں ہے۔ کچھ وقت بعد کوشش کریں۔
+      </div>
+    </div>
+
+    <% } %>
   </body>
 </html>

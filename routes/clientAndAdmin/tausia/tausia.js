@@ -33,8 +33,15 @@ router.get('/tausia-offline-authenticated-users' , AdminPage.middleware , Tausia
 //approving and rejecting api's for tausia registeration
 
 //tausia registeration api data inserting in db
+//with middleware
+// router.post( '/tausia-registeration',
+//     getTausiaImage.tausiaMiddleware,
+//     tausiaMulter.upload.fields( [
+//         { name: "SafeerImage", maxCount: 1 },
+//         { name: "document", maxCount: 1 }
+//     ] ), getTausiaImage.getTausia )
+//without middleware
 router.post( '/tausia-registeration',
-    getTausiaImage.tausiaMiddleware,
     tausiaMulter.upload.fields( [
         { name: "SafeerImage", maxCount: 1 },
         { name: "document", maxCount: 1 }

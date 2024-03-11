@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" class="no-fs">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/dashboard/dashboard.css" />
+    <!-- fontawesome cdn link  -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+
+    <meta name="robots" content="noindex" />
+
+    <title>Admin</title>
+  </head>
+
+  <body data-page="Quiz">
+    <div class="main-container">
+      <div class="mobile-dashboard"></div>
+
+      <%- include('../common/dashboard-sidebar') %>
+
+      <div class="right">
+        <%- include('../common/dashboard-header') %>
+
+        <div class="content">
+          <div class="page">
+            <span>
+              <span class="bold">Dashboard</span>
+              <i class="fa-solid fa-angle-right icon"></i>
+            </span>
+            <span>
+              Quiz
+              <i class="fa-solid fa-angle-right icon"></i>
+            </span>
+            <span> Show Quiz </span>
+          </div>
+          <div class="table">
+            <div class="header no-input">
+              <h3 class="heading">All Quiz List</h3>
+
+              <!-- <div class="input">
+                    <i class="fa-solid fa-magnifying-glass search-icon "></i>
+                    <input type="text" placeholder="Search students here">
+                </div> -->
+            </div>
+            <div class="student-table-container">
+              <table class="student-table">
+                <tr>
+                  <td>SrNo.</td>
+                  <td>Date</td>
+                  <td>QuizTitle</td>
+                  <td>Details</td>
+                  <td>Start/Stop Quiz</td>
+                  <td>Result</td>
+                </tr>
+                <% if(AllQuiz.length > 0){ %> <% AllQuiz.forEach((Quiz , index) =>{ %>
+                <tr>
+                  <td><%= index + 1 %></td>
+                  <td><%= Quiz.Date %></td>
+                  <td><%= Quiz.quizTitle %></td>
+                  <td>
+                    <a href="/quiz-details?quizId=<%= Quiz._id %>"
+                      class="btn btn-primary"
+                      data-id="<%= Quiz._id %>"
+                      type="button"
+                    >
+                      Show Details
+                  </a>
+                  </td>
+                  <td>
+                    <% if(Quiz.active == true){ %>
+
+                    <a
+                      href="/show-quiz?quizId=<%= Quiz._id %>&action=stop"
+                      class="btn btn-danger"
+                      >Stop Quiz</a
+                    >
+
+                    <% } else{%>
+                    <a
+                      href="/show-quiz?quizId=<%= Quiz._id %>&action=start"
+                      class="btn btn-primary"
+                      >Start Quiz</a
+                    >
+                    <% } %>
+                  </td>
+                  <td>
+                    <% if(Quiz.result == 'enable'){ %>
+                    <a7
+                      href="/show-quiz?quizId=<%= Quiz._id %>&result=disable"
+                      class="btn btn-danger"
+                    >
+                      Disable
+                    </a>
+                    <% }else {%>
+                    <a
+                      href="/show-quiz?quizId=<%= Quiz._id %>&result=enable"
+                      class="btn btn-success"
+                    >
+                      Enable
+                    </a>
+                    <% } %>
+                  </td>
+                </tr>
+                <% }) %> <% }else { %>
+
+                <tr>
+                  <td colspan="6">No Data Present</td>
+                </tr>
+
+                <%} %>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./javascript/dashboard/dashboard.js"></script>
+  </body>
+</html>

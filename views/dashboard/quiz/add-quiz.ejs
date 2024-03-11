@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en" class="no-fs">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/dashboard/dashboard.css" />
+    <!-- fontawesome cdn link  -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+
+    <meta name="robots" content="noindex" />
+
+    <title>Admin</title>
+  </head>
+
+  <body data-page="Quiz">
+    <div class="main-container">
+      <div class="mobile-dashboard"></div>
+
+      <%- include('../common/dashboard-sidebar') %>
+
+      <div class="right">
+        <%- include('../common/dashboard-header') %>
+
+        <div class="content">
+          <div class="page">
+            <span>
+              <span class="bold">Dashboard</span>
+              <i class="fa-solid fa-angle-right icon"></i>
+            </span>
+            <span>
+              Quiz
+              <i class="fa-solid fa-angle-right icon"></i>
+            </span>
+            <span> Add Quiz </span>
+          </div>
+          <div class="form-container">
+            <form>
+              <h3 class="heading">Add Quiz</h3>
+              <label for="quizTitle">Enter Quiz Title : </label>
+              <input
+                type="text"
+                id="quizTitle"
+                placeholder="Quiz title"
+                name="quizTitle"
+              />
+              <label for="NoOfQuestions"> Enter No Of Questions : </label>
+              <input
+                type="number"
+                id="NoOfQuestions"
+                placeholder="No Of Questions"
+                name="NoOfQuestions"
+              />
+
+              <div id="questions">
+                <!-- <div class="question-1">
+                  <label for="q-1">Q.1)</label>
+                  <input type="text" id="q-1" placeholder="Q.1)" />
+                  <input type="text" placeholder="a" />
+                  <input type="text" placeholder="b" />
+                  <input type="text" placeholder="c" />
+                  <input type="text" placeholder="d" />
+                  <input type="text" placeholder="correct_option" />
+                </div> -->
+              </div>
+
+              <p class="message"></p>
+              <input type="submit" class="btn btn-primary" value="Add Quiz" />
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./javascript/dashboard/dashboard.js"></script>
+    <script>
+      const form = document.querySelector("form");
+      const NoOfQuestionsInput = document.querySelector("#NoOfQuestions");
+      const questionsDiv = document.querySelector("#questions");
+
+      NoOfQuestionsInput.oninput = (e) => {
+        let value = e.target.value;
+
+        if (value == 0 && value.length != 0) {
+          alert("no of questions will be greater than 0");
+          return;
+        }
+
+        let childrens = questionsDiv.children;
+        if (childrens.length >= 1 && value.length != 0) {
+          if (value > childrens.length) {
+            for (i = childrens.length + 1; i <= value; i++) {
+              createQuestionsOptionsHTML(i);
+            }
+          } else if (value < childrens.length) {
+            // console.log("value is less than childs");
+            for (i = childrens.length; i > value; i--) {
+              console.log(i);
+              questionsDiv.removeChild(
+                document.querySelector(`.question-${i}`)
+              );
+            }
+          }
+          return;
+        }
+
+        for (i = 1; i <= value; i++) {
+          createQuestionsOptionsHTML(i);
+        }
+      };
+
+      //function to create html for questions and options of it and push it to questionsDiv
+      function createQuestionsOptionsHTML(i) {
+        let html = `<div class="questionDiv question-${i}" data-questionNo="${i}">
+                <label for="q-${i}">Q.${i})</label>
+                  <input type="text" id="q-${i}" name="q-${i}" class="quiz-question" required placeholder="Q.${i})" />
+                  <input type="text" name="q-${i}-a" class="question-option" data-optionNo="a" placeholder="a" required />
+                  <input type="text" name="q-${i}-b" class="question-option" data-optionNo="b" placeholder="b" required />
+                  <input type="text" name="q-${i}-c" class="question-option" data-optionNo="c" placeholder="c" required />
+                  <select name="q-${i}-correct_option">
+                      <option value="none">select correct option</option>
+                      <option value="a">a</option>
+                      <option value="b">b</option>
+                      <option value="c">c</option>
+                    </select>
+                </div>`;
+        questionsDiv.insertAdjacentHTML("beforeend", html);
+      }
+
+      form.onsubmit = (e) => {
+        e.preventDefault();
+
+        const allInputs = form.querySelectorAll(
+          "input:not(input[type=submit])"
+        );
+        const allSelectTags = form.querySelectorAll("select");
+
+        for (input of allInputs) {
+          if (input.value.length == 0) {
+            alert("Please Fill All fields Properly.");
+            return;
+          }
+        }
+
+        for (selectTag of allSelectTags) {
+          if (selectTag.value == "none") {
+            alert("Please Fill All Fields Properly.");
+            return;
+          }
+        }
+
+        let quizQuestionList = [];
+        const totalQuestions = document.querySelectorAll(".questionDiv");
+        totalQuestions.forEach((questionDiv) => {
+          let questionNo = questionDiv.getAttribute("data-questionNo");
+          let question = questionDiv.querySelector(".quiz-question").value;
+          let optionsInput = questionDiv.querySelectorAll(".question-option");
+          let ans = [];
+          optionsInput.forEach((optionInput) => {
+            let optionNo = optionInput.getAttribute("data-optionNo");
+            let option = optionInput.value;
+            let obj = { optionNo, option };
+            ans.push(obj);
+          });
+          let correct_option = questionDiv.querySelector("select").value;
+          let obj = {
+            questionNo,
+            question,
+            ans,
+            correct_option,
+            time: {
+              second: 59,
+              minute: 0,
+            },
+          };
+          quizQuestionList.push(obj);
+        });
+
+        let quizTitle = document.getElementById("quizTitle").value;
+        let date = new Date();
+        let today =
+          date.getDate() + "-" + date.getMonth() + "-" + date.getFullYear();
+        let data = {
+          quizTitle: quizTitle,
+          active: false,
+          Date: today,
+          result: "pending",
+          quizQuestions: quizQuestionList,
+        };
+
+        fetch("/add-quiz", {
+          method: "post",
+          body: JSON.stringify(data),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+          .then((response) => response.json())
+          .then((response) => {
+            if (response.status == "success") {
+              alert("Quiz Added Successfully");
+              form.reset();
+            } else {
+              alert(response.message);
+            }
+          })
+          .catch((error) => {
+            alert("Somethin Went Wrong Please Try Again ");
+          });
+      };
+    </script>
+  </body>
+</html>

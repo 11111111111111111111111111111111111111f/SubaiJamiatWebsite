@@ -16,9 +16,14 @@
             data[ key ] = value
         }
 
+        let ActualQuizData = {
+            quizId: document.querySelector( '[data-quizId]' ).getAttribute( 'data-quizId' ),
+            data: data
+        }
+
         const request = await fetch( '/save-quiz-data', {
             method: "post",
-            body: JSON.stringify( data ),
+            body: JSON.stringify( ActualQuizData ),
             headers: {
                 'Content-Type': 'application/json'
             }
@@ -26,7 +31,11 @@
 
         const response = await request.json()
         if ( response.status == "success" ) {
-            location.href = "/quiz-registeration"
+            if ( response.isLoggedIn == true ) {
+                location.href = "/quiz-result";
+            } else {
+                location.href = "/quiz-registeration";
+            }
         } else {
             location.reload()
         }

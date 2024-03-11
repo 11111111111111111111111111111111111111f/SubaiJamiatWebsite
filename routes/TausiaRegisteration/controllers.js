@@ -261,7 +261,7 @@ async function GenerateTausiaPdf ( req, res ) {
 
         const browser = await puppeteer.launch( {
             headless: 'new',
-            // executablePath: '/usr/bin/chromium-browser',
+            //executablePath: '/usr/bin/chromium-browser',
         } )
 
         const page = await browser.newPage()
@@ -291,7 +291,7 @@ async function GenerateTausiaPdf ( req, res ) {
         res.send( { status: 'success', pdf: pdfName } )
     } catch ( error ) {
         console.log( error )
-        res.send( { status: 'error' } )
+        res.send( { status: 'error' , error : error } )
     }
 
 }

@@ -36,6 +36,7 @@ body {
     padding: 15px;
     box-shadow: 0 0px 10px 1px rgba(0, 0, 0, 0.2);
     transition: width 0.5s ease-in-out;
+    overflow-y:auto;
 }
 
 .main-container .left .logo {
@@ -655,7 +656,7 @@ body {
     display:block;
 }
 
-.main-container .right .content .form-container input{
+.main-container .right .content .form-container :where(input , select){
     height:35px;
     width: 100%;
     border:1px solid #ccc;
