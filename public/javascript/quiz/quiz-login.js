@@ -45,6 +45,7 @@ form.onsubmit = async ( e ) => {
 
         if ( response.saved == 'current' || response.saved == 'already') {
 
+
             location.href = '/quiz-result'
 
         } else {

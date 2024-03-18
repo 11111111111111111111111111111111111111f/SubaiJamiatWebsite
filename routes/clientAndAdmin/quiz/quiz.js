@@ -35,6 +35,10 @@ router.get( '/quiz-rules', quizControllers.renderQuizRules )
 //with middleware
 // router.get( '/quiz', quizControllers.quizPageMiddleware , quizControllers.renderQuizPage )
 router.get( '/quiz', quizControllers.renderQuizPage );
+
+//quiz result page
+router.get('/quiz-result' , quizControllers.quizPageMiddleware , quizControllers.renderQuizResultPage);
+
 // all post apis are here
 router.post( '/quiz-registeration', quizControllers.saveQuizRegisterationData );
 router.post( '/quiz-login', quizControllers.QuizLoginAuthorization );
@@ -53,5 +57,6 @@ router.get('/show-quiz' , AdminPage.middleware , quizControllers.renderShowQuizP
 
 //quiz details page
 router.get('/quiz-details' , AdminPage.middleware , quizControllers.renderQuizDetailsPage);
+
 
 module.exports = router

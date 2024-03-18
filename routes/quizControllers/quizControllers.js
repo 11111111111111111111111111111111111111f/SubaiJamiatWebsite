@@ -6,21 +6,23 @@ const { ObjectId } = require( 'mongodb' );
 async function renderQuizPage ( req, res ) {
 
     try {
+
         const QuizData = await quizQuestionListDb.findOne( { active: true } );
         let isLoggedIn = req.session.quizLoggedIn
-        console.log( isLoggedIn );
-
-
 
         if ( isLoggedIn ) {
-            let userId = req.session.quizUserId;
-            let quizId = QuizData._id.toString();
 
-            let isAlreadyPlayed = await quizResultDb.findOne( { quizRegisterationId: userId, quizId: quizId } );
-            console.log( isAlreadyPlayed );
-            console.log( userId, quizId );
-            if ( isAlreadyPlayed ) {
-                return res.redirect( '/quiz-result' );
+            if ( QuizData ) {
+                let userId = req.session.quizUserId;
+                let quizId = QuizData._id.toString();
+
+                let isAlreadyPlayed = await quizResultDb.findOne( { quizRegisterationId: userId, quizId: quizId } );
+
+
+                if ( isAlreadyPlayed ) {
+                    return res.redirect( '/quiz-result' );
+                }
+
             }
         }
 
@@ -31,6 +33,7 @@ async function renderQuizPage ( req, res ) {
             res.render( "quiz/quiz", { isQuizAvailable: false } );
         }
     } catch ( error ) {
+        console.log( error )
         res.redirect( '/error' );
     }
 
@@ -48,10 +51,10 @@ function renderQuizRules ( req, res ) {
     res.render( "quiz/quiz-rules" )
 }
 
-async function renderQuizResultPage ( req, res ) {
-    const userData = await tadribiyaRegDb.findOne( { rollno: req.session.quizId } )
-    res.render( 'tadribiyaRegisteration/tadribiyaQuiz/quizResult', { userData } )
-}
+// async function renderQuizResultPage ( req, res ) {
+//     const userData = await tadribiyaRegDb.findOne( { rollno: req.session.quizId } )
+//     res.render( 'tadribiyaRegisteration/tadribiyaQuiz/quizResult', { userData } )
+// }
 
 
 
@@ -140,7 +143,6 @@ async function saveQuizDataToDb ( quizData, userId ) {
     // let questionList = await quizQuestionListDb.find( { _id: new ObjectId( quizData.quizId ), quizQuestions: { $elemMatch: { $or: data } } } ).toArray()
     // let userId = req.session.quizUserId
 
-    console.log( quizData.quizId );
     let questionList = await quizQuestionListDb.findOne( { _id: new ObjectId( quizData.quizId ) } )
 
     let { quizQuestions } = questionList;
@@ -152,8 +154,6 @@ async function saveQuizDataToDb ( quizData, userId ) {
             userCorrectOptions++;
         }
     }
-
-    console.log( userCorrectOptions );
 
     quizResultDb.insertOne( { quizRegisterationId: userId, quizId: quizData.quizId, totalQuestions: totalQuestions, result: userCorrectOptions, choicedQuestions: quizPlayedData } )
 
@@ -243,18 +243,18 @@ async function renderShowQuizPage ( req, res ) {
     let Result = req.query.result;
 
     if ( QuizId && action ) {
-        return startStopQuiz( QuizId, action , res);
+        return startStopQuiz( QuizId, action, res );
     }
 
     if ( QuizId && Result ) {
-        return releaseResult( QuizId, Result  , res);
+        return releaseResult( QuizId, Result, res );
     }
 
     let AllQuiz = await quizQuestionListDb.find().toArray()
     return res.render( 'dashboard/quiz/show-quiz', { AllQuiz } );
 }
 
-async function renderQuizDetailsPage ( req, res  ) {
+async function renderQuizDetailsPage ( req, res ) {
     let quizId = req.query.quizId;
     if ( quizId ) {
         let data = await quizQuestionListDb.findOne( { _id: new ObjectId( quizId ) } );
@@ -262,33 +262,53 @@ async function renderQuizDetailsPage ( req, res  ) {
             return res.render( "dashboard/quiz/quiz-details", { data } );
         }
     }
-
     return res.redirect( '/show-quiz' );
 }
 
-async function startStopQuiz ( QuizId, action , res) {
-
+async function startStopQuiz ( QuizId, action, res ) {
     try {
         let active = action == "start" ? true : false;
         if ( active == true ) {
             await quizQuestionListDb.updateOne( { active: true }, { $set: { active: false } } );
         }
         await quizQuestionListDb.updateOne( { _id: new ObjectId( QuizId ) }, { $set: { active: active } } );
-        return res.redirect('/show-quiz');
+        return res.redirect( '/show-quiz' );
     } catch ( error ) {
-        return res.redirect('/show-quiz');
+        return res.redirect( '/show-quiz' );
     }
-
 }
 
-async function releaseResult ( QuizId, Result , res) {
-
+async function releaseResult ( QuizId, Result, res ) {
     try {
         let result = Result == "enable" ? "enable" : "disable";
         await quizQuestionListDb.updateOne( { _id: new ObjectId( QuizId ) }, { $set: { result: result } } )
-        return res.redirect("/show-quiz");
+        return res.redirect( "/show-quiz" );
     } catch ( error ) {
-        return res.redirect('/show-quiz');
+        return res.redirect( '/show-quiz' );
+    }
+}
+
+async function renderQuizResultPage ( req, res ) {
+    try {
+        let userId = req.session.quizUserId.toString()
+        let AllQuizResult = await quizResultDb.find( { quizRegisterationId: userId } ).toArray();
+        let QuizResult = [];
+
+        for ( i = 0; i < AllQuizResult.length; i++ ) {
+            let result = AllQuizResult[i];
+            let quizId = result.quizId;
+            let quiz = await quizQuestionListDb.findOne( { _id: new ObjectId( quizId ) } );
+            if ( quiz.result == 'enable' ) {
+                let temp = result;
+                temp.quizTitle = quiz.quizTitle;
+                QuizResult.push( temp );
+            }
+        }
+
+        res.render( "quiz/quiz-result", { QuizResult } );
+    } catch ( error ) {
+        console.log( error )
+        res.redirect( "/error" );
     }
 }
 

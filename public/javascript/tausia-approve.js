@@ -15,7 +15,7 @@ approveBtns.forEach( btn => {
         } ).then( response => response.json() )
             .then( response => {
                 if ( response.status == 'success' ) {
-                    open( `https://wa.me/+91${ response.number }?text=${ response.message }` )
+                    open( `https://wa.me/${ response.number }?text=${ response.message }` )
                     document.body.style.cursor = 'auto'
                     location.reload()
                 } else[

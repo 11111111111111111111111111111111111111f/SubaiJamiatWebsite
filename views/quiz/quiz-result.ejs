@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TADRIBIYA QUIZ RESULT|| SUBAI JAMIAT AHLE HADEES MUMBAI</title>
+
+    <link rel="stylesheet" href="./css/quiz/quiz-result.css" />
+  </head>
+
+  <body>
+    <div class="table-container">
+      <div class="table-heading">مسابقہ کے رزلٹ</div>
+      <div class="table-wrapper">
+        <table class="table">
+          <tr>
+            <th>شمار نمبر</th>
+            <th>مسابقہ کا نام</th>
+            <th>کل سوالات</th>
+            <th>کل نمبرات</th>
+          </tr>
+          <% if(QuizResult.length > 0){ %>
+             <% QuizResult.forEach((result , index) =>{ %>
+          <tr>
+            <td><%= index + 1 %></td>
+            <td><%= result.quizTitle %></td>
+            <td><%= result.totalQuestions %></td>
+            <td><%= result.result %></td>
+          </tr>
+          <% }) %> <% }else{ %>
+          <tr>
+            <td colspan="4">کسی مسابقہ کا رزلٹ موجود نہیں ہے۔</td>
+          </tr>
+          <% } %>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

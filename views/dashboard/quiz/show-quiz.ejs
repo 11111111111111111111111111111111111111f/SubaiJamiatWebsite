@@ -73,14 +73,14 @@
                     <% if(Quiz.active == true){ %>
 
                     <a
-                      href="/show-quiz?quizId=<%= Quiz._id %>&action=stop"
+                      href="?quizId=<%= Quiz._id %>&action=stop"
                       class="btn btn-danger"
                       >Stop Quiz</a
                     >
 
                     <% } else{%>
                     <a
-                      href="/show-quiz?quizId=<%= Quiz._id %>&action=start"
+                      href="?quizId=<%= Quiz._id %>&action=start"
                       class="btn btn-primary"
                       >Start Quiz</a
                     >
@@ -88,15 +88,15 @@
                   </td>
                   <td>
                     <% if(Quiz.result == 'enable'){ %>
-                    <a7
-                      href="/show-quiz?quizId=<%= Quiz._id %>&result=disable"
+                    <a
+                      href="?quizId=<%= Quiz._id %>&result=disable"
                       class="btn btn-danger"
                     >
                       Disable
                     </a>
                     <% }else {%>
                     <a
-                      href="/show-quiz?quizId=<%= Quiz._id %>&result=enable"
+                      href="?quizId=<%= Quiz._id %>&result=enable"
                       class="btn btn-success"
                     >
                       Enable

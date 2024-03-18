@@ -191,8 +191,11 @@
                                                     </label>
                                                     <input type="text" name="SafeerName" placeholder="سفیر کا نام"
                                                         required>
-                                                    <input type="text" name="SafeerNumber"
-                                                        placeholder="سفیر کا موبائل نمبر" required pattern="[0-9]{10}">
+                                                     <!-- pattern is added for validating user atleast enter country code which number of digit should be between 1 to 3 and the rest of the numbers length should be 10 -->
+                                                     <input type="text" name="SafeerNumber"
+                                                     placeholder="سفیر کا موبائل نمبر" required pattern="\+\d{1,3}\d{10}" title="Please enter a valid phone number (digits only) starting with country code">
+                                                 <!-- <input type="text" name="SafeerNumber"
+                                                     placeholder="سفیر کا موبائل نمبر" required pattern="[0-9]{10}"> -->
                                                     <!-- <input type="text" name="Safeer_Ka_Name_Aur_Mobile_Number"
                                                         id="Safeer_Ka_Name_Aur_Mobile_Number" required> -->
                                                     <!-- name="Safeer_Ka_Name_Aur_Mobile_Number" -->
