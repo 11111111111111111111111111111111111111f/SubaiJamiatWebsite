@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="./images/logo-square.png" />
+    <link rel="stylesheet" href="./css/donate.css" />
+    <title>Upload Video</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+
+      * {
+        font-family: "Montserrat", sans-serif;
+      }
+
+      .heading {
+        text-decoration: none;
+        margin-bottom: 40px;
+      }
+
+      .success {
+        text-align: left;
+        border: 2px solid #2fa88e;
+        padding: 15px;
+        border-radius: 5px;
+        color: black;
+        background: rgba(47, 168, 142, 0.5);
+        font-size: 18px;
+        cursor: pointer;
+        display: none;
+        position: relative;
+      }
+
+      .success.active {
+        display: block;
+      }
+
+      .success:before {
+        content: "Copied";
+        position: absolute;
+        width: fit-content;
+        height: fit-content;
+        padding: 10px;
+        right: 0;
+        top: -40px;
+        color: white;
+        font-size: 16px;
+        background: #282828;
+        border-radius: 5px;
+        z-index: 9999;
+        display: none;
+        animation: copy 0.5s ease;
+      }
+
+      .success.clicked:before {
+        display: block;
+      }
+
+      label {
+        margin-bottom: 10px !important;
+        display: block;
+        font-weight: 500;
+      }
+
+      .file-container {
+        display: flex;
+        height: fit-content;
+        width: 100%;
+        position: relative;
+        margin-top: 15px;
+        margin-bottom: 20px;
+      }
+
+      .file-container:before {
+        content: "Upload File";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        background: #2fa88e;
+        width: 100%;
+        font-size: 16px;
+        color: white;
+        font-weight: 500;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 5px;
+        cursor: pointer;
+        z-index: 1;
+      }
+
+      .file-container input {
+        position: relative;
+        z-index: 2;
+        opacity: 0;
+      }
+
+      .progress-container,
+      .progress-container div {
+        margin: 0;
+      }
+
+      .progress-container {
+        border: 2px solid #2fa88e;
+        padding: 15px 10px;
+        background: rgba(47, 168, 142, 0.5);
+        border-radius: 5px;
+        margin-bottom: 15px;
+        display: none;
+      }
+
+      .progress-container.active {
+        display: block;
+      }
+
+      .progress-container .file-name {
+        margin-bottom: 10px;
+        font-size: 16px;
+        font-weight: 500;
+      }
+
+      .progress-container .progress {
+        height: 15px;
+        width: 100%;
+        background: white;
+        display: flex;
+        border-radius: 25px;
+        overflow: hidden;
+        margin-bottom: 10px;
+      }
+
+      .progress-container .progress-bar {
+        height: 100%;
+        background: rgb(15, 157, 245);
+        width: 80%;
+        transition: all 0.3s ease;
+      }
+
+      .percent-container {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .percent-container .cancel {
+        background: crimson;
+        color: white;
+        padding: 5px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .progress-container span {
+        color: black;
+        font-size: 16px;
+        font-weight: 500;
+      }
+
+      @keyframes copy {
+        0% {
+          top: -40px;
+        }
+
+        100% {
+          top: -45px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <form>
+        <h1 class="heading">Upload Video</h1>
+        <div>
+          <label for="video"> Upload Your Video Here </label>
+          <div class="file-container">
+            <input type="file" required id="video" name="video" />
+          </div>
+        </div>
+        <div class="progress-container">
+          <div class="file-name"></div>
+          <div class="progress">
+            <div class="progress-bar"></div>
+          </div>
+          <div class="percent-container">
+            <span class="cancel"> cancel </span>
+            <span class="percentage"> 80% </span>
+          </div>
+        </div>
+        <span class="error"></span>
+        <span class="success"></span>
+        <div class="submit-container">
+          <button type="submit">Upload</button>
+        </div>
+      </form>
+      <script src="./javascript/upload-video/upload-video.js"></script>
+    </div>
+  </body>
+</html>

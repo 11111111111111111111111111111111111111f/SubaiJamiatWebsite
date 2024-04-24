@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" class="no-fs">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/dashboard/dashboard.css" />
+    <!-- fontawesome cdn link  -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+
+    <meta name="robots" content="noindex" />
+
+    <title>Admin</title>
+  </head>
+
+  <body data-page="videos">
+    <div class="main-container">
+      <div class="mobile-dashboard"></div>
+
+      <%- include('../common/dashboard-sidebar') %>
+
+      <div class="right">
+        <%- include('../common/dashboard-header') %>
+
+        <div class="content">
+          <div class="page">
+            <span>
+              <span class="bold">Videos</span>
+              <i class="fa-solid fa-angle-right icon"></i>
+            </span>
+            <span>
+              All Videos
+          </div>
+          <div class="table">
+            <div class="header no-input">
+              <h3 class="heading">All Videos</h3>
+            </div>
+            <div class="student-table-container">
+              <table class="student-table">
+                <tr>
+                    <th>SrNo</th>
+                    <th>Video</th>
+                    <th>Size</th>
+                    <th>Action</th>
+                </tr>
+                <% if(videos.length> 0){ %>
+                    <% videos.forEach((video, index)=>{ %>
+                <tr>
+                  <td class="no-break"><%= index + 1 %></td>
+                  <td>
+                    <a target="_blank" href="https://ahlehadeesmumbai.com/upload-video/<%= video.name %>">
+                        <%= video.name %>
+                    </a>
+                </td>
+                <td>
+                    <%= video.size %>
+                </td>
+                <td>
+                    <button class="delete-btn btn btn-danger" data-video="<%= video.name %>" type="button">Delete</button>
+                </td>
+                </tr>
+
+                <% }) %> <% }else{ %>
+                <tr>
+                  <td colspan="4">No Video Available</td>
+                </tr>
+                <% } %>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./javascript/dashboard/dashboard.js"></script>
+    <script src="./javascript/upload-video/delete-video.js"></script>
+  </body>
+</html>

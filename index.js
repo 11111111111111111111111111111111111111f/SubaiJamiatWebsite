@@ -29,7 +29,8 @@ const TadribiyaRouter = require( './routes/clientAndAdmin/tadribiya/tadribiya.js
 const masjidRegisterationRouter = require( './routes/clientAndAdmin/masjidRegisteration/masjidRegisteration.js' )
 const tausiaRouter = require( './routes/clientAndAdmin/tausia/tausia.js' )
 const tausiaTalabaRouter = require( './routes/clientAndAdmin/tausiaTalaba/tausiaTalaba.js' )
-const quizRouter = require('./routes/clientAndAdmin/quiz/quiz.js')
+const quizRouter = require( './routes/clientAndAdmin/quiz/quiz.js' );
+const { upload } = require( "./routes/RegisterationMulter/RegisterationMulter.js" );
 
 app.use( session( {
   secret: 'sj_session_storage_Zambeel#7012',
@@ -66,7 +67,7 @@ app.use( tausiaRouter )
 //using tausia talaba client and admin router
 app.use( tausiaTalabaRouter )
 //using quiz client and admin router
-app.use(quizRouter)
+app.use( quizRouter )
 
 app.get( "", async ( req, res ) => {
 
@@ -878,8 +879,9 @@ app.get( '/adminLogin', adminLogin.middleware, ( req, res ) => {
 app.post( '/adminLogin', adminLogin.adminLogin )
 
 app.get( '/video-upload', AdminPage.middleware, uploadVideo.renderVideoUploadPage )
-app.post( '/upload-video', uploadVideo.videoMulter.single( "video" ), uploadVideo.getVideoFromUser )
-
+app.get( '/all-videos', AdminPage.middleware, uploadVideo.allVideos )
+app.post( '/upload-video', AdminPage.middleware, uploadVideo.videoMulter.single( "video" ), uploadVideo.getVideoFromUser )
+app.delete( '/delete-video/:video', AdminPage.middleware, uploadVideo.deleteVideo )
 //404 page
 app.get( '/pending', ( req, res ) => {
   res.render( 'pending' )

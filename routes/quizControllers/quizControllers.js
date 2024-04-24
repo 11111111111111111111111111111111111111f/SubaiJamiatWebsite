@@ -295,7 +295,7 @@ async function renderQuizResultPage ( req, res ) {
         let QuizResult = [];
 
         for ( i = 0; i < AllQuizResult.length; i++ ) {
-            let result = AllQuizResult[i];
+            let result = AllQuizResult[ i ];
             let quizId = result.quizId;
             let quiz = await quizQuestionListDb.findOne( { _id: new ObjectId( quizId ) } );
             if ( quiz.result == 'enable' ) {
