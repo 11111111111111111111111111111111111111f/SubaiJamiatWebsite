@@ -27,11 +27,14 @@
         <div class="content">
           <div class="page">
             <span>
-              <span class="bold">Videos</span>
+              <span class="bold">Dashboard</span>
               <i class="fa-solid fa-angle-right icon"></i>
             </span>
             <span>
-              All Videos
+              Video
+              <i class="fa-solid fa-angle-right icon"></i>
+            </span>
+            <span> All Videos </span>
           </div>
           <div class="table">
             <div class="header no-input">
@@ -40,26 +43,33 @@
             <div class="student-table-container">
               <table class="student-table">
                 <tr>
-                    <th>SrNo</th>
-                    <th>Video</th>
-                    <th>Size</th>
-                    <th>Action</th>
+                  <th>SrNo</th>
+                  <th>Video</th>
+                  <th>Size</th>
+                  <th>Action</th>
                 </tr>
-                <% if(videos.length> 0){ %>
-                    <% videos.forEach((video, index)=>{ %>
+                <% if(videos.length> 0){ %> <% videos.forEach((video, index)=>{
+                %>
                 <tr>
                   <td class="no-break"><%= index + 1 %></td>
                   <td>
-                    <a target="_blank" href="https://ahlehadeesmumbai.com/upload-video/<%= video.name %>">
-                        <%= video.name %>
+                    <a
+                      target="_blank"
+                      href="https://ahlehadeesmumbai.com/upload-video/<%= video.name %>"
+                    >
+                      <%= video.name %>
                     </a>
-                </td>
-                <td>
-                    <%= video.size %>
-                </td>
-                <td>
-                    <button class="delete-btn btn btn-danger" data-video="<%= video.name %>" type="button">Delete</button>
-                </td>
+                  </td>
+                  <td><%= video.size %></td>
+                  <td>
+                    <button
+                      class="delete-btn btn btn-danger"
+                      data-video="<%= video.name %>"
+                      type="button"
+                    >
+                      Delete
+                    </button>
+                  </td>
                 </tr>
 
                 <% }) %> <% }else{ %>
