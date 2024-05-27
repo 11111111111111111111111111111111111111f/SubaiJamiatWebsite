@@ -37,7 +37,7 @@ router.get( '/quiz-rules', quizControllers.renderQuizRules )
 router.get( '/quiz', quizControllers.renderQuizPage );
 
 //quiz result page
-router.get('/quiz-result' , quizControllers.quizPageMiddleware , quizControllers.renderQuizResultPage);
+router.get( '/quiz-result', quizControllers.quizPageMiddleware, quizControllers.renderQuizResultPage );
 
 // all post apis are here
 router.post( '/quiz-registeration', quizControllers.saveQuizRegisterationData );
@@ -53,10 +53,10 @@ router.get( '/add-quiz', AdminPage.middleware, quizControllers.renderAddQuizpage
 router.post( '/add-quiz', AdminPage.middleware, quizControllers.addQuiz );
 
 //show quiz page
-router.get('/show-quiz' , AdminPage.middleware , quizControllers.renderShowQuizPage);
+router.get( '/show-quiz', AdminPage.middleware, quizControllers.renderShowQuizPage );
 
 //quiz details page
-router.get('/quiz-details' , AdminPage.middleware , quizControllers.renderQuizDetailsPage);
+router.get( '/quiz-details', AdminPage.middleware, quizControllers.renderQuizDetailsPage );
 
 
 module.exports = router
