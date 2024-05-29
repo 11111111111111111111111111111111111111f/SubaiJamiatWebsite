@@ -1,312 +1,180 @@
 <!DOCTYPE html>
 <html lang="ur">
-
-<head>
-
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robot" name="noindex">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robot" name="noindex" />
     <title>Fatawa Jawab Page</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
-    <link rel="icon" href="./images/logo.png">
+    <link rel="icon" href="./images/logo.png" />
 
     <style>
-        /* nastalique fonts */
-        @import url("https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;500;600;700&display=swap");
+      /* nastalique fonts */
+      @import url("https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;500;600;700&display=swap");
 
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap');
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap");
 
-        * {
-            margin: 0;
-            padding: 0;
-            font-family: "Noto Nastaliq Urdu", "Montserrat", sans-serif;
-            direction: rtl;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: "Noto Nastaliq Urdu", "Montserrat", sans-serif;
+        direction: rtl;
+      }
 
-        .line {
-            margin: 30px 0;
-            height: 1px;
-            background: #282828;
-            width: 100%;
-        }
+      .line {
+        margin: 30px 0;
+        height: 1px;
+        background: #282828;
+        width: 100%;
+      }
 
-        .container {
-            background: white;
-            padding: 50px 100px;
-            background: url('./images/reading-background.png');
-        }
+      .container {
+        background: white;
+        padding: 50px 100px;
+        background: url("http://localhost:5000/images/reading-background.png");
+      }
 
-        .heading {
-            font-size: 18px;
-            margin-bottom: 20px;
-            font-weight: 600;
-        }
+      .heading {
+        font-size: 18px;
+        margin-bottom: 20px;
+        font-weight: 600;
+      }
 
-        .question-container {
-            background: #f0f0f0;
-            padding: 20px;
-            border-radius: 10px;
-        }
+      .question-container {
+        background: #f0f0f0;
+        padding: 20px;
+        border-radius: 10px;
+      }
 
-        .question-container .red {
-            color: crimson;
-        }
+      .question-container .red {
+        color: crimson;
+      }
 
-        .question-container h3 {
-            font-size: 16px;
-            font-weight: 600;
-        }
+      .question-container h3 {
+        font-size: 16px;
+        font-weight: 600;
+      }
 
-        .fatawa-icon {
-            color: #00d999;
-            margin-left: 5px;
-        }
+      .fatawa-icon {
+        color: #00d999;
+        margin-left: 5px;
+      }
 
-        .question-container p {
-            font-size: 16px;
-        }
+      .question-container p {
+        font-size: 16px;
+      }
 
-        .blue {
-            color: #00d999;
-        }
+      .blue {
+        color: #00d999;
+      }
 
-        .jawab {
-            margin: 10px 0;
-        }
+      .jawab {
+        margin: 10px 0;
+      }
 
-        .jawab p {
-            margin: 10px 0;
-        }
+      .jawab p {
+        margin: 10px 0;
+      }
 
-        .social-media-container * {
-            direction: ltr;
-        }
+      .social-media-container * {
+        direction: ltr;
+      }
 
-        .social-media-container img {
+      .social-media-container img {
+        height: 30px;
+      }
 
-            height: 30px;
+      .social-media-flex-container {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
 
-        }
+      .social-media-container .heading {
+        font-family: "Montserrat", sans-serif;
+        font-size: 25px;
+        margin-bottom: 40px;
+        text-align: center;
+      }
 
-        .social-media-flex-container {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
+      .social-media-container .social-media {
+        display: flex;
+        align-items: center;
+        column-gap: 10px;
+        margin: 25px 0;
+      }
 
-        .social-media-container .heading {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 25px;
-            margin-bottom: 40px;
-            text-align: center;
-        }
+      .social-media-container .social-media .social-media-heading {
+        font-size: 14px;
+        color: #282828;
+        font-family: "Montserrat", sans-serif;
+      }
 
-        .social-media-container .social-media {
-            display: flex;
-            align-items: center;
-            column-gap: 10px;
-            margin: 25px 0;
-        }
+      .social-media-container .social-media a {
+        font-family: "Montserrat", sans-serif;
+        text-decoration: none;
+        color: blue;
+        display: inline-block;
+        font-size: 16px;
+      }
 
-        .social-media-container .social-media .social-media-heading {
-            font-size: 14px;
-            color: #282828;
-            font-family: "Montserrat", sans-serif;
-        }
-
-        .social-media-container .social-media a {
-            font-family: "Montserrat", sans-serif;
-            text-decoration: none;
-            color: blue;
-            display: inline-block;
-            font-size: 16px;
-        }
-
-        .social-media-container .social-media div {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-        }
+      .social-media-container .social-media div {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
     </style>
+  </head>
 
-</head>
-
-<body>
-
+  <body>
     <div class="container">
-        <h1 class="heading">
-            <%= FatawaTitle %>
-        </h1>
+      <h1 class="heading"><%= data.questionTitle %></h1>
 
-        <% FatawaList.forEach(value=>{ %>
-            <% if(value.FatawaTitleNo==FatawaNumber){%>
-
-                <div class="division">
-                    <div class="question-container">
-                        <h3>
-                            <b class="question-no red">
-                                <span>
-                                    سوال :
-                                </span>
-                                <!-- <span>
-                                    <%= value.SrNo %>
+      <div class="division">
+        <div class="question-container">
+          <h3>
+            <b class="question-no red">
+              <span> سوال : </span>
+              <!-- <span>
+                                    <%# value.SrNo %>
                                 </span> -->
-                            </b>
-                            <br>
-                            <span class="question">
-                                <%= value.Sawal %>
-                            </span>
-                        </h3>
-                        <p>
-                            <i class="fa-solid fa-user fatawa-icon"></i>
+            </b>
+            <br />
+            <span class="question"> <%= data.question %> </span>
+          </h3>
+          <p>
+            <i class="fa-solid fa-user fatawa-icon"></i>
 
-                            <b>سائل : </b>
-                            <span>
-                                <%= value.Sail %>
-                            </span>
-                        </p>
-                    </div>
-                    <div class="jawab">
-                        <p>
-                            <b class="blue">جواب : </b>
-                            <% value.Jawab.forEach(jawab=>{ %>
-                                <p>
-                                    <%= jawab %>
-                                </p>
-                                <% }) %>
-                        </p>
-                        <p>
-                            <i class="fa-solid fa-user fatawa-icon"></i>
-                            <b> کتبہ : </b>
-                            <span>
-                                <%= value.Kutba %>
-                            </span>
-                        </p>
-                        <p>
-                            <i class="fa-solid fa-calendar-days fatawa-icon"></i>
-                            <b>تاریخ : </b>
-                            <span>
-                                <%= value.Date %>
-                            </span>
-                        </p>
-                    </div>
-                </div>
-
-                <div class="line"></div>
-
-                <div class="social-media-container" dir="ltr">
-
-                    <h1 class="heading">
-                        Links
-                    </h1>
-
-                    <div class="social-media-flex-container">
-                        <div class="social-media">
-
-                            <img src="./images/favicon.png" alt="image not found">
-
-                            <div>
-                                <h2 class="social-media-heading">
-                                    Website
-                                </h2>
-                                <a href="https://www.ahlehadeesmumbai.com" class="social-media-link">
-                                    ahlehadeesmumbai.com
-                                </a>
-                            </div>
-                        </div>
-                        <div class="social-media">
-
-                            <img src="./images/facebook-icon.png" alt="image not found">
-
-                            <div>
-                                <h2 class="social-media-heading">
-                                    Facebook
-                                </h2>
-                                <a href="https://facebook.com/subaijamiatahlehadeesmumbai1" class="social-media-link">
-                                    facebook.com </a>
-                            </div>
-                        </div>
-                        <div class="social-media">
-
-                            <img src="./images/twitter-icon.png" alt="image not found">
-
-                            <div>
-                                <h2 class="social-media-heading">
-                                    Follow us on Twitter
-                                </h2>
-                                <a href="https://twitter.com/JamiatSubai" class="social-media-link">
-                                    twitter.com
-                                </a>
-                            </div>
-                        </div>
-                        <div class="social-media">
-
-                            <img src="./images/instagram-icon.png" alt="image not found">
-
-                            <div>
-                                <h2 class="social-media-heading">
-                                    Follow us on Instagram
-                                </h2>
-                                <a href="https://
-                                instagram.com/subaijamiatahlehadeesmum" class="social-media-link">
-
-                                    instagram.com
-                                </a>
-                            </div>
-                        </div>
-                        <div class="social-media">
-
-                            <img src="./images/google-icon.png" alt="image not found">
-
-                            <div>
-                                <h2 class="social-media-heading">
-                                    Google Plus
-                                </h2>
-                                <a href="https://plus.google.com/ SubaiJamiatAhleHadeesMumbai"
-                                    class="social-media-link">
-                                    plus.google.com
-                                </a>
-                            </div>
-                        </div>
-                        <div class="social-media">
-
-                            <img src="./images/telegram-icon.png" alt="image not found">
-
-                            <div>
-                                <h2 class="social-media-heading">
-                                    Telegram Channel
-                                </h2>
-                                <a href="https://t.me/SubaiJamiatAhleHadeesMumbai1" class="social-media-link">
-                                    t.me
-                                </a>
-                            </div>
-                        </div>
-                        <div class="social-media">
-
-                            <img src="./images/whatsapp-broadcast-number-icon.png" alt="image not found">
-
-                            <div>
-                                <h2 class="social-media-heading">
-                                    Whatsapp BroadCast Number
-                                </h2>
-                                <a href="https://wa.me/message/XIAOSOVKQ2DZE1" class="social-media-link">
-                                    wa.me/message/XIAOSOVKQ2DZE1
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <% } %>
-                    <% })%>
+            <b>سائل : </b>
+            <span> <%= data.questionerName %> </span>
+          </p>
+        </div>
+        <div class="jawab">
+          <p>
+            <b class="blue">جواب : </b>
+            <%- data.answer %>
+          </p>
+          <p>
+            <i class="fa-solid fa-user fatawa-icon"></i>
+            <b> کتبہ : </b>
+            <span> <%= data.muftiName %> </span>
+          </p>
+          <p>
+            <i class="fa-solid fa-calendar-days fatawa-icon"></i>
+            <b>تاریخ : </b>
+            <span> <%= data.date %> </span>
+          </p>
+        </div>
+      </div>
     </div>
-
-</body>
-
+  </body>
 </html>

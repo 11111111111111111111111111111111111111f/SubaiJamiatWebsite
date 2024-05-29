@@ -58,76 +58,65 @@
                                         <div class="content">
 
                                             <h1 class="fatawa-heading" dir="rtl">
-                                                <%= FatawaTitle %>
+                                                <%= ans.questionTitle %>
                                             </h1>
 
-                                            <% FatawaList.forEach(value=>{ %>
-                                                <% if(value.FatawaTitleNo==FatawaNumber){%>
+                                            <div class="division">
+                                                <div class="my-2 question-container">
+                                                    <h3 class="my-1">
+                                                        <b class="question-no red">
+                                                            <span>
+                                                                سوال :
+                                                            </span>
+                                                            <!-- <span>
+                                                                <%#value.SrNo %>
+                                                            </span> -->
+                                                        </b>
+                                                        <br>
+                                                        <span class="question">
+                                                            <%= ans.question %>
+                                                        </span>
+                                                    </h3>
+                                                    <p>
+                                                        <i class="fa-solid fa-user fatawa-icon"></i>
 
-                                                    <div class="division">
-                                                        <div class="my-2 question-container">
-                                                            <h3 class="my-1">
-                                                                <b class="question-no red">
-                                                                    <span>
-                                                                        سوال :
-                                                                    </span>
-                                                                    <!-- <span>
-                                                                        <%= value.SrNo %>
-                                                                    </span> -->
-                                                                </b>
-                                                                <br>
-                                                                <span class="question">
-                                                                    <%= value.Sawal %>
-                                                                </span>
-                                                            </h3>
-                                                            <p>
-                                                                <i class="fa-solid fa-user fatawa-icon"></i>
+                                                        <b>سائل : </b>
+                                                        <span>
+                                                            <%= ans.questionerName%>
+                                                        </span>
+                                                    </p>
+                                                </div>
+                                                <div class="my-5 jawab">
+                                                    <p>
+                                                        <b class="blue">جواب : </b>
+                                                        <%- ans.answer %>
+                                                    </p>
+                                                    <p>
+                                                        <i class="fa-solid fa-user fatawa-icon"></i>
+                                                        <b> کتبہ : </b>
+                                                        <span>
+                                                            <%= ans.muftiName %>
+                                                        </span>
+                                                    </p>
+                                                    <p>
+                                                        <i class="fa-solid fa-calendar-days fatawa-icon"></i>
+                                                        <b>تاریخ : </b>
+                                                        <span>
+                                                            <%= ans.date %>
+                                                        </span>
+                                                    </p>
+                                                    <a href="/generate-fatawa-jawab-pdf/<%= ans.questionerId %>" target="_blank"
+                                                        class="fatawa-download-btn">
+                                                        <i class="fa-solid fa-download"></i>
+                                                    </a>
+                                                    <!-- <a href="https://www.ahlehadeesmumbai.com/fatawaJawabPdf/fatawa-jawab-<%# value.No %>.pdf"
+                                                        download target="_blank" class="fatawa-download-btn">
+                                                        <i class="fa-solid fa-download"></i>
+                                                    </a> -->
+                                                </div>
 
-                                                                <b>سائل : </b>
-                                                                <span>
-                                                                    <%= value.Sail %>
-                                                                </span>
-                                                            </p>
-                                                        </div>
-                                                        <div class="my-5 jawab">
-                                                            <p>
-                                                                <b class="blue">جواب : </b>
-                                                                <% value.Jawab.forEach(jawab=>{ %>
-                                                                    <p>
-                                                                        <%= jawab %>
-                                                                    </p>
-                                                                    <% }) %>
-                                                            </p>
-                                                            <p>
-                                                                <i class="fa-solid fa-user fatawa-icon"></i>
-                                                                <b> کتبہ : </b>
-                                                                <span>
-                                                                    <%= value.Kutba %>
-                                                                </span>
-                                                            </p>
-                                                            <p>
-                                                                <i class="fa-solid fa-calendar-days fatawa-icon"></i>
-                                                                <b>تاریخ : </b>
-                                                                <span>
-                                                                    <%= value.Date %>
-                                                                </span>
-                                                            </p>
-                                                            <!-- <a href="<%= value.Link %>" target="_blank"
-                                                                class="fatawa-download-btn">
-                                                                <i class="fa-solid fa-download"></i>
-                                                            </a> -->
-                                                            <a href="https://www.ahlehadeesmumbai.com/fatawaJawabPdf/fatawa-jawab-<%= value.No %>.pdf"
-                                                                download target="_blank" class="fatawa-download-btn">
-                                                                <i class="fa-solid fa-download"></i>
-                                                            </a>
-                                                        </div>
-
-                                                        <div class="line"></div>
-
-                                                    </div>
-
-                                                    <% } %>
-                                                        <% })%>
+                                                <div class="line"></div>
+                                            </div>
 
                                         </div>
 

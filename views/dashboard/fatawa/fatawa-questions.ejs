@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" class="no-fs">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/dashboard/dashboard.css" />
+    <!-- fontawesome cdn link  -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+
+    <meta name="robots" content="noindex" />
+
+    <title>Admin</title>
+  </head>
+
+  <body data-page="fatawa">
+    <div class="main-container">
+      <div class="mobile-dashboard"></div>
+
+      <%- include('../common/dashboard-sidebar') %>
+
+      <div class="right">
+        <%- include('../common/dashboard-header') %>
+
+        <div class="content">
+          <div class="page">
+            <span>
+              <span class="bold">Dashboard</span>
+              <i class="fa-solid fa-angle-right icon"></i>
+            </span>
+            <span>
+              Fatawa
+              <i class="fa-solid fa-angle-right icon"></i>
+            </span>
+            <span> Fatawa Questions </span>
+          </div>
+          <div class="table">
+            <div class="header no-input">
+              <h3 class="heading">Fatawa Questions</h3>
+
+              <!-- <div class="input">
+                                    <i class="fa-solid fa-magnifying-glass search-icon "></i>
+                                    <input type="text" placeholder="Search students here">
+                                </div> -->
+            </div>
+            <div class="student-table-container">
+              <table class="student-table">
+                <tr>
+                  <th>Sr No</th>
+                  <th>Date</th>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Phone no</th>
+                  <th>Title</th>
+                  <th>Question</th>
+                  <th>Action</th>
+                </tr>
+                <% if(fatawaData.length> 0){ %> <% fatawaData.forEach((value ,
+                index)=>{ %>
+
+                <tr>
+                  <td class="no-break"><%= index + 1 %></td>
+                  <td class="no-break"><%= value.date %></td>
+                  <td><%= value.name %></td>
+                  <td><%= value.email %></td>
+                  <td><%= value.phoneNo %></td>
+                  <td><%= value.title %></td>
+                  <td><%= value.question %></td>
+                  <td>
+                    <a
+                      class="btn btn-primary btn-sm"
+                      target="_blank"
+                      href="/fatawa-answer?id=<%= value._id %>"
+                    >
+                      Reply
+                    </a>
+                  </td>
+                </tr>
+
+                <% }) %> <% }else{ %>
+                <tr>
+                  <td colspan="8">No Data Present</td>
+                </tr>
+                <% } %>
+              </table>
+            </div>
+            <div class="pagination">
+              <% if(pagination.page> 1) {%>
+              <a href="fatawa-question-admin?page=<%= pagination.page-1 %>">
+                <i class="fa-solid fa-angle-left"></i>
+              </a>
+              <% }else{ %>
+              <a href="" class="inactive">
+                <i class="fa-solid fa-angle-left"></i>
+              </a>
+              <% } %>
+
+              <span> <%= pagination.page %> of <%= pagination.endPage %> </span>
+
+              <% if(pagination.endPage > pagination.page){ %>
+              <a href="/fatawa-question-admin?page=<%= pagination.page+1 %>">
+                <i class="fa-solid fa-angle-right"></i>
+              </a>
+
+              <% }else{ %>
+              <a href="" class="inactive">
+                <i class="fa-solid fa-angle-right"></i>
+              </a>
+              <% } %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./javascript/dashboard/dashboard.js"></script>
+  </body>
+</html>

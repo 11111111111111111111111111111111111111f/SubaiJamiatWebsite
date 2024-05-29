@@ -35,36 +35,54 @@ function quizQuestionListCollection () {
 
 }
 
-function quizRegisterationCollection(){
-    const db = client.db('sj_registeration')
-    const collection = db.collection('QuizRegisteration')
+function quizRegisterationCollection () {
+    const db = client.db( 'sj_registeration' )
+    const collection = db.collection( 'QuizRegisteration' )
     return collection
 }
 
-function quizResultDb(){
-    const db = client.db('sj_registeration')
-    const collection = db.collection("QuizResult")
+function quizResultDb () {
+    const db = client.db( 'sj_registeration' )
+    const collection = db.collection( "QuizResult" )
     return collection
 }
 
-function offlineApprovedTausiaCollection(){
+function offlineApprovedTausiaCollection () {
 
-    const db = client.db('sj_registeration')
-    const collection = db.collection('OfflineApprovedTausia')
+    const db = client.db( 'sj_registeration' )
+    const collection = db.collection( 'OfflineApprovedTausia' )
     return collection
 
 }
 
+//fatawa dbs
+//fatawa question collection
+function FatawaQuestionCollection () {
+    const db = client.db( 'sj_registeration' )
+    const collection = db.collection( 'Fatawa_Questions' )
+    return collection
+}
+
+//fatawa answer collection
+function FatawaAnswerCollection () {
+    const db = client.db( 'sj_registeration' )
+    const collection = db.collection( 'Fatawa_Answer' )
+    return collection
+}
 
 module.exports = {
     tadribiyaRegDb: createConnection(),
     tausiaDb: tausiaCollectionConnection(),
     masjidDb: masjidRegisterationCollection(),
     tausiaTalabaDb: tausiaTalabaCollectionConnection(),
-    quiz : {
+    quiz: {
         quizQuestionListDb: quizQuestionListCollection(),
-        quizRegisterationDb : quizRegisterationCollection(),
-        quizResultDb  : quizResultDb()
+        quizRegisterationDb: quizRegisterationCollection(),
+        quizResultDb: quizResultDb()
     },
-    offlineApprovedTausiaCollection: offlineApprovedTausiaCollection()
+    offlineApprovedTausiaCollection: offlineApprovedTausiaCollection(),
+    Fatawa: {
+        FatawaQuestionCollection: FatawaQuestionCollection(),
+        FatawaAnswerCollection: FatawaAnswerCollection()
+    }
 }

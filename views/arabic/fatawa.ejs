@@ -1,130 +1,115 @@
 <!DOCTYPE html>
 <html lang="ar">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sobai Jamiat Ahle Hadees Mumbai</title>
     <!-- all css and js  files are here included -->
     <%- include('./common/css&js') %>
-        <!-- own contact css file link  -->
-        <link rel="stylesheet" href="./css/contact.css">
-</head>
+    <!-- own contact css file link  -->
+    <link rel="stylesheet" href="./css/contact.css" />
+  </head>
 
-<body data-active="fatawa">
-
-
+  <body data-active="fatawa">
     <!-- header and chats and loading animation included here  -->
-    <%- include('./common/loading') %>
+    <%- include('./common/loading') %> <%- include('./common/header') %>
 
-        <%- include('./common/header') %>
+    <!-- content section starts here  -->
 
-            <!-- content section starts here  -->
+    <section id="content">
+      <div class="main-container">
+        <div class="container2">
+          <div
+            class="row g-lg-5 g-xl-5 g-md-3 g-sm-2 g-2 justify-content-center"
+          >
+            <!-- left column included here  -->
 
-            <section id="content">
+            <%- include('./common/left') %>
 
-                <div class="main-container">
-
-                    <div class="container2">
-
-                        <div class="row g-lg-5 g-xl-5 g-md-3 g-sm-2 g-2 justify-content-center">
-
-                            <!-- left column included here  -->
-
-                            <%- include('./common/left') %>
-
-
-                                <div class="column-center column  col-12 col-sm-10 col-md-6 col-lg-6 col-xl-6">
-
-                                    <div class="card">
-
-                                        <div class="top">
-
-                                            <h1>
-
-                                                أرسل سؤالك
-
-                                            </h1>
-
-                                        </div>
-
-                                        <div class="content">
-
-                                            <div class="form-container">
-
-                                                <form>
-
-                                                    <label for="name">
-                                                        : أدخل أسمك
-                                                    </label>
-                                                    <input type="text" id="name" name="Name" required minlength="3"
-                                                        maxlength="15">
-
-                                                    <label for="email">
-                                                        : أدخل بريدك الإلكتروني
-                                                    </label>
-                                                    <input type="email" id="email" name="Email" required>
-
-                                                    <label for="number">
-                                                        : أدخل رقم هاتفك
-                                                    </label>
-                                                    <input type="text" pattern="[0-9]{10}" id="number"
-                                                        name="Mobile Number" required>
-
-                                                    <label for="subject">
-                                                        : أدخل موضوع الفتوى
-                                                    </label>
-                                                    <input type="text" id="subject" name="Sawaal Subject" required
-                                                        minlength="3">
-
-                                                    <label for="message">
-                                                        : اكتب سؤالك
-                                                    </label>
-
-                                                    <textarea id="message" required minlength="3"
-                                                        name="Sawaal"></textarea>
-
-
-                                                    <p class="message" style="color:var(--blue);font-size:12px;"></p>
-
-                                                    <div class="submit-container">
-
-                                                        <input type="submit" value="أرسل الفتوى">
-
-                                                    </div>
-                                                    <div class="data-loading"></div>
-
-                                                </form>
-
-                                            </div>
-
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <!-- right column included here  -->
-
-                                <%- include('./common/right') %>
-
-                        </div>
-
-                    </div>
-
+            <div
+              class="column-center column col-12 col-sm-10 col-md-6 col-lg-6 col-xl-6"
+            >
+              <div class="card">
+                <div class="top">
+                  <h1>أرسل سؤالك</h1>
                 </div>
 
-            </section>
+                <div class="content">
+                  <div class="form-container">
+                    <form>
+                      <label for="name"> : أدخل أسمك </label>
+                      <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        required
+                        minlength="3"
+                        maxlength="15"
+                      />
 
+                      <label for="email"> : أدخل بريدك الإلكتروني </label>
+                      <input type="email" id="email" name="email" required />
 
-            <!-- footer included here  -->
+                      <label for="number"> : أدخل رقم هاتفك </label>
+                      <input
+                        type="text"
+                        pattern="[0-9]{10}"
+                        id="number"
+                        name="phoneNo"
+                        required
+                      />
 
-            <%- include('./common/footer') %>
+                      <label for="subject"> : أدخل موضوع الفتوى </label>
+                      <input
+                        type="text"
+                        id="subject"
+                        name="title"
+                        required
+                        minlength="3"
+                      />
 
+                      <label for="message"> : اكتب سؤالك </label>
 
-                <!-- own fata script file link  -->
-                <script src="./javascript/fatawa.js"></script>
+                      <textarea
+                        id="message"
+                        required
+                        minlength="3"
+                        name="question"
+                      ></textarea>
 
-</body>
+                      <p
+                        class="message"
+                        style="color: var(--blue); font-size: 12px"
+                      ></p>
+                      <p
+                        class="error"
+                        style="color: crimson; font-size: 12px"
+                      ></p>
 
+                      <div class="submit-container">
+                        <input type="submit" value="أرسل الفتوى" />
+                      </div>
+                      <div class="data-loading"></div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- right column included here  -->
+
+            <%- include('./common/right') %>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- footer included here  -->
+
+    <%- include('./common/footer') %>
+
+    <!-- own fata script file link  -->
+    <script src="./javascript/fatawa.js"></script>
+  </body>
 </html>

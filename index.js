@@ -22,7 +22,7 @@ const AdminPage = require( './routes/dbApis/fetchRegisterationData' )
 const adminLogin = require( './routes/dbApis/adminLogin' )
 const session = require( 'express-session' )
 const getNoticeImg = require( './routes/methods/ImpNotice' )
-const FikhWFatawaRouter = require( './routes/fikh-w-fatawa/renderFikhFatawa' )
+const FatawaRouter = require( './routes/clientAndAdmin/Fatawa/fatawa.js' )
 const uploadVideo = require( './routes/UploadVideo/upload-video' )
 // const englishRouter = require( './routes/englishLang/en.js' )
 const TadribiyaRouter = require( './routes/clientAndAdmin/tadribiya/tadribiya.js' )
@@ -56,16 +56,22 @@ app.use( cors() )
 
 //using english router
 // app.use( englishRouter )
-//using fikh-w-fatawa router
-app.use( FikhWFatawaRouter.router )
+
+//using fatawa router
+app.use( FatawaRouter )
+
 //using tadribiya client and admin router
 app.use( TadribiyaRouter )
+
 //using masjid registeration client and admin router
 app.use( masjidRegisterationRouter )
+
 //using tausia client and admin router
 app.use( tausiaRouter )
+
 //using tausia talaba client and admin router
 app.use( tausiaTalabaRouter )
+
 //using quiz client and admin router
 // app.use( quizRouter )
 

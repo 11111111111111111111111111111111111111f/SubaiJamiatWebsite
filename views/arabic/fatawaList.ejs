@@ -57,20 +57,26 @@
                                         <div class="content">
 
                                             <div class="head-container">
-                                                <% FatawaTitles.forEach(value=>{ %>
+                                                <% if(data.length > 0){ %>
+                                                <% data.forEach(value=>{ %>
                                                     <div class="head-wrapper">
 
-                                                        <a href="/ar-<%= value.No %>" class="head-btn">
+                                                        <a href="/fatawa/<%= value.questionerId %>" class="head-btn">
 
                                                             <span class="place-title flex-grow-1 text-center">
                                                                 <span dir="rtl">
-                                                                    <%= value.Title %>
+                                                                    <%= value.questionTitle %>
                                                                 </span>
                                                             </span>
 
                                                         </a>
                                                     </div>
                                                     <% }) %>
+                                                    <% }else{ %>
+                                                        <div class="head-btn">
+                                                            فی الحال کوئی فتوی کا جواب موجود نہیں ہے
+                                                        </div>
+                                                        <% } %>
 
                                             </div>
 

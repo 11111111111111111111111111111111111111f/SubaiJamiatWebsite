@@ -3,7 +3,7 @@ const router = express.Router()
 const AdminPage = require( '../../dbApis/fetchRegisterationData' )
 const RegisterationMulter = require( '../../RegisterationMulter/RegisterationMulter' )
 const registerationApi = require( '../../dbApis/getRegisterationData' )
-const quizControllers = require( '../../quizControllers/quizControllers' )
+// const quizControllers = require( '../../quizControllers/quizControllers' )
 
 ////////////client
 
