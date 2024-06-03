@@ -23,7 +23,7 @@ form.addEventListener( 'submit', e => {
 
     const formData = new URLSearchParams( data ).toString();
 
-    fetch( 'http://localhost:5000/fatawa-question',
+    fetch( '/fatawa-question',
         {
             method: 'POST',
             body: formData,
