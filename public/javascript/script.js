@@ -493,6 +493,20 @@ function UrduToEnglishNumber ( NumberInUrdu ) {
 
 //integrated tawk to chat
 var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+
+//this is for custom icon when user click on custom icon it will open
+Tawk_API.onStatusChange = function ( status ) {
+    if ( status === 'online' ) {
+        document.getElementById( 'status' ).innerHTML = '<a href="javascript:void(Tawk_API.toggle())">Online - Click to chat</a>';
+    }
+    else if ( status === 'away' ) {
+        document.getElementById( 'status' ).innerHTML = 'We are currently away';
+    }
+    else if ( status === 'offline' ) {
+        document.getElementById( 'status' ).innerHTML = 'Live chat is Offline';
+    }
+};
+
 ( function () {
     var s1 = document.createElement( "script" ), s0 = document.getElementsByTagName( "script" )[ 0 ];
     s1.async = true;
