@@ -990,7 +990,7 @@ body {
 /* chat design starts here */
 .chat-icon {
   position: fixed;
-  bottom: 25px;
+  bottom: 20px;
   right: 25px;
   height: 60px;
   width: 60px;
